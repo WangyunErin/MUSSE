@@ -1,0 +1,20 @@
+Import('*')
+
+musse_proto_out = env.Protoc([], 'musse.proto',
+       PROTOPATH=[Dir('.')], PROTOCPPOUT=Dir('..').abspath)
+
+musse_gprc_out = env.Grpc([], 'musse.proto',
+       PROTOPATH=[Dir('.')], GRPCPPOUT=Dir('..').abspath)
+musse_out = musse_proto_out + musse_gprc_out
+
+
+mkse_proto_out = env.Protoc([], 'mkse.proto', PROTOPATH=[Dir('.')], PROTOCPPOUT=Dir('..').abspath)
+mkse_gprc_out = env.Grpc([], 'mkse.proto',  PROTOPATH=[Dir('.')], GRPCPPOUT=Dir('..').abspath)
+mkse_out = mkse_proto_out + mkse_gprc_out
+
+
+out = {}
+out['musse'] = musse_out
+out['mkse'] = mkse_out
+
+Return('out')

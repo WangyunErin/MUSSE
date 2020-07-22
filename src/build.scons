@@ -1,0 +1,24 @@
+import os.path
+
+Import('*')
+
+
+def filter_cc(list):
+    return [x for x in list if os.path.splitext(str(x))[1] in [".cc"]]
+
+
+common_files = Glob('*.cpp') + Glob('aux/*.cpp') + Glob('utils/*.cpp') + Glob('*.c')
+musse_files = Glob('musse/*.cpp')
+mkse_files = Glob('mkse/*.cpp')
+
+protos = env.SConscript('protos/build.scons', exports='env')
+
+common_objs = env.Object(common_files, CPPPATH = ['.'] + env.get('CPPPATH', []))
+musse_objs = env.Object(musse_files + filter_cc(protos["musse"]), CPPPATH = ['.'] + env.get('CPPPATH', []))
+mkse_objs = env.Object(mkse_files + filter_cc(protos["mkse"]), CPPPATH = ['.'] + env.get('CPPPATH', []))
+
+objs = {}
+objs["musse"] = musse_objs + common_objs
+objs["mkse"] = mkse_objs + common_objs
+
+Return('objs')

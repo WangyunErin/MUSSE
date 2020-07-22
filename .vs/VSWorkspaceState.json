@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\site_scons",
+    "\\site_scons\\site_tools",
+    "\\src",
+    "\\src\\muses",
+    "\\src\\utils"
+  ],
+  "SelectedNode": "\\test_muses.cpp",
+  "PreviewInSolutionExplorer": false
+}
