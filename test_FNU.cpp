@@ -47,17 +47,17 @@ int main(int, char**) {
         cout << "Result of Operations for DB Size " << testCase.N << endl;
         auto item = testCase.filePairs[testCase.testKeywords[j]];
 
-        //measuring search and update execution times
-        // cout << "Search for Keyword With " << testCase.Qs[j] << " Results" << endl;
-        // for (int z = 0; z < 10; z++) {
-        //     user1.searchCommunicationSize = 0;
-        //     Utilities::startTimer(500);
-        //     vector<int> res = user1.search(testCase.testKeywords[j]);
-        //     time = Utilities::stopTimer(500);
-        //     cout << "Search Computation Time (microseconds):" << time << endl;
-        //     cout << "Search Communication Size (Bytes):" << user1.searchCommunicationSize << endl;
-        //     cout << "Number of return item:" << res.size() << endl;
-        // }
+        // measuring search and update execution times
+        cout << "Search for Keyword With " << testCase.Qs[j] << " Results" << endl;
+        for (int z = 0; z < 10; z++) {
+            user1.searchCommunicationSize = 0;
+            Utilities::startTimer(500);
+            vector<int> res = user1.search(testCase.testKeywords[j]);
+            time = Utilities::stopTimer(500);
+            cout << "Search Computation Time (microseconds):" << time << endl;
+            cout << "Search Communication Size (Bytes):" << user1.searchCommunicationSize << endl;
+            cout << "Number of return item:" << res.size() << endl;
+        }
         cout << "Share one document With " << testCase.sharefilesize << " Keywords"<< endl;
         client.updateCommunicationSize = 0;
         // Utilities::startTimer(500);

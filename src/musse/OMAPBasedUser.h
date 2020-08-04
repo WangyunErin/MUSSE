@@ -30,15 +30,15 @@ private:
     // void downloadMerkleRoot();
     // string hyperLedgerGetRootCommand;
 
-    string importParticipant = "composer card import --file /tmp/CARDNAME.card --card CARDNAME@Muses";
-    string createClientCard = "composer identity issue -c admin@Muses -f /tmp/cidREST.card -u cidREST -a \"resource:com.huawei.Client#REST\"";
-    string createClientParticipant = "composer participant add -c admin@Muses -d '{\"$class\": \"com.huawei.Client\",\"clientId\": \"REST\"}'";
-    string checkExistanceOfRESTClient = "composer identity list -c admin@Muses | grep \"cidREST\"";
-    string createOwnerCard = "composer identity issue -c admin@Muses -f /tmp/oidOWNERID.card -u oidOWNERID -a \"resource:com.huawei.Owner#OWNERID\"";
-    string createOwnerParticipant = "composer participant add -c admin@Muses -d '{\"$class\": \"com.huawei.Owner\",\"ownerId\": \"OWNERID\", \"secret\":\"HYPERLEDGERKEY\"}'";
-    string hyperLedgerOwnerMerkleTreeConstructionCommand = "composer transaction submit -c oidOWNERID@Muses -d '{\"$class\": \"org.hyperledger.composer.system.AddAsset\", \"resources\": [  {   \"$class\": \"com.huawei.MerkleRoot\", \"rootId\": \"ROOTID\",   \"rootHash\": \"ROOTHASH\",   \"owner\": \"resource:com.huawei.Owner#OWNERID\"  } ], \"targetRegistry\": \"resource:org.hyperledger.composer.system.AssetRegistry#com.huawei.MerkleRoot\"}'";
-    string hyperLedgerOwnerUpdateTreeRootCommand = "composer transaction submit -c oidOWNERID@Muses -d '{\"$class\":\"com.huawei.ChangeRoot\",\"root\":\"resource:com.huawei.MerkleRoot#OWNERID\",  \"newHash\": \"NEWROOT\", \"secret\": \"HYPERLEDGERKEY\"}'";
-    //bool useHyperLedgerFabric;
+    // string importParticipant = "composer card import --file /tmp/CARDNAME.card --card CARDNAME@Muses";
+    // string createClientCard = "composer identity issue -c admin@Muses -f /tmp/cidREST.card -u cidREST -a \"resource:com.huawei.Client#REST\"";
+    // string createClientParticipant = "composer participant add -c admin@Muses -d '{\"$class\": \"com.huawei.Client\",\"clientId\": \"REST\"}'";
+    // string checkExistanceOfRESTClient = "composer identity list -c admin@Muses | grep \"cidREST\"";
+    // string createOwnerCard = "composer identity issue -c admin@Muses -f /tmp/oidOWNERID.card -u oidOWNERID -a \"resource:com.huawei.Owner#OWNERID\"";
+    // string createOwnerParticipant = "composer participant add -c admin@Muses -d '{\"$class\": \"com.huawei.Owner\",\"ownerId\": \"OWNERID\", \"secret\":\"HYPERLEDGERKEY\"}'";
+    // string hyperLedgerOwnerMerkleTreeConstructionCommand = "composer transaction submit -c oidOWNERID@Muses -d '{\"$class\": \"org.hyperledger.composer.system.AddAsset\", \"resources\": [  {   \"$class\": \"com.huawei.MerkleRoot\", \"rootId\": \"ROOTID\",   \"rootHash\": \"ROOTHASH\",   \"owner\": \"resource:com.huawei.Owner#OWNERID\"  } ], \"targetRegistry\": \"resource:org.hyperledger.composer.system.AssetRegistry#com.huawei.MerkleRoot\"}'";
+    // string hyperLedgerOwnerUpdateTreeRootCommand = "composer transaction submit -c oidOWNERID@Muses -d '{\"$class\":\"com.huawei.ChangeRoot\",\"root\":\"resource:com.huawei.MerkleRoot#OWNERID\",  \"newHash\": \"NEWROOT\", \"secret\": \"HYPERLEDGERKEY\"}'";
+    // bool useHyperLedgerFabric;
     //bool verifyMerkleProof(vector<prf_type> values, vector<int> valuesPoses, map<int, unsigned char*> proofs, int treeSize, unsigned char* localRoot);
     // void uploadMerkleRoot();
 
@@ -46,11 +46,11 @@ public:
     int userID;
     int ownerID;
     bytes<Key> omapkey;
-    string hyperledgerKey;
+    // string hyperledgerKey;
     OMAP* omap;
     int searchCommunicationSize = 0;
-    unsigned char valuesMerkleRoot[SHA256_DIGEST_LENGTH];
-    unsigned char* omapMerkleRoot;
+    // unsigned char valuesMerkleRoot[SHA256_DIGEST_LENGTH];
+    // unsigned char* omapMerkleRoot;
     OMAPBasedUser(Server* server, unsigned char* masterKey, int maxKeywordSize, int ownerID, MusesUserRunner* runner);
     int getFileCnt(prf_type input);
     void setFileCnt(prf_type input, int cnt);

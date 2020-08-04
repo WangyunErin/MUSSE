@@ -79,7 +79,7 @@ private:
     Server* server = NULL;
     MusesUserRunner* runner = NULL;
     MusesOwnerRunner* ownerrunner = NULL;
-    
+    //unsigned char* merkleRoot;
 
     // Randomness
     std::random_device rd;

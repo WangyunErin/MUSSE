@@ -20,6 +20,7 @@ ORAM::ORAM(int maxSize, bytes<Key> oram_key, Server* server, int userID)
     AES::Setup();
     this->userID = userID;
     this->server = server;
+    // this->merkleRoot = merkleRoot;
     depth = (int) floor(log2(maxSize / Z));
     bucketCount = (int) pow(2, depth + 1) - 1;
     blockSize = sizeof (Node); // B
@@ -48,6 +49,7 @@ ORAM::ORAM(int maxSize, bytes<Key> oram_key, MusesUserRunner* runner, int userID
     AES::Setup();
     this->userID = userID;
     this->runner = runner;
+    // this->merkleRoot = merkleRoot;
     depth = (int) floor(log2(maxSize / Z));
     bucketCount = (int) pow(2, depth + 1) - 1;
     blockSize = sizeof (Node); // B
@@ -76,6 +78,7 @@ ORAM::ORAM(int maxSize, bytes<Key> oram_key, MusesOwnerRunner* runner, int userI
     AES::Setup();
     this->userID = userID;
     this->ownerrunner = runner;
+    // this->merkleRoot = merkleRoot;
     depth = (int) floor(log2(maxSize / Z));
     bucketCount = (int) pow(2, depth + 1) - 1;
     blockSize = sizeof (Node); // B
@@ -152,8 +155,11 @@ Bucket ORAM::DeserialiseBucket(block buffer) {
 vector<Bucket> ORAM::ReadBuckets(vector<int> indexes) {
     totalRead += indexes.size();
     vector<Bucket> res;
-    BlocksWithProof response = (server == NULL ? runner == NULL ? ownerrunner->readStore(indexes, userID) : runner->readStore(indexes, userID) : server->readStore(indexes, userID));
-    
+     BlocksWithProof response = (server == NULL ? runner == NULL ? ownerrunner->readStore(indexes, userID) : runner->readStore(indexes, userID) : server->readStore(indexes, userID));
+    // if (!verifyMerkleProof(response.values, response.valuesPoses, response.proofs, response.treeSize, merkleRoot)) {
+    //     cout << "The server has modified the ORAM!" << endl;
+    //     exit(0);
+    // }
     for (auto b : response.values) {
         block buffer = AES::Decrypt(key, b, clen_size);
         Bucket bucket = DeserialiseBucket(buffer);
@@ -164,8 +170,8 @@ vector<Bucket> ORAM::ReadBuckets(vector<int> indexes) {
     CommunicationSize += indexes.size()*4;
     CommunicationSize += indexes.size() * clen_size;
     CommunicationSize += 4;
-    CommunicationSize += response.proofs.size()*(SHA256_DIGEST_LENGTH + 4);
-    CommunicationSize += response.valuesPoses.size()*4;
+    // CommunicationSize += response.proofs.size()*(SHA256_DIGEST_LENGTH + 4);
+    // CommunicationSize += response.valuesPoses.size()*4;
     return res;
 }
 
@@ -181,26 +187,29 @@ void ORAM::WriteBuckets(vector<int> indexes, vector<Bucket> buckets) {
     if (server == NULL) {
         if (runner != NULL) {
             BlocksWithProof res = runner->writeInStore(indexes, ciphertexts, userID);
+            // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
             CommunicationSize += indexes.size()*4;
             CommunicationSize += ciphertexts.size() * clen_size;
             CommunicationSize += 4;
-            CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
-            CommunicationSize += 4;
+            // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
+            // CommunicationSize += 4;
         } else {
             BlocksWithProof res = ownerrunner->writeInStore(indexes, ciphertexts, userID);
+            // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
             CommunicationSize += indexes.size()*4;
             CommunicationSize += ciphertexts.size() * clen_size;
             CommunicationSize += 4;
-            CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
-            CommunicationSize += 4;
+            // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
+            // CommunicationSize += 4;
         }
     } else {
         BlocksWithProof res = server->writeInStore(indexes, ciphertexts, userID);
+        // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
         CommunicationSize += indexes.size()*4;
         CommunicationSize += ciphertexts.size() * clen_size;
         CommunicationSize += 4;
-        CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
-        CommunicationSize += 4;
+        // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
+        // CommunicationSize += 4;
     }
 
 }
@@ -635,3 +644,71 @@ void ORAM::uploadStash() {
     cache.clear();
     CommunicationSize += 90 * sizeof (Node);
 }
+
+// bool ORAM::verifyMerkleProof(vector<block> values, vector<int> valuesPoses, map<int, unsigned char*> proofs, int treeSize, unsigned char* localRoot) {
+//     map<int, unsigned char*> verifiedNodes;
+
+//     for (unsigned int i = 0; i < values.size(); i++) {
+//         block decodedString = values[i];
+
+
+//         unsigned char token[SHA256_DIGEST_LENGTH];
+//         memcpy((char*) token, (char*) Utilities::getSHA256(decodedString.data(), decodedString.size()), SHA256_DIGEST_LENGTH);
+//         valuesPoses[i] += treeSize;
+
+//         while (valuesPoses[i] > 1) {
+//             unsigned char* concat = new unsigned char[SHA256_DIGEST_LENGTH * 2];
+//             if (valuesPoses[i] % 2 == 0) {
+//                 //left child
+//                 memcpy((char*) concat + SHA256_DIGEST_LENGTH, (char*) proofs[valuesPoses[i] + 1], SHA256_DIGEST_LENGTH);
+//                 memcpy((char*) concat, (char*) token, SHA256_DIGEST_LENGTH);
+//                 memcpy((char*) token, (char*) Utilities::getSHA256(concat, SHA256_DIGEST_LENGTH * 2), SHA256_DIGEST_LENGTH);
+//                 valuesPoses[i] = valuesPoses[i] / 2;
+//                 if (verifiedNodes.count(valuesPoses[i]) == 0) {
+//                     verifiedNodes[valuesPoses[i]] = concat;
+//                 } else {
+//                     break;
+//                 }
+//             } else {
+//                 //right child
+//                 memcpy((char*) concat, (char*) proofs[valuesPoses[i] - 1], SHA256_DIGEST_LENGTH);
+//                 memcpy((char*) concat + SHA256_DIGEST_LENGTH, (char*) token, SHA256_DIGEST_LENGTH);
+//                 memcpy((char*) token, (char*) Utilities::getSHA256(concat, SHA256_DIGEST_LENGTH * 2), SHA256_DIGEST_LENGTH);
+//                 valuesPoses[i] = (valuesPoses[i] - 1) / 2;
+//                 if (verifiedNodes.count(valuesPoses[i]) == 0) {
+//                     verifiedNodes[valuesPoses[i]] = concat;
+//                 } else {
+//                     break;
+//                 }
+//             }
+//         }
+
+//         if (valuesPoses[i] == 1 && memcmp(token, localRoot, SHA256_DIGEST_LENGTH) != 0) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+// void ORAM::updateMerkleProof(block val, int pos, map<int, unsigned char*> proofs, int treeSize, unsigned char* localRoot) {
+//     pos += treeSize;
+//     unsigned char token[SHA256_DIGEST_LENGTH];
+//     memcpy((char*) token, (char*) Utilities::getSHA256(val.data(), val.size()), SHA256_DIGEST_LENGTH);
+//     while (pos > 1) {
+//         unsigned char concat[SHA256_DIGEST_LENGTH * 2];
+//         if (pos % 2 == 0) {
+//             //left child
+//             memcpy((char*) concat + SHA256_DIGEST_LENGTH, (char*) proofs[pos + 1], SHA256_DIGEST_LENGTH);
+//             memcpy((char*) concat, (char*) token, SHA256_DIGEST_LENGTH);
+//             memcpy((char*) token, (char*) Utilities::getSHA256(concat, SHA256_DIGEST_LENGTH * 2), SHA256_DIGEST_LENGTH);
+//             pos = pos / 2;
+//         } else {
+//             //right child
+//             memcpy((char*) concat, (char*) proofs[pos - 1], SHA256_DIGEST_LENGTH);
+//             memcpy((char*) concat + SHA256_DIGEST_LENGTH, (char*) token, SHA256_DIGEST_LENGTH);
+//             memcpy((char*) token, (char*) Utilities::getSHA256(concat, SHA256_DIGEST_LENGTH * 2), SHA256_DIGEST_LENGTH);
+//             pos = (pos - 1) / 2;
+//         }
+//     }
+//     memcpy(localRoot, token, SHA256_DIGEST_LENGTH);
+// }

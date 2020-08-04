@@ -193,14 +193,14 @@ BlocksWithProof MusesUserRunner::readStore(vector<int> poses, int userID) {
         result.values.push_back(item);
         result.valuesPoses.push_back(response.cipherpositions(i));
     }
-    result.treeSize = response.treesize();
-    for (int j = 0; j < response.hash_size(); j++) {
-        unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
-        string proofStr = response.hash(j);
-        memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
-        int id = response.proofposistions(j);
-        result.proofs[id] = hash;
-    }
+    // result.treeSize = response.treesize();
+    // for (int j = 0; j < response.hash_size(); j++) {
+    //     unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
+    //     string proofStr = response.hash(j);
+    //     memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
+    //     int id = response.proofposistions(j);
+    //     result.proofs[id] = hash;
+    // }
 
     return result;
 }
@@ -213,7 +213,7 @@ BlocksWithProof MusesUserRunner::writeInStore(vector<int> pos, vector<block> b, 
     for (unsigned int i = 0; i < pos.size(); i++) {
         message.add_pos(pos[i]);
         message.add_value((unsigned char*) b[i].data(), b[i].size());
-        message.add_size(b[i].size());
+        // message.add_size(b[i].size());
     }
 
     grpc::Status status = stub_->writeInStore(&context, message, &response);
@@ -227,14 +227,14 @@ BlocksWithProof MusesUserRunner::writeInStore(vector<int> pos, vector<block> b, 
     for (int i = 0; i < response.ciphertext_size(); i++) {
         result.valuesPoses.push_back(response.cipherpositions(i));
     }
-    result.treeSize = response.treesize();
-    for (int j = 0; j < response.hash_size(); j++) {
-        unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
-        string proofStr = response.hash(j);
-        memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
-        int id = response.proofposistions(j);
-        result.proofs[id] = hash;
-    }
+    // result.treeSize = response.treesize();
+    // for (int j = 0; j < response.hash_size(); j++) {
+    //     unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
+    //     string proofStr = response.hash(j);
+    //     memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
+    //     int id = response.proofposistions(j);
+    //     result.proofs[id] = hash;
+    // }
     return result;
 }
 
@@ -328,27 +328,27 @@ void MusesUserRunner::setOMAPRoots(Bid bid, int pos, int userID) {
 //     return resStr;
 // }
 
-void MusesUserRunner::updateCounter(int size, QueueBasedUser* user_) {
-    //downloadMerkleRoot(user_);
+// void MusesUserRunner::updateCounter(int size, QueueBasedUser* user_) {
+//     //downloadMerkleRoot(user_);
 
-    grpc::ClientContext context2;
-    grpc::ClientContext context3;
-    FileCntQueueRequestMessage queueRequest;
-    FileCntDiffMessage queueResponse;
-    SearchMessage message;
-    SearchResponse response;
-    vector<prf_type> addresses, tokens;
-    vector<int> result;
+//     grpc::ClientContext context2;
+//     grpc::ClientContext context3;
+//     FileCntQueueRequestMessage queueRequest;
+//     FileCntDiffMessage queueResponse;
+//     SearchMessage message;
+//     SearchResponse response;
+//     vector<prf_type> addresses, tokens;
+//     vector<int> result;
 
-    queueRequest.set_userid(user_->userID);
-    //grpc::Status status1 = stub_->getFileCntDiffWithLimit(&context3, queueRequest, &queueResponse);
-    // if (!status1.ok()) {
-    //     cout << "getting Merkle root failed:" << std::endl;
-    //     cout << status1.error_message() << std::endl;
-    // }
-    for (int i = 0; i < queueResponse.value_size(); i++) {
-        prf_type item;
-        copy(queueResponse.value(i).begin(), queueResponse.value(i).end(), item.begin());
-       // user_->updateLocalFileCnt(item);
-    }
-}
+//     queueRequest.set_userid(user_->userID);
+//     //grpc::Status status1 = stub_->getFileCntDiffWithLimit(&context3, queueRequest, &queueResponse);
+//     // if (!status1.ok()) {
+//     //     cout << "getting Merkle root failed:" << std::endl;
+//     //     cout << status1.error_message() << std::endl;
+//     // }
+//     for (int i = 0; i < queueResponse.value_size(); i++) {
+//         prf_type item;
+//         copy(queueResponse.value(i).begin(), queueResponse.value(i).end(), item.begin());
+//        // user_->updateLocalFileCnt(item);
+//     }
+// }

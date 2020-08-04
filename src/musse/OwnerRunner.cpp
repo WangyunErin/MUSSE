@@ -344,14 +344,14 @@ BlocksWithProof MusesOwnerRunner::readStore(vector<int> poses, int userID) {
         result.values.push_back(item);
         result.valuesPoses.push_back(response.cipherpositions(i));
     }
-    result.treeSize = response.treesize();
-    for (int j = 0; j < response.hash_size(); j++) {
-        unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
-        string proofStr = response.hash(j);
-        memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
-        int id = response.proofposistions(j);
-        result.proofs[id] = hash;
-    }
+    // result.treeSize = response.treesize();
+    // for (int j = 0; j < response.hash_size(); j++) {
+    //     unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
+    //     string proofStr = response.hash(j);
+    //     memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
+    //     int id = response.proofposistions(j);
+    //     result.proofs[id] = hash;
+    // }
 
     return result;
 }
@@ -364,7 +364,7 @@ BlocksWithProof MusesOwnerRunner::writeInStore(vector<int> pos, vector<block> b,
     for (unsigned int i = 0; i < pos.size(); i++) {
         message.add_pos(pos[i]);
         message.add_value((unsigned char*) b[i].data(), b[i].size());
-        message.add_size(b[i].size());
+        // message.add_size(b[i].size());
     }
 
     grpc::Status status = stub_->writeInStore(&context, message, &response);
@@ -379,13 +379,13 @@ BlocksWithProof MusesOwnerRunner::writeInStore(vector<int> pos, vector<block> b,
     for (int i = 0; i < response.ciphertext_size(); i++) {
         result.valuesPoses.push_back(response.cipherpositions(i));
     }
-    result.treeSize = response.treesize();
-    for (int j = 0; j < response.hash_size(); j++) {
-        unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
-        string proofStr = response.hash(j);
-        memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
-        int id = response.proofposistions(j);
-        result.proofs[id] = hash;
-    }
+    // result.treeSize = response.treesize();
+    // for (int j = 0; j < response.hash_size(); j++) {
+    //     unsigned char* hash = new unsigned char[SHA256_DIGEST_LENGTH];
+    //     string proofStr = response.hash(j);
+    //     memcpy(hash, (unsigned char*) proofStr.data(), SHA256_DIGEST_LENGTH);
+    //     int id = response.proofposistions(j);
+    //     result.proofs[id] = hash;
+    // }
     return result;
 }

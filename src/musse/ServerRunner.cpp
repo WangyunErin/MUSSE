@@ -30,20 +30,6 @@ grpc::Status MusesServerRunner::update(grpc::ServerContext* context, const Updat
     return grpc::Status::OK;
 }
 
-grpc::Status MusesServerRunner::readStore(grpc::ServerContext* context, const ReadStoreRequest* request, SearchResponse* response) {
-    vector<int> poses;
-    for (int i = 0; i < request->poses_size(); i++) {
-        poses.push_back(request->poses(i));
-    }
-    BlocksWithProof result = server_->readStore(poses, request->userid());
-    for (unsigned int i = 0; i < result.values.size(); i++) {
-        response->add_ciphertext((unsigned char*) result.values[i].data(), result.values[i].size());
-        response->add_cipherpositions(result.valuesPoses[i]);
-        response->add_ciphersize(result.values[i].size());
-    }
-    return grpc::Status::OK;
-}
-
 grpc::Status MusesServerRunner::batchUpdate(grpc::ServerContext* context, const BatchUpdateMessage* mes, UpdateResponse* response) {
     if (!server_) {
         // the server is already set up
@@ -104,40 +90,54 @@ grpc::Status MusesServerRunner::search1(grpc::ServerContext* context, const Sear
     return grpc::Status::OK;
 }
 
-grpc::Status MusesServerRunner::getMerkleRoot(grpc::ServerContext* context, const google::protobuf::Empty* mes, GetMerkleRootMessage* res) {
-    res->set_valuesroot((unsigned char*) server_->valuesMerkleRoot, SHA256_DIGEST_LENGTH);
-    res->set_queuesroot((unsigned char*) server_->queuesMerkleRoot, SHA256_DIGEST_LENGTH);
-    return grpc::Status::OK;
-}
+// grpc::Status MusesServerRunner::getMerkleRoot(grpc::ServerContext* context, const google::protobuf::Empty* mes, GetMerkleRootMessage* res) {
+//     res->set_valuesroot((unsigned char*) server_->valuesMerkleRoot, SHA256_DIGEST_LENGTH);
+//     res->set_queuesroot((unsigned char*) server_->queuesMerkleRoot, SHA256_DIGEST_LENGTH);
+//     return grpc::Status::OK;
+// }
 
-grpc::Status MusesServerRunner::updateMerkleRoot(grpc::ServerContext* context, const UpdateMerkleRootMessage* mes, google::protobuf::Empty* e) {
-    memcpy(server_->valuesMerkleRoot, (unsigned char*) mes->valuesroot().data(), SHA256_DIGEST_LENGTH);
-    memcpy(server_->queuesMerkleRoot, (unsigned char*) mes->queuesroot().data(), SHA256_DIGEST_LENGTH);
-    return grpc::Status::OK;
-}
+// grpc::Status MusesServerRunner::updateMerkleRoot(grpc::ServerContext* context, const UpdateMerkleRootMessage* mes, google::protobuf::Empty* e) {
+//     memcpy(server_->valuesMerkleRoot, (unsigned char*) mes->valuesroot().data(), SHA256_DIGEST_LENGTH);
+//     memcpy(server_->queuesMerkleRoot, (unsigned char*) mes->queuesroot().data(), SHA256_DIGEST_LENGTH);
+//     return grpc::Status::OK;
+// }
 
-grpc::Status MusesServerRunner::addToFileCntQueue(grpc::ServerContext* context, const AddFileCntQueueMessage* mes, google::protobuf::Empty* e) {
-    int userID = mes->userid();
-    prf_type val;
-    memcpy((unsigned char*) val.data(), (unsigned char*) mes->value().data(), AES_KEY_SIZE);
-    server_->addToFileCntQueue(userID, val);
-    return grpc::Status::OK;
-}
+// grpc::Status MusesServerRunner::addToFileCntQueue(grpc::ServerContext* context, const AddFileCntQueueMessage* mes, google::protobuf::Empty* e) {
+//     int userID = mes->userid();
+//     prf_type val;
+//     memcpy((unsigned char*) val.data(), (unsigned char*) mes->value().data(), AES_KEY_SIZE);
+//     server_->addToFileCntQueue(userID, val);
+//     return grpc::Status::OK;
+// }
 
-grpc::Status MusesServerRunner::batchAddToFileCntQueue(grpc::ServerContext* context, const BatchAddFileCntQueueMessage* mes, google::protobuf::Empty* e) {
-    int userID = mes->userid();
-    for (int i = 0; i < mes->values_size(); i++) {
-        prf_type val;
-        memcpy((unsigned char*) val.data(), (unsigned char*) mes->values(i).data(), AES_KEY_SIZE);
-        server_->addToFileCntQueue(userID, val);
+// grpc::Status MusesServerRunner::batchAddToFileCntQueue(grpc::ServerContext* context, const BatchAddFileCntQueueMessage* mes, google::protobuf::Empty* e) {
+//     int userID = mes->userid();
+//     for (int i = 0; i < mes->values_size(); i++) {
+//         prf_type val;
+//         memcpy((unsigned char*) val.data(), (unsigned char*) mes->values(i).data(), AES_KEY_SIZE);
+//         server_->addToFileCntQueue(userID, val);
+//     }
+//     return grpc::Status::OK;
+// }
+
+// grpc::Status MusesServerRunner::getFileCntDiff(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response) {
+//     ResultWithProof diffs = server_->getQueueValues(mes->userid());
+//     for (unsigned int i = 0; i < diffs.values.size(); i++) {
+//         response->add_value((unsigned char*) diffs.values[i].data(), AES_KEY_SIZE);
+//     }
+//     return grpc::Status::OK;
+// }
+
+grpc::Status MusesServerRunner::readStore(grpc::ServerContext* context, const ReadStoreRequest* request, SearchResponse* response) {
+    vector<int> poses;
+    for (int i = 0; i < request->poses_size(); i++) {
+        poses.push_back(request->poses(i));
     }
-    return grpc::Status::OK;
-}
-
-grpc::Status MusesServerRunner::getFileCntDiff(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response) {
-    ResultWithProof diffs = server_->getQueueValues(mes->userid());
-    for (unsigned int i = 0; i < diffs.values.size(); i++) {
-        response->add_value((unsigned char*) diffs.values[i].data(), AES_KEY_SIZE);
+    BlocksWithProof result = server_->readStore(poses, request->userid());
+    for (unsigned int i = 0; i < result.values.size(); i++) {
+        response->add_ciphertext((unsigned char*) result.values[i].data(), result.values[i].size());
+        response->add_cipherpositions(result.valuesPoses[i]);
+        // response->add_ciphersize(result.values[i].size());
     }
     return grpc::Status::OK;
 }
@@ -156,11 +156,11 @@ grpc::Status MusesServerRunner::writeInStore(grpc::ServerContext* context, const
         response->add_ciphertext(result.values[i].data(), result.values[i].size());
         response->add_cipherpositions(result.valuesPoses[i]);
     }
-    for (auto item : result.proofs) {
-        response->add_hash(item.second, SHA256_DIGEST_LENGTH);
-        response->add_proofposistions(item.first);
-    }
-    response->set_treesize(result.treeSize);
+    // for (auto item : result.proofs) {
+    //     response->add_hash(item.second, SHA256_DIGEST_LENGTH);
+    //     response->add_proofposistions(item.first);
+    // }
+    // response->set_treesize(result.treeSize);
     return grpc::Status::OK;
 }
 
@@ -199,20 +199,20 @@ grpc::Status MusesServerRunner::uploadOMAPRoot(grpc::ServerContext* context, con
     return grpc::Status::OK;
 }
 
-grpc::Status MusesServerRunner::downloadOMAPMerkleRoot(grpc::ServerContext* context, const DownloadRootMessage* mes, DownloadRootResponse* response) {
-    response->set_value((unsigned char*) server_->omapsMerkleRoot[mes->userid()], SHA256_DIGEST_LENGTH);
-    return grpc::Status::OK;
-}
+// grpc::Status MusesServerRunner::downloadOMAPMerkleRoot(grpc::ServerContext* context, const DownloadRootMessage* mes, DownloadRootResponse* response) {
+//     response->set_value((unsigned char*) server_->omapsMerkleRoot[mes->userid()], SHA256_DIGEST_LENGTH);
+//     return grpc::Status::OK;
+// }
 
-grpc::Status MusesServerRunner::uploadOMAPMerkleRoot(grpc::ServerContext* context, const UploadRootMessage* mes, google::protobuf::Empty* e) {
-    memcpy(server_->omapsMerkleRoot[mes->userid()], (unsigned char*) mes->value().data(), SHA256_DIGEST_LENGTH);
-    return grpc::Status::OK;
-}
+// grpc::Status MusesServerRunner::uploadOMAPMerkleRoot(grpc::ServerContext* context, const UploadRootMessage* mes, google::protobuf::Empty* e) {
+//     memcpy(server_->omapsMerkleRoot[mes->userid()], (unsigned char*) mes->value().data(), SHA256_DIGEST_LENGTH);
+//     return grpc::Status::OK;
+// }
 
-grpc::Status MusesServerRunner::getFileCntDiffWithLimit(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response) {
+// grpc::Status MusesServerRunner::getFileCntDiffWithLimit(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response) {
     //ResultWithProof diffs = server_->getQueueValues(mes->userid(), mes->limit());
     // for (unsigned int i = 0; i < diffs.values.size(); i++) {
     //     response->add_value((unsigned char*) diffs.values[i].data(), AES_KEY_SIZE);
     // }
-    return grpc::Status::OK;
-}
+    // return grpc::Status::OK;
+// }

@@ -25,18 +25,18 @@ public:
     grpc::Status batchUpdate(grpc::ServerContext* context, const BatchUpdateMessage* request, UpdateResponse* response);
     grpc::Status search(grpc::ServerContext* context, const SearchMessage* mes, SearchResponse* res);
     grpc::Status search1(grpc::ServerContext* context, const SearchMessage1* mes, SearchResponse1* res);
-    grpc::Status updateMerkleRoot(grpc::ServerContext* context, const UpdateMerkleRootMessage* mes, google::protobuf::Empty* e);
-    grpc::Status getMerkleRoot(grpc::ServerContext* context, const google::protobuf::Empty* mes, GetMerkleRootMessage* res);
-    grpc::Status addToFileCntQueue(grpc::ServerContext* context, const AddFileCntQueueMessage* mes, google::protobuf::Empty* e);
-    grpc::Status batchAddToFileCntQueue(grpc::ServerContext* context, const BatchAddFileCntQueueMessage* mes, google::protobuf::Empty* e);
-    grpc::Status getFileCntDiff(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response);
-    grpc::Status getFileCntDiffWithLimit(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response);
+    // grpc::Status updateMerkleRoot(grpc::ServerContext* context, const UpdateMerkleRootMessage* mes, google::protobuf::Empty* e);
+    // grpc::Status getMerkleRoot(grpc::ServerContext* context, const google::protobuf::Empty* mes, GetMerkleRootMessage* res);
+    // grpc::Status addToFileCntQueue(grpc::ServerContext* context, const AddFileCntQueueMessage* mes, google::protobuf::Empty* e);
+    // grpc::Status batchAddToFileCntQueue(grpc::ServerContext* context, const BatchAddFileCntQueueMessage* mes, google::protobuf::Empty* e);
+    // grpc::Status getFileCntDiff(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response);
+    // grpc::Status getFileCntDiffWithLimit(grpc::ServerContext* context, const FileCntQueueRequestMessage* mes, FileCntDiffMessage* response);
     grpc::Status uploadStash(grpc::ServerContext* context, const UploadStashMessage* mes, google::protobuf::Empty* e);
     grpc::Status downloadStash(grpc::ServerContext* context, const DownloadStashMessage* mes, DownloadStashResponse* response);
     grpc::Status uploadOMAPRoot(grpc::ServerContext* context, const UploadRootMessage* mes, google::protobuf::Empty* e);
     grpc::Status downloadOMAPRoot(grpc::ServerContext* context, const DownloadRootMessage* mes, DownloadRootResponse* response);
-    grpc::Status uploadOMAPMerkleRoot(grpc::ServerContext* context, const UploadRootMessage* mes, google::protobuf::Empty* e);
-    grpc::Status downloadOMAPMerkleRoot(grpc::ServerContext* context, const DownloadRootMessage* mes, DownloadRootResponse* response);
+    // grpc::Status uploadOMAPMerkleRoot(grpc::ServerContext* context, const UploadRootMessage* mes, google::protobuf::Empty* e);
+    // grpc::Status downloadOMAPMerkleRoot(grpc::ServerContext* context, const DownloadRootMessage* mes, DownloadRootResponse* response);
 };
 
 #endif /* MusseERVERRUNNER_H */

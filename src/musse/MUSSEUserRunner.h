@@ -34,13 +34,13 @@ public:
     BlocksWithProof readStore(vector<int> poses, int userID);
     vector< pair<int, unsigned char*> > downloadStash(int userID);
     void uploadStash(vector< pair<int, unsigned char*> > stash, int userID);
-    void uploadMerkleRoot(OMAPBasedUser* user_);
-    void downloadMerkleRoot(OMAPBasedUser* user_);
-    void downloadMerkleRoot(QueueBasedUser* user_);
+    // void uploadMerkleRoot(OMAPBasedUser* user_);
+    // void downloadMerkleRoot(OMAPBasedUser* user_);
+    // void downloadMerkleRoot(QueueBasedUser* user_);
     void setOMAPRoots(Bid bid, int pos, int userID);
     pair<Bid, int> getOMAPRoot(int userID);
-    string executeCommandOnFabric(string cmd);
-    void updateCounter(int size, QueueBasedUser* user_);
+    // string executeCommandOnFabric(string cmd);
+    // void updateCounter(int size, QueueBasedUser* user_);
 };
 
 #endif /* OMAPUSERRUNNER_H */
