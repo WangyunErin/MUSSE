@@ -21,7 +21,7 @@ ORAM::ORAM(int maxSize, bytes<Key> oram_key, Server* server, int userID)
     this->userID = userID;
     this->server = server;
     // this->merkleRoot = merkleRoot;
-    depth = (int) floor(log2(maxSize / Z));
+    depth = (int) ceil(log2(maxSize));
     bucketCount = (int) pow(2, depth + 1) - 1;
     blockSize = sizeof (Node); // B
     size_t blockCount = (size_t) (Z * (pow(2, depth + 1) - 1));
@@ -190,7 +190,7 @@ void ORAM::WriteBuckets(vector<int> indexes, vector<Bucket> buckets) {
             BlocksWithProof res = runner->writeInStore(indexes, ciphertexts, userID);
             // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
             // CommunicationSize += indexes.size()*4;
-            // CommunicationSize += ciphertexts.size() * clen_size;
+            CommunicationSize += ciphertexts.size() * clen_size;
             // CommunicationSize += 4;
             // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
             // CommunicationSize += 4;
@@ -198,7 +198,7 @@ void ORAM::WriteBuckets(vector<int> indexes, vector<Bucket> buckets) {
             BlocksWithProof res = ownerrunner->writeInStore(indexes, ciphertexts, userID);
             // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
             // CommunicationSize += indexes.size()*4;
-            // CommunicationSize += ciphertexts.size() * clen_size;
+            CommunicationSize += ciphertexts.size() * clen_size;
             // CommunicationSize += 4;
             // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
             // CommunicationSize += 4;
@@ -207,7 +207,7 @@ void ORAM::WriteBuckets(vector<int> indexes, vector<Bucket> buckets) {
         BlocksWithProof res = server->writeInStore(indexes, ciphertexts, userID);
         // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
         // CommunicationSize += indexes.size()*4;
-        // CommunicationSize += ciphertexts.size() * clen_size;
+        CommunicationSize += ciphertexts.size() * clen_size;
         // CommunicationSize += 4;
         // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
         // CommunicationSize += 4;
