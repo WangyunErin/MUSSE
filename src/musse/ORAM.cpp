@@ -165,11 +165,12 @@ vector<Bucket> ORAM::ReadBuckets(vector<int> indexes) {
         Bucket bucket = DeserialiseBucket(buffer);
         res.push_back(bucket);
         CommunicationSize += clen_size;
+        // cout<<"clen_size="<<clen_size<<endl;
         CommunicationSize += 4;
     }
-    CommunicationSize += indexes.size()*4;
-    CommunicationSize += indexes.size() * clen_size;
-    CommunicationSize += 4;
+    // CommunicationSize += indexes.size()*4;
+    // CommunicationSize += indexes.size() * clen_size;
+    // CommunicationSize += 4;
     // CommunicationSize += response.proofs.size()*(SHA256_DIGEST_LENGTH + 4);
     // CommunicationSize += response.valuesPoses.size()*4;
     return res;
@@ -188,26 +189,26 @@ void ORAM::WriteBuckets(vector<int> indexes, vector<Bucket> buckets) {
         if (runner != NULL) {
             BlocksWithProof res = runner->writeInStore(indexes, ciphertexts, userID);
             // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
-            CommunicationSize += indexes.size()*4;
-            CommunicationSize += ciphertexts.size() * clen_size;
-            CommunicationSize += 4;
+            // CommunicationSize += indexes.size()*4;
+            // CommunicationSize += ciphertexts.size() * clen_size;
+            // CommunicationSize += 4;
             // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
             // CommunicationSize += 4;
         } else {
             BlocksWithProof res = ownerrunner->writeInStore(indexes, ciphertexts, userID);
             // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
-            CommunicationSize += indexes.size()*4;
-            CommunicationSize += ciphertexts.size() * clen_size;
-            CommunicationSize += 4;
+            // CommunicationSize += indexes.size()*4;
+            // CommunicationSize += ciphertexts.size() * clen_size;
+            // CommunicationSize += 4;
             // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
             // CommunicationSize += 4;
         }
     } else {
         BlocksWithProof res = server->writeInStore(indexes, ciphertexts, userID);
         // updateMerkleProof(ciphertexts[0], res.valuesPoses[0], res.proofs, res.treeSize, merkleRoot);
-        CommunicationSize += indexes.size()*4;
-        CommunicationSize += ciphertexts.size() * clen_size;
-        CommunicationSize += 4;
+        // CommunicationSize += indexes.size()*4;
+        // CommunicationSize += ciphertexts.size() * clen_size;
+        // CommunicationSize += 4;
         // CommunicationSize += (int) log2(res.treeSize)*(SHA256_DIGEST_LENGTH + 4);
         // CommunicationSize += 4;
     }
