@@ -6,7 +6,7 @@
 #include <iostream>
 
 // The main type for passing around raw file data
-#define ID_SIZE 32
+#define ID_SIZE 16
 
 using byte_t = uint8_t;//one-byte char
 using block = std::vector<byte_t>;//the the type of elements is one-byte char

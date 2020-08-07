@@ -2555,32 +2555,10 @@ class SearchResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_ciphersize();
 
-  // repeated bytes hash = 3;
-  int hash_size() const;
-  void clear_hash();
-  static const int kHashFieldNumber = 3;
-  const ::std::string& hash(int index) const;
-  ::std::string* mutable_hash(int index);
-  void set_hash(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_hash(int index, ::std::string&& value);
-  #endif
-  void set_hash(int index, const char* value);
-  void set_hash(int index, const void* value, size_t size);
-  ::std::string* add_hash();
-  void add_hash(const ::std::string& value);
-  #if LANG_CXX11
-  void add_hash(::std::string&& value);
-  #endif
-  void add_hash(const char* value);
-  void add_hash(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& hash() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_hash();
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   int cipherpositions_size() const;
   void clear_cipherpositions();
-  static const int kCipherPositionsFieldNumber = 4;
+  static const int kCipherPositionsFieldNumber = 3;
   ::google::protobuf::int32 cipherpositions(int index) const;
   void set_cipherpositions(int index, ::google::protobuf::int32 value);
   void add_cipherpositions(::google::protobuf::int32 value);
@@ -2589,24 +2567,6 @@ class SearchResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_cipherpositions();
 
-  // repeated int32 proofPosistions = 6;
-  int proofposistions_size() const;
-  void clear_proofposistions();
-  static const int kProofPosistionsFieldNumber = 6;
-  ::google::protobuf::int32 proofposistions(int index) const;
-  void set_proofposistions(int index, ::google::protobuf::int32 value);
-  void add_proofposistions(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      proofposistions() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_proofposistions();
-
-  // int32 treeSize = 5;
-  void clear_treesize();
-  static const int kTreeSizeFieldNumber = 5;
-  ::google::protobuf::int32 treesize() const;
-  void set_treesize(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:SearchResponse)
  private:
 
@@ -2614,12 +2574,8 @@ class SearchResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::RepeatedPtrField< ::std::string> ciphertext_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > ciphersize_;
   mutable int _ciphersize_cached_byte_size_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> hash_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > cipherpositions_;
   mutable int _cipherpositions_cached_byte_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > proofposistions_;
-  mutable int _proofposistions_cached_byte_size_;
-  ::google::protobuf::int32 treesize_;
   mutable int _cached_size_;
   friend struct ::protobuf_musse_2eproto::TableStruct;
   friend void ::protobuf_musse_2eproto::InitDefaultsSearchResponseImpl();
@@ -2857,32 +2813,10 @@ class SearchResponse1 : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_ciphersize();
 
-  // repeated bytes hash = 3;
-  int hash_size() const;
-  void clear_hash();
-  static const int kHashFieldNumber = 3;
-  const ::std::string& hash(int index) const;
-  ::std::string* mutable_hash(int index);
-  void set_hash(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_hash(int index, ::std::string&& value);
-  #endif
-  void set_hash(int index, const char* value);
-  void set_hash(int index, const void* value, size_t size);
-  ::std::string* add_hash();
-  void add_hash(const ::std::string& value);
-  #if LANG_CXX11
-  void add_hash(::std::string&& value);
-  #endif
-  void add_hash(const char* value);
-  void add_hash(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& hash() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_hash();
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   int cipherpositions_size() const;
   void clear_cipherpositions();
-  static const int kCipherPositionsFieldNumber = 4;
+  static const int kCipherPositionsFieldNumber = 3;
   ::google::protobuf::int32 cipherpositions(int index) const;
   void set_cipherpositions(int index, ::google::protobuf::int32 value);
   void add_cipherpositions(::google::protobuf::int32 value);
@@ -2891,24 +2825,6 @@ class SearchResponse1 : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_cipherpositions();
 
-  // repeated int32 proofPosistions = 6;
-  int proofposistions_size() const;
-  void clear_proofposistions();
-  static const int kProofPosistionsFieldNumber = 6;
-  ::google::protobuf::int32 proofposistions(int index) const;
-  void set_proofposistions(int index, ::google::protobuf::int32 value);
-  void add_proofposistions(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      proofposistions() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_proofposistions();
-
-  // int32 treeSize = 5;
-  void clear_treesize();
-  static const int kTreeSizeFieldNumber = 5;
-  ::google::protobuf::int32 treesize() const;
-  void set_treesize(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:SearchResponse1)
  private:
 
@@ -2916,12 +2832,8 @@ class SearchResponse1 : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::RepeatedPtrField< ::std::string> ciphertext_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > ciphersize_;
   mutable int _ciphersize_cached_byte_size_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> hash_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > cipherpositions_;
   mutable int _cipherpositions_cached_byte_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > proofposistions_;
-  mutable int _proofposistions_cached_byte_size_;
-  ::google::protobuf::int32 treesize_;
   mutable int _cached_size_;
   friend struct ::protobuf_musse_2eproto::TableStruct;
   friend void ::protobuf_musse_2eproto::InitDefaultsSearchResponse1Impl();
@@ -4842,76 +4754,7 @@ SearchResponse::mutable_ciphersize() {
   return &ciphersize_;
 }
 
-// repeated bytes hash = 3;
-inline int SearchResponse::hash_size() const {
-  return hash_.size();
-}
-inline void SearchResponse::clear_hash() {
-  hash_.Clear();
-}
-inline const ::std::string& SearchResponse::hash(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse.hash)
-  return hash_.Get(index);
-}
-inline ::std::string* SearchResponse::mutable_hash(int index) {
-  // @@protoc_insertion_point(field_mutable:SearchResponse.hash)
-  return hash_.Mutable(index);
-}
-inline void SearchResponse::set_hash(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse.hash)
-  hash_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void SearchResponse::set_hash(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse.hash)
-  hash_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void SearchResponse::set_hash(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hash_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:SearchResponse.hash)
-}
-inline void SearchResponse::set_hash(int index, const void* value, size_t size) {
-  hash_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:SearchResponse.hash)
-}
-inline ::std::string* SearchResponse::add_hash() {
-  // @@protoc_insertion_point(field_add_mutable:SearchResponse.hash)
-  return hash_.Add();
-}
-inline void SearchResponse::add_hash(const ::std::string& value) {
-  hash_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:SearchResponse.hash)
-}
-#if LANG_CXX11
-inline void SearchResponse::add_hash(::std::string&& value) {
-  hash_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:SearchResponse.hash)
-}
-#endif
-inline void SearchResponse::add_hash(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hash_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:SearchResponse.hash)
-}
-inline void SearchResponse::add_hash(const void* value, size_t size) {
-  hash_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:SearchResponse.hash)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-SearchResponse::hash() const {
-  // @@protoc_insertion_point(field_list:SearchResponse.hash)
-  return hash_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-SearchResponse::mutable_hash() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse.hash)
-  return &hash_;
-}
-
-// repeated int32 cipherPositions = 4;
+// repeated int32 cipherPositions = 3;
 inline int SearchResponse::cipherpositions_size() const {
   return cipherpositions_.size();
 }
@@ -4939,50 +4782,6 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 SearchResponse::mutable_cipherpositions() {
   // @@protoc_insertion_point(field_mutable_list:SearchResponse.cipherPositions)
   return &cipherpositions_;
-}
-
-// int32 treeSize = 5;
-inline void SearchResponse::clear_treesize() {
-  treesize_ = 0;
-}
-inline ::google::protobuf::int32 SearchResponse::treesize() const {
-  // @@protoc_insertion_point(field_get:SearchResponse.treeSize)
-  return treesize_;
-}
-inline void SearchResponse::set_treesize(::google::protobuf::int32 value) {
-  
-  treesize_ = value;
-  // @@protoc_insertion_point(field_set:SearchResponse.treeSize)
-}
-
-// repeated int32 proofPosistions = 6;
-inline int SearchResponse::proofposistions_size() const {
-  return proofposistions_.size();
-}
-inline void SearchResponse::clear_proofposistions() {
-  proofposistions_.Clear();
-}
-inline ::google::protobuf::int32 SearchResponse::proofposistions(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse.proofPosistions)
-  return proofposistions_.Get(index);
-}
-inline void SearchResponse::set_proofposistions(int index, ::google::protobuf::int32 value) {
-  proofposistions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:SearchResponse.proofPosistions)
-}
-inline void SearchResponse::add_proofposistions(::google::protobuf::int32 value) {
-  proofposistions_.Add(value);
-  // @@protoc_insertion_point(field_add:SearchResponse.proofPosistions)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-SearchResponse::proofposistions() const {
-  // @@protoc_insertion_point(field_list:SearchResponse.proofPosistions)
-  return proofposistions_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-SearchResponse::mutable_proofposistions() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse.proofPosistions)
-  return &proofposistions_;
 }
 
 // -------------------------------------------------------------------
@@ -5161,76 +4960,7 @@ SearchResponse1::mutable_ciphersize() {
   return &ciphersize_;
 }
 
-// repeated bytes hash = 3;
-inline int SearchResponse1::hash_size() const {
-  return hash_.size();
-}
-inline void SearchResponse1::clear_hash() {
-  hash_.Clear();
-}
-inline const ::std::string& SearchResponse1::hash(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse1.hash)
-  return hash_.Get(index);
-}
-inline ::std::string* SearchResponse1::mutable_hash(int index) {
-  // @@protoc_insertion_point(field_mutable:SearchResponse1.hash)
-  return hash_.Mutable(index);
-}
-inline void SearchResponse1::set_hash(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse1.hash)
-  hash_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void SearchResponse1::set_hash(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse1.hash)
-  hash_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void SearchResponse1::set_hash(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hash_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:SearchResponse1.hash)
-}
-inline void SearchResponse1::set_hash(int index, const void* value, size_t size) {
-  hash_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:SearchResponse1.hash)
-}
-inline ::std::string* SearchResponse1::add_hash() {
-  // @@protoc_insertion_point(field_add_mutable:SearchResponse1.hash)
-  return hash_.Add();
-}
-inline void SearchResponse1::add_hash(const ::std::string& value) {
-  hash_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:SearchResponse1.hash)
-}
-#if LANG_CXX11
-inline void SearchResponse1::add_hash(::std::string&& value) {
-  hash_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:SearchResponse1.hash)
-}
-#endif
-inline void SearchResponse1::add_hash(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hash_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:SearchResponse1.hash)
-}
-inline void SearchResponse1::add_hash(const void* value, size_t size) {
-  hash_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:SearchResponse1.hash)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-SearchResponse1::hash() const {
-  // @@protoc_insertion_point(field_list:SearchResponse1.hash)
-  return hash_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-SearchResponse1::mutable_hash() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse1.hash)
-  return &hash_;
-}
-
-// repeated int32 cipherPositions = 4;
+// repeated int32 cipherPositions = 3;
 inline int SearchResponse1::cipherpositions_size() const {
   return cipherpositions_.size();
 }
@@ -5258,50 +4988,6 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 SearchResponse1::mutable_cipherpositions() {
   // @@protoc_insertion_point(field_mutable_list:SearchResponse1.cipherPositions)
   return &cipherpositions_;
-}
-
-// int32 treeSize = 5;
-inline void SearchResponse1::clear_treesize() {
-  treesize_ = 0;
-}
-inline ::google::protobuf::int32 SearchResponse1::treesize() const {
-  // @@protoc_insertion_point(field_get:SearchResponse1.treeSize)
-  return treesize_;
-}
-inline void SearchResponse1::set_treesize(::google::protobuf::int32 value) {
-  
-  treesize_ = value;
-  // @@protoc_insertion_point(field_set:SearchResponse1.treeSize)
-}
-
-// repeated int32 proofPosistions = 6;
-inline int SearchResponse1::proofposistions_size() const {
-  return proofposistions_.size();
-}
-inline void SearchResponse1::clear_proofposistions() {
-  proofposistions_.Clear();
-}
-inline ::google::protobuf::int32 SearchResponse1::proofposistions(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse1.proofPosistions)
-  return proofposistions_.Get(index);
-}
-inline void SearchResponse1::set_proofposistions(int index, ::google::protobuf::int32 value) {
-  proofposistions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:SearchResponse1.proofPosistions)
-}
-inline void SearchResponse1::add_proofposistions(::google::protobuf::int32 value) {
-  proofposistions_.Add(value);
-  // @@protoc_insertion_point(field_add:SearchResponse1.proofPosistions)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-SearchResponse1::proofposistions() const {
-  // @@protoc_insertion_point(field_list:SearchResponse1.proofPosistions)
-  return proofposistions_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-SearchResponse1::mutable_proofposistions() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse1.proofPosistions)
-  return &proofposistions_;
 }
 
 // -------------------------------------------------------------------

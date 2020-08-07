@@ -17,23 +17,12 @@ rpc batchUpdate (BatchUpdateMessage) returns (UpdateResponse) {}
 rpc search (SearchMessage) returns (SearchResponse) {}
 rpc search1 (SearchMessage1) returns (SearchResponse1) {}
 
-rpc addToFileCntQueue (AddFileCntQueueMessage) returns (google.protobuf.Empty) {}
-rpc batchAddToFileCntQueue (BatchAddFileCntQueueMessage) returns (google.protobuf.Empty) {}
-rpc getFileCntDiff (FileCntQueueRequestMessage) returns (FileCntDiffMessage) {}
-
-rpc updateMerkleRoot (UpdateMerkleRootMessage) returns (google.protobuf.Empty) {}
-rpc getMerkleRoot (google.protobuf.Empty) returns (GetMerkleRootMessage) {}
-
 rpc downloadStash (DownloadStashMessage) returns (DownloadStashResponse) {}
 rpc uploadStash (UploadStashMessage) returns (google.protobuf.Empty) {}
 
 rpc downloadOMAPRoot (DownloadRootMessage) returns (DownloadRootResponse) {}
 rpc uploadOMAPRoot (UploadRootMessage) returns (google.protobuf.Empty) {}
 
-rpc downloadOMAPMerkleRoot (DownloadRootMessage) returns (DownloadRootResponse) {}
-rpc uploadOMAPMerkleRoot (UploadRootMessage) returns (google.protobuf.Empty) {}
-
-rpc executeFabricCommand (CommandMessage) returns (ResultMessage) {}
 }
 
 message DownloadRootMessage{
@@ -148,10 +137,10 @@ message SearchResponse
 {
     repeated bytes ciphertext = 1;  
     repeated int32 cipherSize = 2;
-    repeated bytes hash = 3;   
-    repeated int32 cipherPositions = 4;   
-    int32 treeSize = 5;
-    repeated int32 proofPosistions = 6;
+    //repeated bytes hash = 3;   
+    repeated int32 cipherPositions = 3;   
+    //int32 treeSize = 5;
+    //repeated int32 proofPosistions = 6;
     
 }
 
@@ -164,10 +153,10 @@ message SearchResponse1
 {
     repeated bytes ciphertext = 1;  
     repeated int32 cipherSize = 2;
-    repeated bytes hash = 3;   
-    repeated int32 cipherPositions = 4;   
-    int32 treeSize = 5;
-    repeated int32 proofPosistions = 6;
+    //repeated bytes hash = 3;   
+    repeated int32 cipherPositions = 3;   
+    //int32 treeSize = 5;
+    //repeated int32 proofPosistions = 6;
     
 }
 

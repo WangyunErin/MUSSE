@@ -15,7 +15,7 @@ class MusesOwnerRunner : public Musse::Service {
 private:
     Owner* client_;
     std::unique_ptr<Musse::Stub> stub_;
-    std::unique_ptr<Musse::Stub> fabric_;
+    // std::unique_ptr<Musse::Stub> fabric_;
     bool setupMode = false;
     vector<pair<prf_type, prf_type> > setupPairs;
     map<int, set<int> > accessList;

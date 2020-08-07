@@ -50,7 +50,7 @@ ORAM::ORAM(int maxSize, bytes<Key> oram_key, MusesUserRunner* runner, int userID
     this->userID = userID;
     this->runner = runner;
     // this->merkleRoot = merkleRoot;
-    depth = (int) floor(log2(maxSize / Z));
+    depth = (int) ceil(log2(maxSize));
     bucketCount = (int) pow(2, depth + 1) - 1;
     blockSize = sizeof (Node); // B
     size_t blockCount = (size_t) (Z * (pow(2, depth + 1) - 1));
@@ -79,7 +79,7 @@ ORAM::ORAM(int maxSize, bytes<Key> oram_key, MusesOwnerRunner* runner, int userI
     this->userID = userID;
     this->ownerrunner = runner;
     // this->merkleRoot = merkleRoot;
-    depth = (int) floor(log2(maxSize / Z));
+    depth = (int) ceil(log2(maxSize));
     bucketCount = (int) pow(2, depth + 1) - 1;
     blockSize = sizeof (Node); // B
     size_t blockCount = (size_t) (Z * (pow(2, depth + 1) - 1));
@@ -155,6 +155,9 @@ Bucket ORAM::DeserialiseBucket(block buffer) {
 vector<Bucket> ORAM::ReadBuckets(vector<int> indexes) {
     totalRead += indexes.size();
     vector<Bucket> res;
+    if (indexes.size() == 0) {
+        return res;
+    }
      BlocksWithProof response = (server == NULL ? runner == NULL ? ownerrunner->readStore(indexes, userID) : runner->readStore(indexes, userID) : server->readStore(indexes, userID));
     // if (!verifyMerkleProof(response.values, response.valuesPoses, response.proofs, response.treeSize, merkleRoot)) {
     //     cout << "The server has modified the ORAM!" << endl;
@@ -165,7 +168,7 @@ vector<Bucket> ORAM::ReadBuckets(vector<int> indexes) {
         Bucket bucket = DeserialiseBucket(buffer);
         res.push_back(bucket);
         CommunicationSize += clen_size;
-        // cout<<"clen_size="<<clen_size<<endl;
+        //cout<<"clen_size="<<clen_size<<endl;
         CommunicationSize += 4;
     }
     // CommunicationSize += indexes.size()*4;
@@ -593,7 +596,7 @@ void ORAM::downloadStash() {
     }
     if (stashItems.size() != 0) {
         for (int i = 0; i < 90; i++) {
-            unsigned char* nodeData = new unsigned char[sizeof (Node) + 1];
+            unsigned char* nodeData = new unsigned char[clen_size];
             Utilities::decrypt((unsigned char*) stashItems[i].second, stashItems[i].first, ckey, iv, (unsigned char*) nodeData);
             Node* node = (Node*) nodeData;
             if (node->key.getValue() != 0) {
@@ -614,7 +617,7 @@ void ORAM::uploadStash() {
     int i = 0;
     for (auto item : cache) {
         i++;
-        unsigned char* cipher = new unsigned char[sizeof (Node) + 20];
+        unsigned char* cipher = new unsigned char[clen_size];
         int size = Utilities::encrypt((unsigned char*) item.second, sizeof (Node), ckey, iv, cipher);
         stashItems.push_back(pair<int, unsigned char*> (size, cipher));
         delete item.second;
@@ -623,7 +626,7 @@ void ORAM::uploadStash() {
     for (; i < 90; i++) {
         Node* dummy = new Node();
         dummy->key.setValue(0);
-        unsigned char* cipher = new unsigned char[sizeof (Node) + 20];
+        unsigned char* cipher = new unsigned char[clen_size];
         int size = Utilities::encrypt((unsigned char*) dummy, sizeof (Node), ckey, iv, cipher);
         stashItems.push_back(pair<int, unsigned char*> (size, cipher));
         delete dummy;

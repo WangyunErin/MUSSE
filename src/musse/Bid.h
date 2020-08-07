@@ -12,7 +12,7 @@ public:
     Bid(int value);
     Bid(std::array< byte_t, ID_SIZE> value);
     Bid(string value);
-    virtual ~Bid();
+    ~Bid();
     Bid operator++();
     Bid& operator=(int other);
     bool operator!=(const int rhs) const;
@@ -32,7 +32,17 @@ public:
     friend ostream& operator<<(ostream &o, Bid& id);
 };
 
+struct BidHasher {
 
+    std::size_t operator()(const Bid &key) const {
+        std::hash<byte_t> hasher;
+        size_t result = 0;
+        for (size_t i = 0; i < ID_SIZE; ++i) {
+            result = (result << 1) ^ hasher(key.id[i]);
+        }
+        return result;
+    }
+};
 
 #endif /* BID_H */
 

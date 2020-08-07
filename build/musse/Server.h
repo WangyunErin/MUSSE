@@ -21,7 +21,7 @@ class ResultWithProof {
 public:
     // int treeSize;
     vector<prf_type> values;
-    // vector<int> valuesPoses;
+    vector<int> valuesPoses;
     // map<int, unsigned char*> proofs;
 };
 

@@ -813,10 +813,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse, ciphertext_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse, ciphersize_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse, hash_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse, cipherpositions_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse, treesize_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse, proofposistions_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchMessage1, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -830,10 +827,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse1, ciphertext_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse1, ciphersize_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse1, hash_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse1, cipherpositions_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse1, treesize_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SearchResponse1, proofposistions_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BatchUpdateMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -877,11 +871,11 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 118, -1, sizeof(::UpdateResponse)},
   { 127, -1, sizeof(::SearchMessage)},
   { 133, -1, sizeof(::SearchResponse)},
-  { 144, -1, sizeof(::SearchMessage1)},
-  { 150, -1, sizeof(::SearchResponse1)},
-  { 161, -1, sizeof(::BatchUpdateMessage)},
-  { 168, -1, sizeof(::CommandMessage)},
-  { 175, -1, sizeof(::ResultMessage)},
+  { 141, -1, sizeof(::SearchMessage1)},
+  { 147, -1, sizeof(::SearchResponse1)},
+  { 155, -1, sizeof(::BatchUpdateMessage)},
+  { 162, -1, sizeof(::CommandMessage)},
+  { 169, -1, sizeof(::ResultMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -960,53 +954,36 @@ void AddDescriptorsImpl() {
       "essage\022\017\n\007address\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\"R"
       "\n\016UpdateResponse\022\016\n\006hashes\030\001 \003(\014\022\021\n\tposi"
       "tions\030\002 \003(\005\022\020\n\010treeSize\030\003 \001(\005\022\013\n\003pos\030\004 \001"
-      "(\005\" \n\rSearchMessage\022\017\n\007address\030\001 \003(\014\"\212\001\n"
-      "\016SearchResponse\022\022\n\nciphertext\030\001 \003(\014\022\022\n\nc"
-      "ipherSize\030\002 \003(\005\022\014\n\004hash\030\003 \003(\014\022\027\n\017cipherP"
-      "ositions\030\004 \003(\005\022\020\n\010treeSize\030\005 \001(\005\022\027\n\017proo"
-      "fPosistions\030\006 \003(\005\"!\n\016SearchMessage1\022\017\n\007a"
-      "ddress\030\001 \003(\014\"\213\001\n\017SearchResponse1\022\022\n\nciph"
-      "ertext\030\001 \003(\014\022\022\n\ncipherSize\030\002 \003(\005\022\014\n\004hash"
-      "\030\003 \003(\014\022\027\n\017cipherPositions\030\004 \003(\005\022\020\n\010treeS"
-      "ize\030\005 \001(\005\022\027\n\017proofPosistions\030\006 \003(\005\"4\n\022Ba"
-      "tchUpdateMessage\022\017\n\007address\030\001 \003(\014\022\r\n\005val"
-      "ue\030\002 \003(\014\"+\n\016CommandMessage\022\013\n\003cmd\030\001 \001(\014\022"
-      "\014\n\004size\030\002 \001(\005\"-\n\rResultMessage\022\016\n\006result"
-      "\030\001 \001(\014\022\014\n\004size\030\002 \001(\0052\327\t\n\005Musse\0220\n\005setup\022"
-      "\r.SetupMessage\032\026.google.protobuf.Empty\"\000"
-      "\022:\n\ncreateOMAP\022\022.CreateOMAPMessage\032\026.goo"
-      "gle.protobuf.Empty\"\000\0221\n\treadStore\022\021.Read"
-      "StoreRequest\032\017.SearchResponse\"\000\0225\n\014write"
-      "InStore\022\022.WriteStoreRequest\032\017.SearchResp"
-      "onse\"\000\022+\n\006update\022\016.UpdateMessage\032\017.Updat"
-      "eResponse\"\000\0225\n\013batchUpdate\022\023.BatchUpdate"
-      "Message\032\017.UpdateResponse\"\000\022+\n\006search\022\016.S"
-      "earchMessage\032\017.SearchResponse\"\000\022.\n\007searc"
-      "h1\022\017.SearchMessage1\032\020.SearchResponse1\"\000\022"
-      "F\n\021addToFileCntQueue\022\027.AddFileCntQueueMe"
-      "ssage\032\026.google.protobuf.Empty\"\000\022P\n\026batch"
-      "AddToFileCntQueue\022\034.BatchAddFileCntQueue"
-      "Message\032\026.google.protobuf.Empty\"\000\022D\n\016get"
-      "FileCntDiff\022\033.FileCntQueueRequestMessage"
-      "\032\023.FileCntDiffMessage\"\000\022F\n\020updateMerkleR"
-      "oot\022\030.UpdateMerkleRootMessage\032\026.google.p"
-      "rotobuf.Empty\"\000\022@\n\rgetMerkleRoot\022\026.googl"
-      "e.protobuf.Empty\032\025.GetMerkleRootMessage\""
-      "\000\022@\n\rdownloadStash\022\025.DownloadStashMessag"
-      "e\032\026.DownloadStashResponse\"\000\022<\n\013uploadSta"
-      "sh\022\023.UploadStashMessage\032\026.google.protobu"
-      "f.Empty\"\000\022A\n\020downloadOMAPRoot\022\024.Download"
-      "RootMessage\032\025.DownloadRootResponse\"\000\022>\n\016"
-      "uploadOMAPRoot\022\022.UploadRootMessage\032\026.goo"
-      "gle.protobuf.Empty\"\000\022G\n\026downloadOMAPMerk"
-      "leRoot\022\024.DownloadRootMessage\032\025.DownloadR"
-      "ootResponse\"\000\022D\n\024uploadOMAPMerkleRoot\022\022."
-      "UploadRootMessage\032\026.google.protobuf.Empt"
-      "y\"\000\0229\n\024executeFabricCommand\022\017.CommandMes"
-      "sage\032\016.ResultMessage\"\000b\006proto3"
+      "(\005\" \n\rSearchMessage\022\017\n\007address\030\001 \003(\014\"Q\n\016"
+      "SearchResponse\022\022\n\nciphertext\030\001 \003(\014\022\022\n\nci"
+      "pherSize\030\002 \003(\005\022\027\n\017cipherPositions\030\003 \003(\005\""
+      "!\n\016SearchMessage1\022\017\n\007address\030\001 \003(\014\"R\n\017Se"
+      "archResponse1\022\022\n\nciphertext\030\001 \003(\014\022\022\n\ncip"
+      "herSize\030\002 \003(\005\022\027\n\017cipherPositions\030\003 \003(\005\"4"
+      "\n\022BatchUpdateMessage\022\017\n\007address\030\001 \003(\014\022\r\n"
+      "\005value\030\002 \003(\014\"+\n\016CommandMessage\022\013\n\003cmd\030\001 "
+      "\001(\014\022\014\n\004size\030\002 \001(\005\"-\n\rResultMessage\022\016\n\006re"
+      "sult\030\001 \001(\014\022\014\n\004size\030\002 \001(\0052\243\005\n\005Musse\0220\n\005se"
+      "tup\022\r.SetupMessage\032\026.google.protobuf.Emp"
+      "ty\"\000\022:\n\ncreateOMAP\022\022.CreateOMAPMessage\032\026"
+      ".google.protobuf.Empty\"\000\0221\n\treadStore\022\021."
+      "ReadStoreRequest\032\017.SearchResponse\"\000\0225\n\014w"
+      "riteInStore\022\022.WriteStoreRequest\032\017.Search"
+      "Response\"\000\022+\n\006update\022\016.UpdateMessage\032\017.U"
+      "pdateResponse\"\000\0225\n\013batchUpdate\022\023.BatchUp"
+      "dateMessage\032\017.UpdateResponse\"\000\022+\n\006search"
+      "\022\016.SearchMessage\032\017.SearchResponse\"\000\022.\n\007s"
+      "earch1\022\017.SearchMessage1\032\020.SearchResponse"
+      "1\"\000\022@\n\rdownloadStash\022\025.DownloadStashMess"
+      "age\032\026.DownloadStashResponse\"\000\022<\n\013uploadS"
+      "tash\022\023.UploadStashMessage\032\026.google.proto"
+      "buf.Empty\"\000\022A\n\020downloadOMAPRoot\022\024.Downlo"
+      "adRootMessage\032\025.DownloadRootResponse\"\000\022>"
+      "\n\016uploadOMAPRoot\022\022.UploadRootMessage\032\026.g"
+      "oogle.protobuf.Empty\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2790);
+      descriptor, 2110);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "musse.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fempty_2eproto::AddDescriptors();
@@ -6493,10 +6470,7 @@ void SearchResponse::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SearchResponse::kCiphertextFieldNumber;
 const int SearchResponse::kCipherSizeFieldNumber;
-const int SearchResponse::kHashFieldNumber;
 const int SearchResponse::kCipherPositionsFieldNumber;
-const int SearchResponse::kTreeSizeFieldNumber;
-const int SearchResponse::kProofPosistionsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SearchResponse::SearchResponse()
@@ -6512,17 +6486,13 @@ SearchResponse::SearchResponse(const SearchResponse& from)
       _internal_metadata_(NULL),
       ciphertext_(from.ciphertext_),
       ciphersize_(from.ciphersize_),
-      hash_(from.hash_),
       cipherpositions_(from.cipherpositions_),
-      proofposistions_(from.proofposistions_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  treesize_ = from.treesize_;
   // @@protoc_insertion_point(copy_constructor:SearchResponse)
 }
 
 void SearchResponse::SharedCtor() {
-  treesize_ = 0;
   _cached_size_ = 0;
 }
 
@@ -6565,10 +6535,7 @@ void SearchResponse::Clear() {
 
   ciphertext_.Clear();
   ciphersize_.Clear();
-  hash_.Clear();
   cipherpositions_.Clear();
-  proofposistions_.Clear();
-  treesize_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -6613,64 +6580,19 @@ bool SearchResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated bytes hash = 3;
+      // repeated int32 cipherPositions = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->add_hash()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated int32 cipherPositions = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_cipherpositions())));
         } else if (
             static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 34u, input, this->mutable_cipherpositions())));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // int32 treeSize = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &treesize_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated int32 proofPosistions = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_proofposistions())));
-        } else if (
-            static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 50u, input, this->mutable_proofposistions())));
+                 1, 26u, input, this->mutable_cipherpositions())));
         } else {
           goto handle_unusual;
         }
@@ -6720,37 +6642,15 @@ void SearchResponse::SerializeWithCachedSizes(
       this->ciphersize(i), output);
   }
 
-  // repeated bytes hash = 3;
-  for (int i = 0, n = this->hash_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->hash(i), output);
-  }
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   if (this->cipherpositions_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(4, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
         _cipherpositions_cached_byte_size_));
   }
   for (int i = 0, n = this->cipherpositions_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
       this->cipherpositions(i), output);
-  }
-
-  // int32 treeSize = 5;
-  if (this->treesize() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->treesize(), output);
-  }
-
-  // repeated int32 proofPosistions = 6;
-  if (this->proofposistions_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(6, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
-        _proofposistions_cached_byte_size_));
-  }
-  for (int i = 0, n = this->proofposistions_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
-      this->proofposistions(i), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6786,16 +6686,10 @@ void SearchResponse::SerializeWithCachedSizes(
       WriteInt32NoTagToArray(this->ciphersize_, target);
   }
 
-  // repeated bytes hash = 3;
-  for (int i = 0, n = this->hash_size(); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteBytesToArray(3, this->hash(i), target);
-  }
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   if (this->cipherpositions_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      4,
+      3,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -6803,24 +6697,6 @@ void SearchResponse::SerializeWithCachedSizes(
             _cipherpositions_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32NoTagToArray(this->cipherpositions_, target);
-  }
-
-  // int32 treeSize = 5;
-  if (this->treesize() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->treesize(), target);
-  }
-
-  // repeated int32 proofPosistions = 6;
-  if (this->proofposistions_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      6,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-        static_cast< ::google::protobuf::int32>(
-            _proofposistions_cached_byte_size_), target);
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32NoTagToArray(this->proofposistions_, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6864,15 +6740,7 @@ size_t SearchResponse::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated bytes hash = 3;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->hash_size());
-  for (int i = 0, n = this->hash_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
-      this->hash(i));
-  }
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
       Int32Size(this->cipherpositions_);
@@ -6886,29 +6754,6 @@ size_t SearchResponse::ByteSizeLong() const {
     _cipherpositions_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
-  }
-
-  // repeated int32 proofPosistions = 6;
-  {
-    size_t data_size = ::google::protobuf::internal::WireFormatLite::
-      Int32Size(this->proofposistions_);
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-            static_cast< ::google::protobuf::int32>(data_size));
-    }
-    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _proofposistions_cached_byte_size_ = cached_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  // int32 treeSize = 5;
-  if (this->treesize() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->treesize());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -6942,12 +6787,7 @@ void SearchResponse::MergeFrom(const SearchResponse& from) {
 
   ciphertext_.MergeFrom(from.ciphertext_);
   ciphersize_.MergeFrom(from.ciphersize_);
-  hash_.MergeFrom(from.hash_);
   cipherpositions_.MergeFrom(from.cipherpositions_);
-  proofposistions_.MergeFrom(from.proofposistions_);
-  if (from.treesize() != 0) {
-    set_treesize(from.treesize());
-  }
 }
 
 void SearchResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -6976,10 +6816,7 @@ void SearchResponse::InternalSwap(SearchResponse* other) {
   using std::swap;
   ciphertext_.InternalSwap(&other->ciphertext_);
   ciphersize_.InternalSwap(&other->ciphersize_);
-  hash_.InternalSwap(&other->hash_);
   cipherpositions_.InternalSwap(&other->cipherpositions_);
-  proofposistions_.InternalSwap(&other->proofposistions_);
-  swap(treesize_, other->treesize_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -7233,10 +7070,7 @@ void SearchResponse1::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SearchResponse1::kCiphertextFieldNumber;
 const int SearchResponse1::kCipherSizeFieldNumber;
-const int SearchResponse1::kHashFieldNumber;
 const int SearchResponse1::kCipherPositionsFieldNumber;
-const int SearchResponse1::kTreeSizeFieldNumber;
-const int SearchResponse1::kProofPosistionsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SearchResponse1::SearchResponse1()
@@ -7252,17 +7086,13 @@ SearchResponse1::SearchResponse1(const SearchResponse1& from)
       _internal_metadata_(NULL),
       ciphertext_(from.ciphertext_),
       ciphersize_(from.ciphersize_),
-      hash_(from.hash_),
       cipherpositions_(from.cipherpositions_),
-      proofposistions_(from.proofposistions_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  treesize_ = from.treesize_;
   // @@protoc_insertion_point(copy_constructor:SearchResponse1)
 }
 
 void SearchResponse1::SharedCtor() {
-  treesize_ = 0;
   _cached_size_ = 0;
 }
 
@@ -7305,10 +7135,7 @@ void SearchResponse1::Clear() {
 
   ciphertext_.Clear();
   ciphersize_.Clear();
-  hash_.Clear();
   cipherpositions_.Clear();
-  proofposistions_.Clear();
-  treesize_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -7353,64 +7180,19 @@ bool SearchResponse1::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated bytes hash = 3;
+      // repeated int32 cipherPositions = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->add_hash()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated int32 cipherPositions = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_cipherpositions())));
         } else if (
             static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 34u, input, this->mutable_cipherpositions())));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // int32 treeSize = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &treesize_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated int32 proofPosistions = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_proofposistions())));
-        } else if (
-            static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 50u, input, this->mutable_proofposistions())));
+                 1, 26u, input, this->mutable_cipherpositions())));
         } else {
           goto handle_unusual;
         }
@@ -7460,37 +7242,15 @@ void SearchResponse1::SerializeWithCachedSizes(
       this->ciphersize(i), output);
   }
 
-  // repeated bytes hash = 3;
-  for (int i = 0, n = this->hash_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->hash(i), output);
-  }
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   if (this->cipherpositions_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(4, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
         _cipherpositions_cached_byte_size_));
   }
   for (int i = 0, n = this->cipherpositions_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
       this->cipherpositions(i), output);
-  }
-
-  // int32 treeSize = 5;
-  if (this->treesize() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->treesize(), output);
-  }
-
-  // repeated int32 proofPosistions = 6;
-  if (this->proofposistions_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(6, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
-        _proofposistions_cached_byte_size_));
-  }
-  for (int i = 0, n = this->proofposistions_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
-      this->proofposistions(i), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7526,16 +7286,10 @@ void SearchResponse1::SerializeWithCachedSizes(
       WriteInt32NoTagToArray(this->ciphersize_, target);
   }
 
-  // repeated bytes hash = 3;
-  for (int i = 0, n = this->hash_size(); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteBytesToArray(3, this->hash(i), target);
-  }
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   if (this->cipherpositions_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      4,
+      3,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -7543,24 +7297,6 @@ void SearchResponse1::SerializeWithCachedSizes(
             _cipherpositions_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32NoTagToArray(this->cipherpositions_, target);
-  }
-
-  // int32 treeSize = 5;
-  if (this->treesize() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->treesize(), target);
-  }
-
-  // repeated int32 proofPosistions = 6;
-  if (this->proofposistions_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      6,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-        static_cast< ::google::protobuf::int32>(
-            _proofposistions_cached_byte_size_), target);
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32NoTagToArray(this->proofposistions_, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7604,15 +7340,7 @@ size_t SearchResponse1::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated bytes hash = 3;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->hash_size());
-  for (int i = 0, n = this->hash_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
-      this->hash(i));
-  }
-
-  // repeated int32 cipherPositions = 4;
+  // repeated int32 cipherPositions = 3;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
       Int32Size(this->cipherpositions_);
@@ -7626,29 +7354,6 @@ size_t SearchResponse1::ByteSizeLong() const {
     _cipherpositions_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
-  }
-
-  // repeated int32 proofPosistions = 6;
-  {
-    size_t data_size = ::google::protobuf::internal::WireFormatLite::
-      Int32Size(this->proofposistions_);
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-            static_cast< ::google::protobuf::int32>(data_size));
-    }
-    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _proofposistions_cached_byte_size_ = cached_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  // int32 treeSize = 5;
-  if (this->treesize() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->treesize());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7682,12 +7387,7 @@ void SearchResponse1::MergeFrom(const SearchResponse1& from) {
 
   ciphertext_.MergeFrom(from.ciphertext_);
   ciphersize_.MergeFrom(from.ciphersize_);
-  hash_.MergeFrom(from.hash_);
   cipherpositions_.MergeFrom(from.cipherpositions_);
-  proofposistions_.MergeFrom(from.proofposistions_);
-  if (from.treesize() != 0) {
-    set_treesize(from.treesize());
-  }
 }
 
 void SearchResponse1::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7716,10 +7416,7 @@ void SearchResponse1::InternalSwap(SearchResponse1* other) {
   using std::swap;
   ciphertext_.InternalSwap(&other->ciphertext_);
   ciphersize_.InternalSwap(&other->ciphersize_);
-  hash_.InternalSwap(&other->hash_);
   cipherpositions_.InternalSwap(&other->cipherpositions_);
-  proofposistions_.InternalSwap(&other->proofposistions_);
-  swap(treesize_, other->treesize_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

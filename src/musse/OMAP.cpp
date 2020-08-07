@@ -41,8 +41,9 @@ string OMAP::find(Bid key) {
     auto resNode = treeHandler->search(node, key);
     string res = "";
     if (resNode != NULL) {
-        res.assign(resNode->value.begin(), resNode->value.end());
-        res = res.c_str();
+        // res.assign(resNode->value.begin(), resNode->value.end());
+        // res = res.c_str();
+        res = to_string(resNode->value);
     }
     treeHandler->finishOperation(true, rootKey, rootPos);
     uploadRoot();
@@ -107,10 +108,10 @@ vector<string> OMAP::batchSearch(vector<Bid> keys) {
     vector<Node*> resNodes;
     treeHandler->batchSearch(node, keys, &resNodes);
     for (Node* n : resNodes) {
-        string res;
+        // string res;
         if (n != NULL) {
-            res.assign(n->value.begin(), n->value.end());
-            result.push_back(res);
+            // res.assign(n->value.begin(), n->value.end());
+            result.push_back(to_string(n->value));
         } else {
             result.push_back("");
         }

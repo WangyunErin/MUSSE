@@ -67,12 +67,12 @@ int Owner::updateRequest(string keyword, int ind, prf_type& addr, prf_type& val,
         Bid keyBid(mapkey);//copy mapkey to object keyBid de chengyuanbianliang id(also an array)
         string value;  //used to store counter
         if (setupMode) {
-            if (setupPairs[userID].count(k_w) == 0) {
-                setupPairs[userID][k_w] = "1";
+            if (setupPairs[userID].count(mapkey) == 0) {
+                setupPairs[userID][mapkey] = "1";
             } else {
-                setupPairs[userID][k_w] = to_string(stoi(setupPairs[userID][k_w]) + 1);
+                setupPairs[userID][mapkey] = to_string(stoi(setupPairs[userID][mapkey]) + 1);
             }
-            value = setupPairs[userID][k_w];
+            value = setupPairs[userID][mapkey];
         } else {
             value = omaps[userID]->incrementFileCnt(keyBid);
         }
@@ -188,12 +188,12 @@ pair<prf_type,prf_type> Owner::share(string keyword, int ind, int userID) {
         Bid keyBid(mapkey);
         string value;
         if (setupMode) {
-            if (setupPairs[userID].count(k_w) == 0) {
-                setupPairs[userID][k_w] = "1";
+            if (setupPairs[userID].count(mapkey) == 0) {
+                setupPairs[userID][mapkey] = "1";
             } else {
-                setupPairs[userID][k_w] = to_string(stoi(setupPairs[userID][k_w]) + 1);
+                setupPairs[userID][mapkey] = to_string(stoi(setupPairs[userID][mapkey]) + 1);
             }
-            value = setupPairs[userID][k_w];
+            value = setupPairs[userID][mapkey];
         } else {
             omaps[userID]->CommunicationSize = 0;
             value = omaps[userID]->incrementFileCnt(keyBid);

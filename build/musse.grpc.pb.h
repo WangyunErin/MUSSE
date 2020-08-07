@@ -90,41 +90,6 @@ class Musse final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse1>> PrepareAsyncsearch1(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse1>>(PrepareAsyncsearch1Raw(context, request, cq));
     }
-    virtual ::grpc::Status addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncaddToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncaddToFileCntQueueRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncaddToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncaddToFileCntQueueRaw(context, request, cq));
-    }
-    virtual ::grpc::Status batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncbatchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncbatchAddToFileCntQueueRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncbatchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncbatchAddToFileCntQueueRaw(context, request, cq));
-    }
-    virtual ::grpc::Status getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::FileCntDiffMessage* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::FileCntDiffMessage>> AsyncgetFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::FileCntDiffMessage>>(AsyncgetFileCntDiffRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::FileCntDiffMessage>> PrepareAsyncgetFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::FileCntDiffMessage>>(PrepareAsyncgetFileCntDiffRaw(context, request, cq));
-    }
-    virtual ::grpc::Status updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncupdateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncupdateMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncupdateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncupdateMerkleRootRaw(context, request, cq));
-    }
-    virtual ::grpc::Status getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::GetMerkleRootMessage* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetMerkleRootMessage>> AsyncgetMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetMerkleRootMessage>>(AsyncgetMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetMerkleRootMessage>> PrepareAsyncgetMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::GetMerkleRootMessage>>(PrepareAsyncgetMerkleRootRaw(context, request, cq));
-    }
     virtual ::grpc::Status downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::DownloadStashResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DownloadStashResponse>> AsyncdownloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DownloadStashResponse>>(AsyncdownloadStashRaw(context, request, cq));
@@ -152,27 +117,6 @@ class Musse final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncuploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncuploadOMAPRootRaw(context, request, cq));
-    }
-    virtual ::grpc::Status downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::DownloadRootResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DownloadRootResponse>> AsyncdownloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DownloadRootResponse>>(AsyncdownloadOMAPMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DownloadRootResponse>> PrepareAsyncdownloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DownloadRootResponse>>(PrepareAsyncdownloadOMAPMerkleRootRaw(context, request, cq));
-    }
-    virtual ::grpc::Status uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncuploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncuploadOMAPMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncuploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncuploadOMAPMerkleRootRaw(context, request, cq));
-    }
-    virtual ::grpc::Status executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage& request, ::ResultMessage* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ResultMessage>> AsyncexecuteFabricCommand(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ResultMessage>>(AsyncexecuteFabricCommandRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ResultMessage>> PrepareAsyncexecuteFabricCommand(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ResultMessage>>(PrepareAsyncexecuteFabricCommandRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
@@ -273,66 +217,6 @@ class Musse final {
       #else
       virtual void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void addToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void addToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void addToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      virtual void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      virtual void getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void getFileCntDiff(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::FileCntDiffMessage* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void getFileCntDiff(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::FileCntDiffMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void getFileCntDiff(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::FileCntDiffMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      virtual void updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void updateMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void updateMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void updateMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      virtual void getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void getMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::GetMerkleRootMessage* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void getMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::GetMerkleRootMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void getMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::GetMerkleRootMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -381,42 +265,6 @@ class Musse final {
       #else
       virtual void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      virtual void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      virtual void executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage* request, ::ResultMessage* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void executeFabricCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ResultMessage* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage* request, ::ResultMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage* request, ::ResultMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void executeFabricCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ResultMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void executeFabricCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ResultMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     typedef class experimental_async_interface async_interface;
@@ -442,16 +290,6 @@ class Musse final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse>* PrepareAsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse1>* Asyncsearch1Raw(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse1>* PrepareAsyncsearch1Raw(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncaddToFileCntQueueRaw(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncaddToFileCntQueueRaw(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncbatchAddToFileCntQueueRaw(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncbatchAddToFileCntQueueRaw(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::FileCntDiffMessage>* AsyncgetFileCntDiffRaw(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::FileCntDiffMessage>* PrepareAsyncgetFileCntDiffRaw(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncupdateMerkleRootRaw(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncupdateMerkleRootRaw(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetMerkleRootMessage>* AsyncgetMerkleRootRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::GetMerkleRootMessage>* PrepareAsyncgetMerkleRootRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DownloadStashResponse>* AsyncdownloadStashRaw(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DownloadStashResponse>* PrepareAsyncdownloadStashRaw(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncuploadStashRaw(::grpc::ClientContext* context, const ::UploadStashMessage& request, ::grpc::CompletionQueue* cq) = 0;
@@ -460,12 +298,6 @@ class Musse final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DownloadRootResponse>* PrepareAsyncdownloadOMAPRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncuploadOMAPRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncuploadOMAPRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DownloadRootResponse>* AsyncdownloadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DownloadRootResponse>* PrepareAsyncdownloadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncuploadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncuploadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ResultMessage>* AsyncexecuteFabricCommandRaw(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ResultMessage>* PrepareAsyncexecuteFabricCommandRaw(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -526,41 +358,6 @@ class Musse final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SearchResponse1>> PrepareAsyncsearch1(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SearchResponse1>>(PrepareAsyncsearch1Raw(context, request, cq));
     }
-    ::grpc::Status addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncaddToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncaddToFileCntQueueRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncaddToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncaddToFileCntQueueRaw(context, request, cq));
-    }
-    ::grpc::Status batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncbatchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncbatchAddToFileCntQueueRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncbatchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncbatchAddToFileCntQueueRaw(context, request, cq));
-    }
-    ::grpc::Status getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::FileCntDiffMessage* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::FileCntDiffMessage>> AsyncgetFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::FileCntDiffMessage>>(AsyncgetFileCntDiffRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::FileCntDiffMessage>> PrepareAsyncgetFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::FileCntDiffMessage>>(PrepareAsyncgetFileCntDiffRaw(context, request, cq));
-    }
-    ::grpc::Status updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncupdateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncupdateMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncupdateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncupdateMerkleRootRaw(context, request, cq));
-    }
-    ::grpc::Status getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::GetMerkleRootMessage* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetMerkleRootMessage>> AsyncgetMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetMerkleRootMessage>>(AsyncgetMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetMerkleRootMessage>> PrepareAsyncgetMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::GetMerkleRootMessage>>(PrepareAsyncgetMerkleRootRaw(context, request, cq));
-    }
     ::grpc::Status downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::DownloadStashResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DownloadStashResponse>> AsyncdownloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DownloadStashResponse>>(AsyncdownloadStashRaw(context, request, cq));
@@ -588,27 +385,6 @@ class Musse final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncuploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncuploadOMAPRootRaw(context, request, cq));
-    }
-    ::grpc::Status downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::DownloadRootResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>> AsyncdownloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>>(AsyncdownloadOMAPMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>> PrepareAsyncdownloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>>(PrepareAsyncdownloadOMAPMerkleRootRaw(context, request, cq));
-    }
-    ::grpc::Status uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncuploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncuploadOMAPMerkleRootRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncuploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncuploadOMAPMerkleRootRaw(context, request, cq));
-    }
-    ::grpc::Status executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage& request, ::ResultMessage* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ResultMessage>> AsyncexecuteFabricCommand(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ResultMessage>>(AsyncexecuteFabricCommandRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ResultMessage>> PrepareAsyncexecuteFabricCommand(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ResultMessage>>(PrepareAsyncexecuteFabricCommandRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
@@ -709,66 +485,6 @@ class Musse final {
       #else
       void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      void addToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void addToFileCntQueue(::grpc::ClientContext* context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void addToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void addToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void batchAddToFileCntQueue(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      void getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response, std::function<void(::grpc::Status)>) override;
-      void getFileCntDiff(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::FileCntDiffMessage* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void getFileCntDiff(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void getFileCntDiff(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::FileCntDiffMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void getFileCntDiff(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::FileCntDiffMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      void updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      void updateMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void updateMerkleRoot(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void updateMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void updateMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      void getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response, std::function<void(::grpc::Status)>) override;
-      void getMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::GetMerkleRootMessage* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void getMerkleRoot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void getMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::GetMerkleRootMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void getMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::GetMerkleRootMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) override;
       void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -817,42 +533,6 @@ class Musse final {
       #else
       void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) override;
-      void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void downloadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void uploadOMAPMerkleRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      void executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage* request, ::ResultMessage* response, std::function<void(::grpc::Status)>) override;
-      void executeFabricCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ResultMessage* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage* request, ::ResultMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void executeFabricCommand(::grpc::ClientContext* context, const ::CommandMessage* request, ::ResultMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void executeFabricCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ResultMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void executeFabricCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ResultMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -880,16 +560,6 @@ class Musse final {
     ::grpc::ClientAsyncResponseReader< ::SearchResponse>* PrepareAsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::SearchResponse1>* Asyncsearch1Raw(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::SearchResponse1>* PrepareAsyncsearch1Raw(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncaddToFileCntQueueRaw(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncaddToFileCntQueueRaw(::grpc::ClientContext* context, const ::AddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncbatchAddToFileCntQueueRaw(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncbatchAddToFileCntQueueRaw(::grpc::ClientContext* context, const ::BatchAddFileCntQueueMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::FileCntDiffMessage>* AsyncgetFileCntDiffRaw(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::FileCntDiffMessage>* PrepareAsyncgetFileCntDiffRaw(::grpc::ClientContext* context, const ::FileCntQueueRequestMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncupdateMerkleRootRaw(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncupdateMerkleRootRaw(::grpc::ClientContext* context, const ::UpdateMerkleRootMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::GetMerkleRootMessage>* AsyncgetMerkleRootRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::GetMerkleRootMessage>* PrepareAsyncgetMerkleRootRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::DownloadStashResponse>* AsyncdownloadStashRaw(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::DownloadStashResponse>* PrepareAsyncdownloadStashRaw(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncuploadStashRaw(::grpc::ClientContext* context, const ::UploadStashMessage& request, ::grpc::CompletionQueue* cq) override;
@@ -898,12 +568,6 @@ class Musse final {
     ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>* PrepareAsyncdownloadOMAPRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncuploadOMAPRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncuploadOMAPRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>* AsyncdownloadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>* PrepareAsyncdownloadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncuploadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncuploadOMAPMerkleRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ResultMessage>* AsyncexecuteFabricCommandRaw(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ResultMessage>* PrepareAsyncexecuteFabricCommandRaw(::grpc::ClientContext* context, const ::CommandMessage& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_setup_;
     const ::grpc::internal::RpcMethod rpcmethod_createOMAP_;
     const ::grpc::internal::RpcMethod rpcmethod_readStore_;
@@ -912,18 +576,10 @@ class Musse final {
     const ::grpc::internal::RpcMethod rpcmethod_batchUpdate_;
     const ::grpc::internal::RpcMethod rpcmethod_search_;
     const ::grpc::internal::RpcMethod rpcmethod_search1_;
-    const ::grpc::internal::RpcMethod rpcmethod_addToFileCntQueue_;
-    const ::grpc::internal::RpcMethod rpcmethod_batchAddToFileCntQueue_;
-    const ::grpc::internal::RpcMethod rpcmethod_getFileCntDiff_;
-    const ::grpc::internal::RpcMethod rpcmethod_updateMerkleRoot_;
-    const ::grpc::internal::RpcMethod rpcmethod_getMerkleRoot_;
     const ::grpc::internal::RpcMethod rpcmethod_downloadStash_;
     const ::grpc::internal::RpcMethod rpcmethod_uploadStash_;
     const ::grpc::internal::RpcMethod rpcmethod_downloadOMAPRoot_;
     const ::grpc::internal::RpcMethod rpcmethod_uploadOMAPRoot_;
-    const ::grpc::internal::RpcMethod rpcmethod_downloadOMAPMerkleRoot_;
-    const ::grpc::internal::RpcMethod rpcmethod_uploadOMAPMerkleRoot_;
-    const ::grpc::internal::RpcMethod rpcmethod_executeFabricCommand_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -939,18 +595,10 @@ class Musse final {
     virtual ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response);
     virtual ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response);
     virtual ::grpc::Status search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response);
-    virtual ::grpc::Status addToFileCntQueue(::grpc::ServerContext* context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status batchAddToFileCntQueue(::grpc::ServerContext* context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status getFileCntDiff(::grpc::ServerContext* context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response);
-    virtual ::grpc::Status updateMerkleRoot(::grpc::ServerContext* context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status getMerkleRoot(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response);
     virtual ::grpc::Status downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response);
     virtual ::grpc::Status uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response);
     virtual ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status downloadOMAPMerkleRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response);
-    virtual ::grpc::Status uploadOMAPMerkleRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status executeFabricCommand(::grpc::ServerContext* context, const ::CommandMessage* request, ::ResultMessage* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_setup : public BaseClass {
@@ -1113,112 +761,12 @@ class Musse final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_addToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_addToFileCntQueue() {
-      ::grpc::Service::MarkMethodAsync(8);
-    }
-    ~WithAsyncMethod_addToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status addToFileCntQueue(::grpc::ServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestaddToFileCntQueue(::grpc::ServerContext* context, ::AddFileCntQueueMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_batchAddToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_batchAddToFileCntQueue() {
-      ::grpc::Service::MarkMethodAsync(9);
-    }
-    ~WithAsyncMethod_batchAddToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status batchAddToFileCntQueue(::grpc::ServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestbatchAddToFileCntQueue(::grpc::ServerContext* context, ::BatchAddFileCntQueueMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_getFileCntDiff : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_getFileCntDiff() {
-      ::grpc::Service::MarkMethodAsync(10);
-    }
-    ~WithAsyncMethod_getFileCntDiff() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getFileCntDiff(::grpc::ServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestgetFileCntDiff(::grpc::ServerContext* context, ::FileCntQueueRequestMessage* request, ::grpc::ServerAsyncResponseWriter< ::FileCntDiffMessage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_updateMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_updateMerkleRoot() {
-      ::grpc::Service::MarkMethodAsync(11);
-    }
-    ~WithAsyncMethod_updateMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status updateMerkleRoot(::grpc::ServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestupdateMerkleRoot(::grpc::ServerContext* context, ::UpdateMerkleRootMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_getMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_getMerkleRoot() {
-      ::grpc::Service::MarkMethodAsync(12);
-    }
-    ~WithAsyncMethod_getMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getMerkleRoot(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestgetMerkleRoot(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::GetMerkleRootMessage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithAsyncMethod_downloadStash : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_downloadStash() {
-      ::grpc::Service::MarkMethodAsync(13);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_downloadStash() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1229,7 +777,7 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestdownloadStash(::grpc::ServerContext* context, ::DownloadStashMessage* request, ::grpc::ServerAsyncResponseWriter< ::DownloadStashResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1238,7 +786,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_uploadStash() {
-      ::grpc::Service::MarkMethodAsync(14);
+      ::grpc::Service::MarkMethodAsync(9);
     }
     ~WithAsyncMethod_uploadStash() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1249,7 +797,7 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestuploadStash(::grpc::ServerContext* context, ::UploadStashMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1258,7 +806,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_downloadOMAPRoot() {
-      ::grpc::Service::MarkMethodAsync(15);
+      ::grpc::Service::MarkMethodAsync(10);
     }
     ~WithAsyncMethod_downloadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1269,7 +817,7 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestdownloadOMAPRoot(::grpc::ServerContext* context, ::DownloadRootMessage* request, ::grpc::ServerAsyncResponseWriter< ::DownloadRootResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1278,7 +826,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_uploadOMAPRoot() {
-      ::grpc::Service::MarkMethodAsync(16);
+      ::grpc::Service::MarkMethodAsync(11);
     }
     ~WithAsyncMethod_uploadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1289,70 +837,10 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestuploadOMAPRoot(::grpc::ServerContext* context, ::UploadRootMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  template <class BaseClass>
-  class WithAsyncMethod_downloadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_downloadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodAsync(17);
-    }
-    ~WithAsyncMethod_downloadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status downloadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestdownloadOMAPMerkleRoot(::grpc::ServerContext* context, ::DownloadRootMessage* request, ::grpc::ServerAsyncResponseWriter< ::DownloadRootResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_uploadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_uploadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodAsync(18);
-    }
-    ~WithAsyncMethod_uploadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status uploadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestuploadOMAPMerkleRoot(::grpc::ServerContext* context, ::UploadRootMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_executeFabricCommand : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_executeFabricCommand() {
-      ::grpc::Service::MarkMethodAsync(19);
-    }
-    ~WithAsyncMethod_executeFabricCommand() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status executeFabricCommand(::grpc::ServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestexecuteFabricCommand(::grpc::ServerContext* context, ::CommandMessage* request, ::grpc::ServerAsyncResponseWriter< ::ResultMessage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_setup<WithAsyncMethod_createOMAP<WithAsyncMethod_readStore<WithAsyncMethod_writeInStore<WithAsyncMethod_update<WithAsyncMethod_batchUpdate<WithAsyncMethod_search<WithAsyncMethod_search1<WithAsyncMethod_addToFileCntQueue<WithAsyncMethod_batchAddToFileCntQueue<WithAsyncMethod_getFileCntDiff<WithAsyncMethod_updateMerkleRoot<WithAsyncMethod_getMerkleRoot<WithAsyncMethod_downloadStash<WithAsyncMethod_uploadStash<WithAsyncMethod_downloadOMAPRoot<WithAsyncMethod_uploadOMAPRoot<WithAsyncMethod_downloadOMAPMerkleRoot<WithAsyncMethod_uploadOMAPMerkleRoot<WithAsyncMethod_executeFabricCommand<Service > > > > > > > > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_setup<WithAsyncMethod_createOMAP<WithAsyncMethod_readStore<WithAsyncMethod_writeInStore<WithAsyncMethod_update<WithAsyncMethod_batchUpdate<WithAsyncMethod_search<WithAsyncMethod_search1<WithAsyncMethod_downloadStash<WithAsyncMethod_uploadStash<WithAsyncMethod_downloadOMAPRoot<WithAsyncMethod_uploadOMAPRoot<Service > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_setup : public BaseClass {
    private:
@@ -1730,241 +1218,6 @@ class Musse final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_addToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_addToFileCntQueue() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(8,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::AddFileCntQueueMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::AddFileCntQueueMessage* request, ::google::protobuf::Empty* response) { return this->addToFileCntQueue(context, request, response); }));}
-    void SetMessageAllocatorFor_addToFileCntQueue(
-        ::grpc::experimental::MessageAllocator< ::AddFileCntQueueMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::AddFileCntQueueMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_addToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status addToFileCntQueue(::grpc::ServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* addToFileCntQueue(
-      ::grpc::CallbackServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* addToFileCntQueue(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_batchAddToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_batchAddToFileCntQueue() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(9,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::BatchAddFileCntQueueMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::BatchAddFileCntQueueMessage* request, ::google::protobuf::Empty* response) { return this->batchAddToFileCntQueue(context, request, response); }));}
-    void SetMessageAllocatorFor_batchAddToFileCntQueue(
-        ::grpc::experimental::MessageAllocator< ::BatchAddFileCntQueueMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::BatchAddFileCntQueueMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_batchAddToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status batchAddToFileCntQueue(::grpc::ServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* batchAddToFileCntQueue(
-      ::grpc::CallbackServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* batchAddToFileCntQueue(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_getFileCntDiff : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_getFileCntDiff() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(10,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::FileCntQueueRequestMessage, ::FileCntDiffMessage>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::FileCntQueueRequestMessage* request, ::FileCntDiffMessage* response) { return this->getFileCntDiff(context, request, response); }));}
-    void SetMessageAllocatorFor_getFileCntDiff(
-        ::grpc::experimental::MessageAllocator< ::FileCntQueueRequestMessage, ::FileCntDiffMessage>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::FileCntQueueRequestMessage, ::FileCntDiffMessage>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_getFileCntDiff() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getFileCntDiff(::grpc::ServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* getFileCntDiff(
-      ::grpc::CallbackServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* getFileCntDiff(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_updateMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_updateMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(11,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMerkleRootMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::UpdateMerkleRootMessage* request, ::google::protobuf::Empty* response) { return this->updateMerkleRoot(context, request, response); }));}
-    void SetMessageAllocatorFor_updateMerkleRoot(
-        ::grpc::experimental::MessageAllocator< ::UpdateMerkleRootMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMerkleRootMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_updateMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status updateMerkleRoot(::grpc::ServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* updateMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* updateMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_getMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_getMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(12,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::GetMerkleRootMessage>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::google::protobuf::Empty* request, ::GetMerkleRootMessage* response) { return this->getMerkleRoot(context, request, response); }));}
-    void SetMessageAllocatorFor_getMerkleRoot(
-        ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::GetMerkleRootMessage>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::GetMerkleRootMessage>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_getMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getMerkleRoot(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* getMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* getMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
   class ExperimentalWithCallbackMethod_downloadStash : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -1975,7 +1228,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(13,
+        MarkMethodCallback(8,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::DownloadStashMessage, ::DownloadStashResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1987,9 +1240,9 @@ class Musse final {
     void SetMessageAllocatorFor_downloadStash(
         ::grpc::experimental::MessageAllocator< ::DownloadStashMessage, ::DownloadStashResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
     #endif
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::DownloadStashMessage, ::DownloadStashResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -2022,7 +1275,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(14,
+        MarkMethodCallback(9,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::UploadStashMessage, ::google::protobuf::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2034,9 +1287,9 @@ class Musse final {
     void SetMessageAllocatorFor_uploadStash(
         ::grpc::experimental::MessageAllocator< ::UploadStashMessage, ::google::protobuf::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
     #endif
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UploadStashMessage, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -2069,7 +1322,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(15,
+        MarkMethodCallback(10,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2081,9 +1334,9 @@ class Musse final {
     void SetMessageAllocatorFor_downloadOMAPRoot(
         ::grpc::experimental::MessageAllocator< ::DownloadRootMessage, ::DownloadRootResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
     #endif
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -2116,7 +1369,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(16,
+        MarkMethodCallback(11,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2128,9 +1381,9 @@ class Musse final {
     void SetMessageAllocatorFor_uploadOMAPRoot(
         ::grpc::experimental::MessageAllocator< ::UploadRootMessage, ::google::protobuf::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(16);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
     #endif
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -2152,152 +1405,11 @@ class Musse final {
     #endif
       { return nullptr; }
   };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_downloadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_downloadOMAPMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(17,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) { return this->downloadOMAPMerkleRoot(context, request, response); }));}
-    void SetMessageAllocatorFor_downloadOMAPMerkleRoot(
-        ::grpc::experimental::MessageAllocator< ::DownloadRootMessage, ::DownloadRootResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(17);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_downloadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status downloadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* downloadOMAPMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* downloadOMAPMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_uploadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_uploadOMAPMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(18,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) { return this->uploadOMAPMerkleRoot(context, request, response); }));}
-    void SetMessageAllocatorFor_uploadOMAPMerkleRoot(
-        ::grpc::experimental::MessageAllocator< ::UploadRootMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(18);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_uploadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status uploadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* uploadOMAPMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* uploadOMAPMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_executeFabricCommand : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_executeFabricCommand() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(19,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::CommandMessage, ::ResultMessage>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::CommandMessage* request, ::ResultMessage* response) { return this->executeFabricCommand(context, request, response); }));}
-    void SetMessageAllocatorFor_executeFabricCommand(
-        ::grpc::experimental::MessageAllocator< ::CommandMessage, ::ResultMessage>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(19);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(19);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::CommandMessage, ::ResultMessage>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_executeFabricCommand() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status executeFabricCommand(::grpc::ServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* executeFabricCommand(
-      ::grpc::CallbackServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* executeFabricCommand(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/)
-    #endif
-      { return nullptr; }
-  };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_createOMAP<ExperimentalWithCallbackMethod_readStore<ExperimentalWithCallbackMethod_writeInStore<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<ExperimentalWithCallbackMethod_search1<ExperimentalWithCallbackMethod_addToFileCntQueue<ExperimentalWithCallbackMethod_batchAddToFileCntQueue<ExperimentalWithCallbackMethod_getFileCntDiff<ExperimentalWithCallbackMethod_updateMerkleRoot<ExperimentalWithCallbackMethod_getMerkleRoot<ExperimentalWithCallbackMethod_downloadStash<ExperimentalWithCallbackMethod_uploadStash<ExperimentalWithCallbackMethod_downloadOMAPRoot<ExperimentalWithCallbackMethod_uploadOMAPRoot<ExperimentalWithCallbackMethod_downloadOMAPMerkleRoot<ExperimentalWithCallbackMethod_uploadOMAPMerkleRoot<ExperimentalWithCallbackMethod_executeFabricCommand<Service > > > > > > > > > > > > > > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_createOMAP<ExperimentalWithCallbackMethod_readStore<ExperimentalWithCallbackMethod_writeInStore<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<ExperimentalWithCallbackMethod_search1<ExperimentalWithCallbackMethod_downloadStash<ExperimentalWithCallbackMethod_uploadStash<ExperimentalWithCallbackMethod_downloadOMAPRoot<ExperimentalWithCallbackMethod_uploadOMAPRoot<Service > > > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_createOMAP<ExperimentalWithCallbackMethod_readStore<ExperimentalWithCallbackMethod_writeInStore<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<ExperimentalWithCallbackMethod_search1<ExperimentalWithCallbackMethod_addToFileCntQueue<ExperimentalWithCallbackMethod_batchAddToFileCntQueue<ExperimentalWithCallbackMethod_getFileCntDiff<ExperimentalWithCallbackMethod_updateMerkleRoot<ExperimentalWithCallbackMethod_getMerkleRoot<ExperimentalWithCallbackMethod_downloadStash<ExperimentalWithCallbackMethod_uploadStash<ExperimentalWithCallbackMethod_downloadOMAPRoot<ExperimentalWithCallbackMethod_uploadOMAPRoot<ExperimentalWithCallbackMethod_downloadOMAPMerkleRoot<ExperimentalWithCallbackMethod_uploadOMAPMerkleRoot<ExperimentalWithCallbackMethod_executeFabricCommand<Service > > > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_createOMAP<ExperimentalWithCallbackMethod_readStore<ExperimentalWithCallbackMethod_writeInStore<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<ExperimentalWithCallbackMethod_search1<ExperimentalWithCallbackMethod_downloadStash<ExperimentalWithCallbackMethod_uploadStash<ExperimentalWithCallbackMethod_downloadOMAPRoot<ExperimentalWithCallbackMethod_uploadOMAPRoot<Service > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_setup : public BaseClass {
    private:
@@ -2435,97 +1547,12 @@ class Musse final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_addToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_addToFileCntQueue() {
-      ::grpc::Service::MarkMethodGeneric(8);
-    }
-    ~WithGenericMethod_addToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status addToFileCntQueue(::grpc::ServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_batchAddToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_batchAddToFileCntQueue() {
-      ::grpc::Service::MarkMethodGeneric(9);
-    }
-    ~WithGenericMethod_batchAddToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status batchAddToFileCntQueue(::grpc::ServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_getFileCntDiff : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_getFileCntDiff() {
-      ::grpc::Service::MarkMethodGeneric(10);
-    }
-    ~WithGenericMethod_getFileCntDiff() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getFileCntDiff(::grpc::ServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_updateMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_updateMerkleRoot() {
-      ::grpc::Service::MarkMethodGeneric(11);
-    }
-    ~WithGenericMethod_updateMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status updateMerkleRoot(::grpc::ServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_getMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_getMerkleRoot() {
-      ::grpc::Service::MarkMethodGeneric(12);
-    }
-    ~WithGenericMethod_getMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getMerkleRoot(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
   class WithGenericMethod_downloadStash : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_downloadStash() {
-      ::grpc::Service::MarkMethodGeneric(13);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_downloadStash() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2542,7 +1569,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_uploadStash() {
-      ::grpc::Service::MarkMethodGeneric(14);
+      ::grpc::Service::MarkMethodGeneric(9);
     }
     ~WithGenericMethod_uploadStash() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2559,7 +1586,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_downloadOMAPRoot() {
-      ::grpc::Service::MarkMethodGeneric(15);
+      ::grpc::Service::MarkMethodGeneric(10);
     }
     ~WithGenericMethod_downloadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2576,64 +1603,13 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_uploadOMAPRoot() {
-      ::grpc::Service::MarkMethodGeneric(16);
+      ::grpc::Service::MarkMethodGeneric(11);
     }
     ~WithGenericMethod_uploadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
     ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_downloadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_downloadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodGeneric(17);
-    }
-    ~WithGenericMethod_downloadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status downloadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_uploadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_uploadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodGeneric(18);
-    }
-    ~WithGenericMethod_uploadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status uploadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_executeFabricCommand : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_executeFabricCommand() {
-      ::grpc::Service::MarkMethodGeneric(19);
-    }
-    ~WithGenericMethod_executeFabricCommand() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status executeFabricCommand(::grpc::ServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2799,112 +1775,12 @@ class Musse final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_addToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_addToFileCntQueue() {
-      ::grpc::Service::MarkMethodRaw(8);
-    }
-    ~WithRawMethod_addToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status addToFileCntQueue(::grpc::ServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestaddToFileCntQueue(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_batchAddToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_batchAddToFileCntQueue() {
-      ::grpc::Service::MarkMethodRaw(9);
-    }
-    ~WithRawMethod_batchAddToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status batchAddToFileCntQueue(::grpc::ServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestbatchAddToFileCntQueue(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_getFileCntDiff : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_getFileCntDiff() {
-      ::grpc::Service::MarkMethodRaw(10);
-    }
-    ~WithRawMethod_getFileCntDiff() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getFileCntDiff(::grpc::ServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestgetFileCntDiff(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_updateMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_updateMerkleRoot() {
-      ::grpc::Service::MarkMethodRaw(11);
-    }
-    ~WithRawMethod_updateMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status updateMerkleRoot(::grpc::ServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestupdateMerkleRoot(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_getMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_getMerkleRoot() {
-      ::grpc::Service::MarkMethodRaw(12);
-    }
-    ~WithRawMethod_getMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getMerkleRoot(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestgetMerkleRoot(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithRawMethod_downloadStash : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_downloadStash() {
-      ::grpc::Service::MarkMethodRaw(13);
+      ::grpc::Service::MarkMethodRaw(8);
     }
     ~WithRawMethod_downloadStash() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2915,7 +1791,7 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestdownloadStash(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2924,7 +1800,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_uploadStash() {
-      ::grpc::Service::MarkMethodRaw(14);
+      ::grpc::Service::MarkMethodRaw(9);
     }
     ~WithRawMethod_uploadStash() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2935,7 +1811,7 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestuploadStash(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2944,7 +1820,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_downloadOMAPRoot() {
-      ::grpc::Service::MarkMethodRaw(15);
+      ::grpc::Service::MarkMethodRaw(10);
     }
     ~WithRawMethod_downloadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2955,7 +1831,7 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestdownloadOMAPRoot(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2964,7 +1840,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_uploadOMAPRoot() {
-      ::grpc::Service::MarkMethodRaw(16);
+      ::grpc::Service::MarkMethodRaw(11);
     }
     ~WithRawMethod_uploadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2975,67 +1851,7 @@ class Musse final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestuploadOMAPRoot(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_downloadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_downloadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodRaw(17);
-    }
-    ~WithRawMethod_downloadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status downloadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestdownloadOMAPMerkleRoot(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_uploadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_uploadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodRaw(18);
-    }
-    ~WithRawMethod_uploadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status uploadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestuploadOMAPMerkleRoot(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_executeFabricCommand : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_executeFabricCommand() {
-      ::grpc::Service::MarkMethodRaw(19);
-    }
-    ~WithRawMethod_executeFabricCommand() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status executeFabricCommand(::grpc::ServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestexecuteFabricCommand(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3343,196 +2159,6 @@ class Musse final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_addToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_addToFileCntQueue() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(8,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->addToFileCntQueue(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_addToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status addToFileCntQueue(::grpc::ServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* addToFileCntQueue(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* addToFileCntQueue(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_batchAddToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_batchAddToFileCntQueue() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(9,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->batchAddToFileCntQueue(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_batchAddToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status batchAddToFileCntQueue(::grpc::ServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* batchAddToFileCntQueue(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* batchAddToFileCntQueue(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_getFileCntDiff : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_getFileCntDiff() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(10,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getFileCntDiff(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_getFileCntDiff() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getFileCntDiff(::grpc::ServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* getFileCntDiff(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* getFileCntDiff(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_updateMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_updateMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(11,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->updateMerkleRoot(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_updateMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status updateMerkleRoot(::grpc::ServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* updateMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* updateMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_getMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_getMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(12,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getMerkleRoot(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_getMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status getMerkleRoot(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* getMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* getMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_downloadStash : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -3543,7 +2169,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(13,
+        MarkMethodRawCallback(8,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3581,7 +2207,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(14,
+        MarkMethodRawCallback(9,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3619,7 +2245,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(15,
+        MarkMethodRawCallback(10,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3657,7 +2283,7 @@ class Musse final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(16,
+        MarkMethodRawCallback(11,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3680,120 +2306,6 @@ class Musse final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* uploadOMAPRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_downloadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_downloadOMAPMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(17,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->downloadOMAPMerkleRoot(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_downloadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status downloadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* downloadOMAPMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* downloadOMAPMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_uploadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_uploadOMAPMerkleRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(18,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->uploadOMAPMerkleRoot(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_uploadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status uploadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* uploadOMAPMerkleRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* uploadOMAPMerkleRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_executeFabricCommand : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_executeFabricCommand() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(19,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->executeFabricCommand(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_executeFabricCommand() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status executeFabricCommand(::grpc::ServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* executeFabricCommand(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* executeFabricCommand(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
@@ -3959,112 +2471,12 @@ class Musse final {
     virtual ::grpc::Status Streamedsearch1(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SearchMessage1,::SearchResponse1>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_addToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_addToFileCntQueue() {
-      ::grpc::Service::MarkMethodStreamed(8,
-        new ::grpc::internal::StreamedUnaryHandler< ::AddFileCntQueueMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_addToFileCntQueue<BaseClass>::StreamedaddToFileCntQueue, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_addToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status addToFileCntQueue(::grpc::ServerContext* /*context*/, const ::AddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedaddToFileCntQueue(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::AddFileCntQueueMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_batchAddToFileCntQueue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_batchAddToFileCntQueue() {
-      ::grpc::Service::MarkMethodStreamed(9,
-        new ::grpc::internal::StreamedUnaryHandler< ::BatchAddFileCntQueueMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_batchAddToFileCntQueue<BaseClass>::StreamedbatchAddToFileCntQueue, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_batchAddToFileCntQueue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status batchAddToFileCntQueue(::grpc::ServerContext* /*context*/, const ::BatchAddFileCntQueueMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedbatchAddToFileCntQueue(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::BatchAddFileCntQueueMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_getFileCntDiff : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_getFileCntDiff() {
-      ::grpc::Service::MarkMethodStreamed(10,
-        new ::grpc::internal::StreamedUnaryHandler< ::FileCntQueueRequestMessage, ::FileCntDiffMessage>(std::bind(&WithStreamedUnaryMethod_getFileCntDiff<BaseClass>::StreamedgetFileCntDiff, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_getFileCntDiff() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status getFileCntDiff(::grpc::ServerContext* /*context*/, const ::FileCntQueueRequestMessage* /*request*/, ::FileCntDiffMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedgetFileCntDiff(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::FileCntQueueRequestMessage,::FileCntDiffMessage>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_updateMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_updateMerkleRoot() {
-      ::grpc::Service::MarkMethodStreamed(11,
-        new ::grpc::internal::StreamedUnaryHandler< ::UpdateMerkleRootMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_updateMerkleRoot<BaseClass>::StreamedupdateMerkleRoot, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_updateMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status updateMerkleRoot(::grpc::ServerContext* /*context*/, const ::UpdateMerkleRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedupdateMerkleRoot(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UpdateMerkleRootMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_getMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_getMerkleRoot() {
-      ::grpc::Service::MarkMethodStreamed(12,
-        new ::grpc::internal::StreamedUnaryHandler< ::google::protobuf::Empty, ::GetMerkleRootMessage>(std::bind(&WithStreamedUnaryMethod_getMerkleRoot<BaseClass>::StreamedgetMerkleRoot, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_getMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status getMerkleRoot(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::GetMerkleRootMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedgetMerkleRoot(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::GetMerkleRootMessage>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_downloadStash : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_downloadStash() {
-      ::grpc::Service::MarkMethodStreamed(13,
+      ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler< ::DownloadStashMessage, ::DownloadStashResponse>(std::bind(&WithStreamedUnaryMethod_downloadStash<BaseClass>::StreameddownloadStash, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_downloadStash() override {
@@ -4084,7 +2496,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_uploadStash() {
-      ::grpc::Service::MarkMethodStreamed(14,
+      ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler< ::UploadStashMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_uploadStash<BaseClass>::StreameduploadStash, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_uploadStash() override {
@@ -4104,7 +2516,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_downloadOMAPRoot() {
-      ::grpc::Service::MarkMethodStreamed(15,
+      ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>(std::bind(&WithStreamedUnaryMethod_downloadOMAPRoot<BaseClass>::StreameddownloadOMAPRoot, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_downloadOMAPRoot() override {
@@ -4124,7 +2536,7 @@ class Musse final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_uploadOMAPRoot() {
-      ::grpc::Service::MarkMethodStreamed(16,
+      ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_uploadOMAPRoot<BaseClass>::StreameduploadOMAPRoot, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_uploadOMAPRoot() override {
@@ -4138,69 +2550,9 @@ class Musse final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreameduploadOMAPRoot(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UploadRootMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_downloadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_downloadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodStreamed(17,
-        new ::grpc::internal::StreamedUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>(std::bind(&WithStreamedUnaryMethod_downloadOMAPMerkleRoot<BaseClass>::StreameddownloadOMAPMerkleRoot, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_downloadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status downloadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreameddownloadOMAPMerkleRoot(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::DownloadRootMessage,::DownloadRootResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_uploadOMAPMerkleRoot : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_uploadOMAPMerkleRoot() {
-      ::grpc::Service::MarkMethodStreamed(18,
-        new ::grpc::internal::StreamedUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_uploadOMAPMerkleRoot<BaseClass>::StreameduploadOMAPMerkleRoot, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_uploadOMAPMerkleRoot() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status uploadOMAPMerkleRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreameduploadOMAPMerkleRoot(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UploadRootMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_executeFabricCommand : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_executeFabricCommand() {
-      ::grpc::Service::MarkMethodStreamed(19,
-        new ::grpc::internal::StreamedUnaryHandler< ::CommandMessage, ::ResultMessage>(std::bind(&WithStreamedUnaryMethod_executeFabricCommand<BaseClass>::StreamedexecuteFabricCommand, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_executeFabricCommand() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status executeFabricCommand(::grpc::ServerContext* /*context*/, const ::CommandMessage* /*request*/, ::ResultMessage* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedexecuteFabricCommand(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::CommandMessage,::ResultMessage>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_createOMAP<WithStreamedUnaryMethod_readStore<WithStreamedUnaryMethod_writeInStore<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<WithStreamedUnaryMethod_search1<WithStreamedUnaryMethod_addToFileCntQueue<WithStreamedUnaryMethod_batchAddToFileCntQueue<WithStreamedUnaryMethod_getFileCntDiff<WithStreamedUnaryMethod_updateMerkleRoot<WithStreamedUnaryMethod_getMerkleRoot<WithStreamedUnaryMethod_downloadStash<WithStreamedUnaryMethod_uploadStash<WithStreamedUnaryMethod_downloadOMAPRoot<WithStreamedUnaryMethod_uploadOMAPRoot<WithStreamedUnaryMethod_downloadOMAPMerkleRoot<WithStreamedUnaryMethod_uploadOMAPMerkleRoot<WithStreamedUnaryMethod_executeFabricCommand<Service > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_createOMAP<WithStreamedUnaryMethod_readStore<WithStreamedUnaryMethod_writeInStore<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<WithStreamedUnaryMethod_search1<WithStreamedUnaryMethod_downloadStash<WithStreamedUnaryMethod_uploadStash<WithStreamedUnaryMethod_downloadOMAPRoot<WithStreamedUnaryMethod_uploadOMAPRoot<Service > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_createOMAP<WithStreamedUnaryMethod_readStore<WithStreamedUnaryMethod_writeInStore<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<WithStreamedUnaryMethod_search1<WithStreamedUnaryMethod_addToFileCntQueue<WithStreamedUnaryMethod_batchAddToFileCntQueue<WithStreamedUnaryMethod_getFileCntDiff<WithStreamedUnaryMethod_updateMerkleRoot<WithStreamedUnaryMethod_getMerkleRoot<WithStreamedUnaryMethod_downloadStash<WithStreamedUnaryMethod_uploadStash<WithStreamedUnaryMethod_downloadOMAPRoot<WithStreamedUnaryMethod_uploadOMAPRoot<WithStreamedUnaryMethod_downloadOMAPMerkleRoot<WithStreamedUnaryMethod_uploadOMAPMerkleRoot<WithStreamedUnaryMethod_executeFabricCommand<Service > > > > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_createOMAP<WithStreamedUnaryMethod_readStore<WithStreamedUnaryMethod_writeInStore<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<WithStreamedUnaryMethod_search1<WithStreamedUnaryMethod_downloadStash<WithStreamedUnaryMethod_uploadStash<WithStreamedUnaryMethod_downloadOMAPRoot<WithStreamedUnaryMethod_uploadOMAPRoot<Service > > > > > > > > > > > > StreamedService;
 };
 
 

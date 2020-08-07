@@ -6,33 +6,12 @@ import "google/protobuf/empty.proto";
 service MKSE {
 
 rpc setup (SetupMessage) returns (google.protobuf.Empty) {}
-rpc createOMAP (CreateOMAPMessage) returns (google.protobuf.Empty) {}
-
-rpc readStore (ReadStoreRequest) returns (SearchResponse) {}
-rpc writeInStore (WriteStoreRequest) returns (SearchResponse) {}
 
 rpc update (UpdateMessage) returns (UpdateResponse) {}
 rpc batchUpdate (BatchUpdateMessage) returns (UpdateResponse) {}
 
 rpc search (SearchMessage) returns (SearchResponse) {}
 
-rpc addToFileCntQueue (AddFileCntQueueMessage) returns (google.protobuf.Empty) {}
-rpc batchAddToFileCntQueue (BatchAddFileCntQueueMessage) returns (google.protobuf.Empty) {}
-rpc getFileCntDiff (FileCntQueueRequestMessage) returns (FileCntDiffMessage) {}
-
-rpc updateMerkleRoot (UpdateMerkleRootMessage) returns (google.protobuf.Empty) {}
-rpc getMerkleRoot (google.protobuf.Empty) returns (GetMerkleRootMessage) {}
-
-rpc downloadStash (DownloadStashMessage) returns (DownloadStashResponse) {}
-rpc uploadStash (UploadStashMessage) returns (google.protobuf.Empty) {}
-
-rpc downloadOMAPRoot (DownloadRootMessage) returns (DownloadRootResponse) {}
-rpc uploadOMAPRoot (UploadRootMessage) returns (google.protobuf.Empty) {}
-
-rpc downloadOMAPMerkleRoot (DownloadRootMessage) returns (DownloadRootResponse) {}
-rpc uploadOMAPMerkleRoot (UploadRootMessage) returns (google.protobuf.Empty) {}
-
-rpc executeFabricCommand (CommandMessage) returns (ResultMessage) {}
 }
 
 message DownloadRootMessage{

@@ -42,8 +42,9 @@ int AVLTree::max(int a, int b) {
 Node* AVLTree::newNode(Bid key, string value) {
     Node* node = new Node();
     node->key = key;
-    std::fill(node->value.begin(), node->value.end(), 0);
-    std::copy(value.begin(), value.end(), node->value.begin());
+    // std::fill(node->value.begin(), node->value.end(), 0);
+    // std::copy(value.begin(), value.end(), node->value.begin());
+    node->value = stoi(value);
     node->leftID = 0;
     node->leftPos = -1;
     node->rightPos = -1;
@@ -130,8 +131,9 @@ Bid AVLTree::insert(Bid rootKey, int& pos, Bid key, string value) {
     } else if (key > node->key) {
         node->rightID = insert(node->rightID, node->rightPos, key, value);
     } else {
-        std::fill(node->value.begin(), node->value.end(), 0);
-        std::copy(value.begin(), value.end(), node->value.begin());
+        // std::fill(node->value.begin(), node->value.end(), 0);
+        // std::copy(value.begin(), value.end(), node->value.begin());
+        node->value = stoi(value);
         oram->WriteNode(rootKey, node);
         return node->key;
     }
@@ -243,8 +245,8 @@ void AVLTree::printTree(Node* root, int indent) {
             }
         }
 
-        string value;
-        value.assign(root->value.begin(), root->value.end());
+        string value = to_string(root->value);
+        // value.assign(root->value.begin(), root->value.end());
         printf("%d:%d:%s:%d:%d:%d:%d:%d\n", root->key.getValue(), root->height, value.c_str(), root->pos, root->leftID.getValue(), root->leftPos, root->rightID.getValue(), root->rightPos);
         //        cout << root->key << ":" << value.c_str() << ":" << root->pos << ":" << root->leftID << ":" << root->leftPos << ":" << root->rightID << ":" << root->rightPos << endl;
         if (root->rightID != 0)
@@ -307,23 +309,25 @@ int AVLTree::sortedArrayToBST(vector<Node*> nodes, int start, int end, int& pos,
 
 string AVLTree::incrementFileCnt(Node* head, Bid key) {
     if (head == NULL || head->key == 0)
-        return "";
+        return to_string(0);
     head = oram->ReadNode(head->key, head->pos, head->pos);
     if (head->key > key) {
         return incrementFileCnt(oram->ReadNode(head->leftID, head->leftPos, head->leftPos), key);
     } else if (head->key < key) {
         return incrementFileCnt(oram->ReadNode(head->rightID, head->rightPos, head->rightPos), key);
     } else {
-        string res(head->value.begin(), head->value.end());
-        string newval = "1";
-        if (res != "") {
+        // string res(head->value.begin(), head->value.end());
+        int res = head->value;
+        int newval = 1;
+        if (res != 0) {
             int fileCnt = 1;
-            fileCnt = stoi(res);
-            newval = to_string(fileCnt + 1);
+            fileCnt = res;
+            newval = fileCnt + 1;
         }
-        std::fill(head->value.begin(), head->value.end(), 0);
-        std::copy(newval.begin(), newval.end(), head->value.begin());
+        // std::fill(head->value.begin(), head->value.end(), 0);
+        // std::copy(newval.begin(), newval.end(), head->value.begin());
+        head->value = newval;
         oram->WriteNode(key, head);
-        return newval;
+        return to_string(newval);
     }
 }
