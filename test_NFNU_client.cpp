@@ -50,24 +50,28 @@ int main(int, char**) {
         auto item = testCase.filePairs[testCase.testKeywords[j]];
 
         //measuring search and update execution times
-        cout << "Search for Keyword With " << testCase.Qs[j] << " Result:" << endl;
-        user.searchCommunicationSize = 0;
+        // cout << "Search for Keyword With " << testCase.Qs[j] << " Result:" << endl;
+        // user.searchCommunicationSize = 0;
+        // for (int z = 0; z < 10; z++) {
+        //     Utilities::startTimer(500);
+        //     vector<int> res = userRunner.search1(testCase.testKeywords[j], &user);
+        //     time = Utilities::stopTimer(500);
+        //     cout << "Search Computation Time (microseconds):" << time << endl;
+        //     cout << "Number of return item:" << res.size() << endl;
+        // }
+        // Utilities::startTimer(500);
+        client.unshare(item[0], &user,&testCase);
+        // time = Utilities::stopTimer(500);
+        // cout << "Unsahre Time:" << time << endl;
         for (int z = 0; z < 10; z++) {
             Utilities::startTimer(500);
-            vector<int> res = userRunner.search1(testCase.testKeywords[j], &user);
+            for(uint i=0;i<testCase.sharefilesize;i++){
+                client.share(testCase.sharekeywords[j], item[0], &user);
+            }
+            //client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], &user);
             time = Utilities::stopTimer(500);
-            cout << "Search Computation Time (microseconds):" << time << endl;
-            cout << "Number of return item:" << res.size() << endl;
+            cout << "Share Time:" << time << endl;
         }
-        Utilities::startTimer(500);
-        client.unshare(item[0], &user,&testCase);
-        time = Utilities::stopTimer(500);
-        cout << "Unsahre Time:" << time << endl;
-        Utilities::startTimer(500);
-        client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], &user);
-        time = Utilities::stopTimer(500);
-        cout << "Share Time:" << time << endl;
-
     }
     cout << "************" << endl;
     return 0;

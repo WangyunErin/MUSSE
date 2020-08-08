@@ -60,15 +60,17 @@ int main(int, char**) {
         //     cout << "Number of return item:" << res.size() << endl;
         // }
         cout << "Share one document With " << testCase.sharefilesize << " Keywords"<< endl;
-        client.updateCommunicationSize = 0;
-        Utilities::startTimer(500);
-        for(uint i=0;i<testCase.sharefilesize;i++){
-            client.shareData(testCase.sharekeywords[i], item[0], user1.userID);
+        for (int z = 0; z < 10; z++) {      
+            client.updateCommunicationSize = 0;
+            Utilities::startTimer(500);
+            for(uint i=0;i<testCase.sharefilesize;i++){
+                client.shareData(testCase.sharekeywords[i], item[0], user1.userID);
+            }
+            // client.shareData(testCase.testKeywords[j], item[0], user1.userID);
+            time = Utilities::stopTimer(500);
+            cout << "Share Time:" << time << endl;
+            cout << "Share Communication Size:" << client.updateCommunicationSize << endl;
         }
-        // client.shareData(testCase.testKeywords[j], item[0], user1.userID);
-        time = Utilities::stopTimer(500);
-        cout << "Share Time:" << time << endl;
-        cout << "Share Communication Size:" << client.updateCommunicationSize << endl;
     }
     cout << "************" << endl;
     return 0;
