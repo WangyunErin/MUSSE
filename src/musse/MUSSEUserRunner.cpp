@@ -213,7 +213,7 @@ BlocksWithProof MusesUserRunner::writeInStore(vector<int> pos, vector<block> b, 
     for (unsigned int i = 0; i < pos.size(); i++) {
         message.add_pos(pos[i]);
         message.add_value((unsigned char*) b[i].data(), b[i].size());
-        // message.add_size(b[i].size());
+        message.add_size(b[i].size());
     }
 
     grpc::Status status = stub_->writeInStore(&context, message, &response);
