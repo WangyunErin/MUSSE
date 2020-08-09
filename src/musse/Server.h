@@ -17,13 +17,13 @@
 
 using namespace std;
 
-class ResultWithProof {
-public:
-    // int treeSize;
-    vector<prf_type> values;
-    vector<int> valuesPoses;
-    // map<int, unsigned char*> proofs;
-};
+// class ResultWithProof {
+// public:
+//     // int treeSize;
+//     vector<prf_type> values;
+//     vector<int> valuesPoses;
+//     // map<int, unsigned char*> proofs;
+// };
 
 class BlocksWithProof {
 public:

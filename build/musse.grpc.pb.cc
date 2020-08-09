@@ -11,9 +11,12 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
@@ -58,19 +61,27 @@ Musse::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void Musse::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::AsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::PrepareAsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage& request, ::google::protobuf::Empty* response) {
@@ -78,19 +89,27 @@ void Musse::Stub::experimental_async::setup(::grpc::ClientContext* context, cons
 }
 
 void Musse::Stub::experimental_async::createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createOMAP_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createOMAP_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createOMAP_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createOMAP_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_createOMAP_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_createOMAP_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::AsynccreateOMAPRaw(::grpc::ClientContext* context, const ::CreateOMAPMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_createOMAP_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_createOMAP_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::PrepareAsynccreateOMAPRaw(::grpc::ClientContext* context, const ::CreateOMAPMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_createOMAP_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_createOMAP_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::readStore(::grpc::ClientContext* context, const ::ReadStoreRequest& request, ::SearchResponse* response) {
@@ -98,19 +117,27 @@ void Musse::Stub::experimental_async::createOMAP(::grpc::ClientContext* context,
 }
 
 void Musse::Stub::experimental_async::readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_readStore_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_readStore_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_readStore_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_readStore_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_readStore_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_readStore_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* Musse::Stub::AsyncreadStoreRaw(::grpc::ClientContext* context, const ::ReadStoreRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_readStore_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_readStore_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* Musse::Stub::PrepareAsyncreadStoreRaw(::grpc::ClientContext* context, const ::ReadStoreRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_readStore_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_readStore_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest& request, ::SearchResponse* response) {
@@ -118,59 +145,83 @@ void Musse::Stub::experimental_async::readStore(::grpc::ClientContext* context, 
 }
 
 void Musse::Stub::experimental_async::writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_writeInStore_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_writeInStore_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_writeInStore_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_writeInStore_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_writeInStore_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_writeInStore_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* Musse::Stub::AsyncwriteInStoreRaw(::grpc::ClientContext* context, const ::WriteStoreRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_writeInStore_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_writeInStore_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* Musse::Stub::PrepareAsyncwriteInStoreRaw(::grpc::ClientContext* context, const ::WriteStoreRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_writeInStore_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_writeInStore_, context, request, false);
 }
 
-::grpc::Status Musse::Stub::update(::grpc::ClientContext* context, const ::UpdateMessage& request, ::UpdateResponse* response) {
+::grpc::Status Musse::Stub::update(::grpc::ClientContext* context, const ::UpdateMessage& request, ::google::protobuf::Empty* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_update_, context, request, response);
 }
 
-void Musse::Stub::experimental_async::update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
+void Musse::Stub::experimental_async::update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
 }
 
-void Musse::Stub::experimental_async::update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
+void Musse::Stub::experimental_async::update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::UpdateResponse>* Musse::Stub::AsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_update_, context, request, true);
+void Musse::Stub::experimental_async::update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::UpdateResponse>* Musse::Stub::PrepareAsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_update_, context, request, false);
+void Musse::Stub::experimental_async::update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, reactor);
 }
 
-::grpc::Status Musse::Stub::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::UpdateResponse* response) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::AsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_update_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::PrepareAsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_update_, context, request, false);
+}
+
+::grpc::Status Musse::Stub::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::google::protobuf::Empty* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_batchUpdate_, context, request, response);
 }
 
-void Musse::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
+void Musse::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
 }
 
-void Musse::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
+void Musse::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::UpdateResponse>* Musse::Stub::AsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, true);
+void Musse::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::UpdateResponse>* Musse::Stub::PrepareAsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, false);
+void Musse::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::AsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::PrepareAsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::search(::grpc::ClientContext* context, const ::SearchMessage& request, ::SearchResponse* response) {
@@ -178,19 +229,27 @@ void Musse::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context
 }
 
 void Musse::Stub::experimental_async::search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* Musse::Stub::AsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* Musse::Stub::PrepareAsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::search1(::grpc::ClientContext* context, const ::SearchMessage1& request, ::SearchResponse1* response) {
@@ -198,19 +257,27 @@ void Musse::Stub::experimental_async::search(::grpc::ClientContext* context, con
 }
 
 void Musse::Stub::experimental_async::search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search1_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search1_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search1_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search1_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_search1_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_search1_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse1>* Musse::Stub::Asyncsearch1Raw(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse1>::Create(channel_.get(), cq, rpcmethod_search1_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse1>::Create(channel_.get(), cq, rpcmethod_search1_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse1>* Musse::Stub::PrepareAsyncsearch1Raw(::grpc::ClientContext* context, const ::SearchMessage1& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse1>::Create(channel_.get(), cq, rpcmethod_search1_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse1>::Create(channel_.get(), cq, rpcmethod_search1_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::DownloadStashResponse* response) {
@@ -218,19 +285,27 @@ void Musse::Stub::experimental_async::search1(::grpc::ClientContext* context, co
 }
 
 void Musse::Stub::experimental_async::downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadStash_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadStash_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadStash_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadStash_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_downloadStash_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_downloadStash_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::DownloadStashResponse>* Musse::Stub::AsyncdownloadStashRaw(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::DownloadStashResponse>::Create(channel_.get(), cq, rpcmethod_downloadStash_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::DownloadStashResponse>::Create(channel_.get(), cq, rpcmethod_downloadStash_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::DownloadStashResponse>* Musse::Stub::PrepareAsyncdownloadStashRaw(::grpc::ClientContext* context, const ::DownloadStashMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::DownloadStashResponse>::Create(channel_.get(), cq, rpcmethod_downloadStash_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::DownloadStashResponse>::Create(channel_.get(), cq, rpcmethod_downloadStash_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage& request, ::google::protobuf::Empty* response) {
@@ -238,19 +313,27 @@ void Musse::Stub::experimental_async::downloadStash(::grpc::ClientContext* conte
 }
 
 void Musse::Stub::experimental_async::uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadStash_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadStash_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadStash_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadStash_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_uploadStash_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_uploadStash_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::AsyncuploadStashRaw(::grpc::ClientContext* context, const ::UploadStashMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadStash_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadStash_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::PrepareAsyncuploadStashRaw(::grpc::ClientContext* context, const ::UploadStashMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadStash_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadStash_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::DownloadRootResponse* response) {
@@ -258,19 +341,27 @@ void Musse::Stub::experimental_async::uploadStash(::grpc::ClientContext* context
 }
 
 void Musse::Stub::experimental_async::downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadOMAPRoot_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadOMAPRoot_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadOMAPRoot_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_downloadOMAPRoot_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_downloadOMAPRoot_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_downloadOMAPRoot_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>* Musse::Stub::AsyncdownloadOMAPRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::DownloadRootResponse>::Create(channel_.get(), cq, rpcmethod_downloadOMAPRoot_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::DownloadRootResponse>::Create(channel_.get(), cq, rpcmethod_downloadOMAPRoot_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::DownloadRootResponse>* Musse::Stub::PrepareAsyncdownloadOMAPRootRaw(::grpc::ClientContext* context, const ::DownloadRootMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::DownloadRootResponse>::Create(channel_.get(), cq, rpcmethod_downloadOMAPRoot_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::DownloadRootResponse>::Create(channel_.get(), cq, rpcmethod_downloadOMAPRoot_, context, request, false);
 }
 
 ::grpc::Status Musse::Stub::uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::google::protobuf::Empty* response) {
@@ -278,19 +369,27 @@ void Musse::Stub::experimental_async::downloadOMAPRoot(::grpc::ClientContext* co
 }
 
 void Musse::Stub::experimental_async::uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadOMAPRoot_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadOMAPRoot_, context, request, response, std::move(f));
 }
 
 void Musse::Stub::experimental_async::uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadOMAPRoot_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_uploadOMAPRoot_, context, request, response, std::move(f));
+}
+
+void Musse::Stub::experimental_async::uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_uploadOMAPRoot_, context, request, response, reactor);
+}
+
+void Musse::Stub::experimental_async::uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_uploadOMAPRoot_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::AsyncuploadOMAPRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadOMAPRoot_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadOMAPRoot_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Musse::Stub::PrepareAsyncuploadOMAPRootRaw(::grpc::ClientContext* context, const ::UploadRootMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadOMAPRoot_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_uploadOMAPRoot_, context, request, false);
 }
 
 Musse::Service::Service() {
@@ -317,12 +416,12 @@ Musse::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Musse_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Musse::Service, ::UpdateMessage, ::UpdateResponse>(
+      new ::grpc::internal::RpcMethodHandler< Musse::Service, ::UpdateMessage, ::google::protobuf::Empty>(
           std::mem_fn(&Musse::Service::update), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Musse_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Musse::Service, ::BatchUpdateMessage, ::UpdateResponse>(
+      new ::grpc::internal::RpcMethodHandler< Musse::Service, ::BatchUpdateMessage, ::google::protobuf::Empty>(
           std::mem_fn(&Musse::Service::batchUpdate), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Musse_method_names[6],
@@ -387,14 +486,14 @@ Musse::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Musse::Service::update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::UpdateResponse* response) {
+::grpc::Status Musse::Service::update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Musse::Service::batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response) {
+::grpc::Status Musse::Service::batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

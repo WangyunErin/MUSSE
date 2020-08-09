@@ -21,8 +21,8 @@ public:
     grpc::Status createOMAP(grpc::ServerContext* context, const CreateOMAPMessage* request, google::protobuf::Empty* e);
     grpc::Status readStore(grpc::ServerContext* context, const ReadStoreRequest* request, SearchResponse* response);
     grpc::Status writeInStore(grpc::ServerContext* context, const WriteStoreRequest* request, SearchResponse* e);
-    grpc::Status update(grpc::ServerContext* context, const UpdateMessage* request, UpdateResponse* response);
-    grpc::Status batchUpdate(grpc::ServerContext* context, const BatchUpdateMessage* request, UpdateResponse* response);
+    grpc::Status update(grpc::ServerContext* context, const UpdateMessage* request, google::protobuf::Empty* e);
+    grpc::Status batchUpdate(grpc::ServerContext* context, const BatchUpdateMessage* request, google::protobuf::Empty* e);
     grpc::Status search(grpc::ServerContext* context, const SearchMessage* mes, SearchResponse* res);
     grpc::Status search1(grpc::ServerContext* context, const SearchMessage1* mes, SearchResponse1* res);
     // grpc::Status updateMerkleRoot(grpc::ServerContext* context, const UpdateMerkleRootMessage* mes, google::protobuf::Empty* e);

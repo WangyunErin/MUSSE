@@ -39,7 +39,7 @@ MusesOwnerRunner::~MusesOwnerRunner() {
 int MusesOwnerRunner::share(std::string keyword, int index, QueueBasedUser* user) {//index is document id
     grpc::ClientContext context;
     UpdateMessage message;
-    UpdateResponse response;
+    google::protobuf::Empty e;
     prf_type addr, val;
     int curUserID = user->userID;
 
@@ -59,7 +59,7 @@ int MusesOwnerRunner::share(std::string keyword, int index, QueueBasedUser* user
         message.set_address(addr.data(), addr.size());
         message.set_value(val.data(), val.size());
 
-        grpc::Status status = stub_->update(&context, message, &response);
+        grpc::Status status = stub_->update(&context, message, &e);
 
         if (!status.ok()) {
             cout << "Update failed:" << std::endl;
@@ -72,7 +72,7 @@ int MusesOwnerRunner::share(std::string keyword, int index, QueueBasedUser* user
 int MusesOwnerRunner::share(std::string keyword, int index, int curUserID) {//index is document id, for OMAP
     grpc::ClientContext context;
     UpdateMessage message;
-    UpdateResponse response;
+    google::protobuf::Empty e;
     prf_type addr, val;
 
     if (accessList.count(curUserID) == 0) {
@@ -89,7 +89,7 @@ int MusesOwnerRunner::share(std::string keyword, int index, int curUserID) {//in
         message.set_address(addr.data(), addr.size());
         message.set_value(val.data(), val.size());
 
-        grpc::Status status = stub_->update(&context, message, &response);
+        grpc::Status status = stub_->update(&context, message, &e);
 
         if (!status.ok()) {
             cout << "Update failed:" << std::endl;
@@ -192,7 +192,7 @@ void MusesOwnerRunner::endSetup() {
     client_->setupMode = false;
     grpc::ClientContext context;
     BatchUpdateMessage message;
-    UpdateResponse response;
+    google::protobuf::Empty e;
     for (auto keyValue : setupPairs) {
         prf_type addr = keyValue.first;
         prf_type val = keyValue.second;
@@ -200,7 +200,7 @@ void MusesOwnerRunner::endSetup() {
         message.add_value(val.data(), val.size());
     }
 
-    grpc::Status status = stub_->batchUpdate(&context, message, &response);
+    grpc::Status status = stub_->batchUpdate(&context, message, &e);
 
     if (!status.ok()) {
         cout << "Update failed:" << std::endl;
@@ -217,7 +217,7 @@ void MusesOwnerRunner::endSetup(QueueBasedUser* user) {
     client_->endSetup(user);
     grpc::ClientContext context;
     BatchUpdateMessage message;
-    UpdateResponse response;
+    google::protobuf::Empty e;
     for (auto keyValue : setupPairs) {
         prf_type addr = keyValue.first;
         prf_type val = keyValue.second;
@@ -225,7 +225,7 @@ void MusesOwnerRunner::endSetup(QueueBasedUser* user) {
         message.add_value(val.data(), val.size());
     }
 
-    grpc::Status status = stub_->batchUpdate(&context, message, &response);
+    grpc::Status status = stub_->batchUpdate(&context, message, &e);
 
     if (!status.ok()) {
         cout << "Update failed:" << std::endl;

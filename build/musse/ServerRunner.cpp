@@ -16,7 +16,7 @@ grpc::Status MusesServerRunner::createOMAP(grpc::ServerContext* context, const C
     return grpc::Status::OK;
 }
 
-grpc::Status MusesServerRunner::update(grpc::ServerContext* context, const UpdateMessage* mes, UpdateResponse* response) {
+grpc::Status MusesServerRunner::update(grpc::ServerContext* context, const UpdateMessage* mes, google::protobuf::Empty* e) {
     if (!server_) {
         //  the server is already set up
         return grpc::Status(grpc::FAILED_PRECONDITION, "The server is not set up");
@@ -30,7 +30,7 @@ grpc::Status MusesServerRunner::update(grpc::ServerContext* context, const Updat
     return grpc::Status::OK;
 }
 
-grpc::Status MusesServerRunner::batchUpdate(grpc::ServerContext* context, const BatchUpdateMessage* mes, UpdateResponse* response) {
+grpc::Status MusesServerRunner::batchUpdate(grpc::ServerContext* context, const BatchUpdateMessage* mes, google::protobuf::Empty* e) {
     if (!server_) {
         // the server is already set up
         return grpc::Status(grpc::FAILED_PRECONDITION, "The server is not set up");
