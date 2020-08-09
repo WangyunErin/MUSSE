@@ -11,12 +11,9 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
@@ -45,27 +42,19 @@ MKSE::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void MKSE::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
 }
 
 void MKSE::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
-}
-
-void MKSE::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, reactor);
-}
-
-void MKSE::Stub::experimental_async::setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_setup_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* MKSE::Stub::AsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* MKSE::Stub::PrepareAsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_setup_, context, request, false);
 }
 
 ::grpc::Status MKSE::Stub::update(::grpc::ClientContext* context, const ::UpdateMessage& request, ::UpdateResponse* response) {
@@ -73,27 +62,19 @@ void MKSE::Stub::experimental_async::setup(::grpc::ClientContext* context, const
 }
 
 void MKSE::Stub::experimental_async::update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
 }
 
 void MKSE::Stub::experimental_async::update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
-}
-
-void MKSE::Stub::experimental_async::update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, reactor);
-}
-
-void MKSE::Stub::experimental_async::update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_update_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* MKSE::Stub::AsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_update_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_update_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* MKSE::Stub::PrepareAsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_update_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_update_, context, request, false);
 }
 
 ::grpc::Status MKSE::Stub::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::UpdateResponse* response) {
@@ -101,27 +82,19 @@ void MKSE::Stub::experimental_async::update(::grpc::ClientContext* context, cons
 }
 
 void MKSE::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
 }
 
 void MKSE::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
-}
-
-void MKSE::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, reactor);
-}
-
-void MKSE::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_batchUpdate_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* MKSE::Stub::AsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* MKSE::Stub::PrepareAsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_batchUpdate_, context, request, false);
 }
 
 ::grpc::Status MKSE::Stub::search(::grpc::ClientContext* context, const ::SearchMessage& request, ::SearchResponse* response) {
@@ -129,27 +102,19 @@ void MKSE::Stub::experimental_async::batchUpdate(::grpc::ClientContext* context,
 }
 
 void MKSE::Stub::experimental_async::search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
 }
 
 void MKSE::Stub::experimental_async::search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
-}
-
-void MKSE::Stub::experimental_async::search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, reactor);
-}
-
-void MKSE::Stub::experimental_async::search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_search_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* MKSE::Stub::AsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::SearchResponse>* MKSE::Stub::PrepareAsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SearchResponse>::Create(channel_.get(), cq, rpcmethod_search_, context, request, false);
 }
 
 MKSE::Service::Service() {
