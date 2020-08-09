@@ -64,10 +64,13 @@ int main(int, char**) {
         // time = Utilities::stopTimer(500);
         // cout << "Unsahre Time:" << time << endl;
         for (int z = 0; z < 10; z++) {
+            client.beginSetup();
             Utilities::startTimer(500);
+            //client.beginSetup();
             for(uint i=0;i<testCase.sharefilesize;i++){
                 client.share(testCase.sharekeywords[i], item[0], &user);
             }
+            client.endSetup();
             //client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], &user);
             time = Utilities::stopTimer(500);
             cout << "Share Time:" << time << endl;
