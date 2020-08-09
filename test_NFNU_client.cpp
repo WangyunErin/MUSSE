@@ -66,7 +66,7 @@ int main(int, char**) {
         for (int z = 0; z < 10; z++) {
             Utilities::startTimer(500);
             for(uint i=0;i<testCase.sharefilesize;i++){
-                client.share(testCase.sharekeywords[j], item[0], &user);
+                client.share(testCase.sharekeywords[i], item[0], &user);
             }
             //client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], &user);
             time = Utilities::stopTimer(500);
