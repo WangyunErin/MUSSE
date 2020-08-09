@@ -7,24 +7,25 @@
 #include "musse.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
+
+namespace grpc {
+class CompletionQueue;
+class Channel;
+class ServerCompletionQueue;
+class ServerContext;
+}  // namespace grpc
 
 class Musse final {
  public:
@@ -123,155 +124,29 @@ class Musse final {
       virtual ~experimental_async_interface() {}
       virtual void setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, std::function<void(::grpc::Status)>) = 0;
       virtual void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) = 0;
@@ -391,148 +266,28 @@ class Musse final {
      public:
       void setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void setup(::grpc::ClientContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void createOMAP(::grpc::ClientContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void createOMAP(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
       void readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void readStore(::grpc::ClientContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void readStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
       void writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void writeInStore(::grpc::ClientContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void writeInStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
       void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, std::function<void(::grpc::Status)>) override;
       void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void search1(::grpc::ClientContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void search1(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse1* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) override;
       void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void downloadStash(::grpc::ClientContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void downloadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadStashResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void uploadStash(::grpc::ClientContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void uploadStash(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) override;
       void downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void downloadOMAPRoot(::grpc::ClientContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void downloadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::DownloadRootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void uploadOMAPRoot(::grpc::ClientContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void uploadOMAPRoot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -603,7 +358,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_setup : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_setup() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -612,7 +367,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status setup(::grpc::ServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -623,7 +378,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_createOMAP : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_createOMAP() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -632,7 +387,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status createOMAP(::grpc::ServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status createOMAP(::grpc::ServerContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -643,7 +398,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_readStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_readStore() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -652,7 +407,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status readStore(::grpc::ServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status readStore(::grpc::ServerContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -663,7 +418,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_writeInStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_writeInStore() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -672,7 +427,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status writeInStore(::grpc::ServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status writeInStore(::grpc::ServerContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -683,7 +438,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_update() {
       ::grpc::Service::MarkMethodAsync(4);
@@ -692,7 +447,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -703,7 +458,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_batchUpdate : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_batchUpdate() {
       ::grpc::Service::MarkMethodAsync(5);
@@ -712,7 +467,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -723,7 +478,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_search : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_search() {
       ::grpc::Service::MarkMethodAsync(6);
@@ -732,7 +487,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search(::grpc::ServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -743,7 +498,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_search1 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_search1() {
       ::grpc::Service::MarkMethodAsync(7);
@@ -752,7 +507,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search1(::grpc::ServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/) override {
+    ::grpc::Status search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -763,7 +518,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_downloadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_downloadStash() {
       ::grpc::Service::MarkMethodAsync(8);
@@ -772,7 +527,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadStash(::grpc::ServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/) override {
+    ::grpc::Status downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -783,7 +538,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_uploadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_uploadStash() {
       ::grpc::Service::MarkMethodAsync(9);
@@ -792,7 +547,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadStash(::grpc::ServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -803,7 +558,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_downloadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_downloadOMAPRoot() {
       ::grpc::Service::MarkMethodAsync(10);
@@ -812,7 +567,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
+    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -823,7 +578,7 @@ class Musse final {
   template <class BaseClass>
   class WithAsyncMethod_uploadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_uploadOMAPRoot() {
       ::grpc::Service::MarkMethodAsync(11);
@@ -832,7 +587,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -844,576 +599,308 @@ class Musse final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_setup : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_setup() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::SetupMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::SetupMessage* request, ::google::protobuf::Empty* response) { return this->setup(context, request, response); }));}
-    void SetMessageAllocatorFor_setup(
-        ::grpc::experimental::MessageAllocator< ::SetupMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::SetupMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::SetupMessage, ::google::protobuf::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::SetupMessage* request,
+                 ::google::protobuf::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->setup(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_setup() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status setup(::grpc::ServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* setup(
-      ::grpc::CallbackServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* setup(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_createOMAP : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_createOMAP() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::CreateOMAPMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response) { return this->createOMAP(context, request, response); }));}
-    void SetMessageAllocatorFor_createOMAP(
-        ::grpc::experimental::MessageAllocator< ::CreateOMAPMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::CreateOMAPMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::CreateOMAPMessage, ::google::protobuf::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::CreateOMAPMessage* request,
+                 ::google::protobuf::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->createOMAP(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_createOMAP() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status createOMAP(::grpc::ServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status createOMAP(::grpc::ServerContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* createOMAP(
-      ::grpc::CallbackServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* createOMAP(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void createOMAP(::grpc::ServerContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_readStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_readStore() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ReadStoreRequest, ::SearchResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ReadStoreRequest* request, ::SearchResponse* response) { return this->readStore(context, request, response); }));}
-    void SetMessageAllocatorFor_readStore(
-        ::grpc::experimental::MessageAllocator< ::ReadStoreRequest, ::SearchResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ReadStoreRequest, ::SearchResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::ReadStoreRequest, ::SearchResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ReadStoreRequest* request,
+                 ::SearchResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->readStore(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_readStore() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status readStore(::grpc::ServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status readStore(::grpc::ServerContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* readStore(
-      ::grpc::CallbackServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* readStore(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void readStore(::grpc::ServerContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_writeInStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_writeInStore() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::WriteStoreRequest, ::SearchResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::WriteStoreRequest* request, ::SearchResponse* response) { return this->writeInStore(context, request, response); }));}
-    void SetMessageAllocatorFor_writeInStore(
-        ::grpc::experimental::MessageAllocator< ::WriteStoreRequest, ::SearchResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::WriteStoreRequest, ::SearchResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::WriteStoreRequest, ::SearchResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::WriteStoreRequest* request,
+                 ::SearchResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->writeInStore(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_writeInStore() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status writeInStore(::grpc::ServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status writeInStore(::grpc::ServerContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* writeInStore(
-      ::grpc::CallbackServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* writeInStore(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void writeInStore(::grpc::ServerContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_update() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) { return this->update(context, request, response); }));}
-    void SetMessageAllocatorFor_update(
-        ::grpc::experimental::MessageAllocator< ::UpdateMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::UpdateMessage, ::google::protobuf::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::UpdateMessage* request,
+                 ::google::protobuf::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->update(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* update(
-      ::grpc::CallbackServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* update(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_batchUpdate : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_batchUpdate() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::BatchUpdateMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) { return this->batchUpdate(context, request, response); }));}
-    void SetMessageAllocatorFor_batchUpdate(
-        ::grpc::experimental::MessageAllocator< ::BatchUpdateMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::BatchUpdateMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::BatchUpdateMessage, ::google::protobuf::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::BatchUpdateMessage* request,
+                 ::google::protobuf::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->batchUpdate(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_batchUpdate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* batchUpdate(
-      ::grpc::CallbackServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* batchUpdate(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_search : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_search() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(6,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::SearchMessage, ::SearchResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::SearchMessage* request, ::SearchResponse* response) { return this->search(context, request, response); }));}
-    void SetMessageAllocatorFor_search(
-        ::grpc::experimental::MessageAllocator< ::SearchMessage, ::SearchResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::SearchMessage, ::SearchResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::SearchMessage, ::SearchResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::SearchMessage* request,
+                 ::SearchResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->search(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_search() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search(::grpc::ServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* search(
-      ::grpc::CallbackServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* search(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_search1 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_search1() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(7,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::SearchMessage1, ::SearchResponse1>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::SearchMessage1* request, ::SearchResponse1* response) { return this->search1(context, request, response); }));}
-    void SetMessageAllocatorFor_search1(
-        ::grpc::experimental::MessageAllocator< ::SearchMessage1, ::SearchResponse1>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::SearchMessage1, ::SearchResponse1>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::SearchMessage1, ::SearchResponse1>(
+          [this](::grpc::ServerContext* context,
+                 const ::SearchMessage1* request,
+                 ::SearchResponse1* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->search1(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_search1() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search1(::grpc::ServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/) override {
+    ::grpc::Status search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* search1(
-      ::grpc::CallbackServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* search1(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_downloadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_downloadStash() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(8,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::DownloadStashMessage, ::DownloadStashResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response) { return this->downloadStash(context, request, response); }));}
-    void SetMessageAllocatorFor_downloadStash(
-        ::grpc::experimental::MessageAllocator< ::DownloadStashMessage, ::DownloadStashResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::DownloadStashMessage, ::DownloadStashResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(8,
+        new ::grpc::internal::CallbackUnaryHandler< ::DownloadStashMessage, ::DownloadStashResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::DownloadStashMessage* request,
+                 ::DownloadStashResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->downloadStash(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_downloadStash() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadStash(::grpc::ServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/) override {
+    ::grpc::Status downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* downloadStash(
-      ::grpc::CallbackServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* downloadStash(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_uploadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_uploadStash() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(9,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::UploadStashMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response) { return this->uploadStash(context, request, response); }));}
-    void SetMessageAllocatorFor_uploadStash(
-        ::grpc::experimental::MessageAllocator< ::UploadStashMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UploadStashMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(9,
+        new ::grpc::internal::CallbackUnaryHandler< ::UploadStashMessage, ::google::protobuf::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::UploadStashMessage* request,
+                 ::google::protobuf::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->uploadStash(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_uploadStash() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadStash(::grpc::ServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* uploadStash(
-      ::grpc::CallbackServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* uploadStash(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_downloadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_downloadOMAPRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(10,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) { return this->downloadOMAPRoot(context, request, response); }));}
-    void SetMessageAllocatorFor_downloadOMAPRoot(
-        ::grpc::experimental::MessageAllocator< ::DownloadRootMessage, ::DownloadRootResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(10,
+        new ::grpc::internal::CallbackUnaryHandler< ::DownloadRootMessage, ::DownloadRootResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::DownloadRootMessage* request,
+                 ::DownloadRootResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->downloadOMAPRoot(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_downloadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
+    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* downloadOMAPRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* downloadOMAPRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_uploadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_uploadOMAPRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(11,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) { return this->uploadOMAPRoot(context, request, response); }));}
-    void SetMessageAllocatorFor_uploadOMAPRoot(
-        ::grpc::experimental::MessageAllocator< ::UploadRootMessage, ::google::protobuf::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(11,
+        new ::grpc::internal::CallbackUnaryHandler< ::UploadRootMessage, ::google::protobuf::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::UploadRootMessage* request,
+                 ::google::protobuf::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->uploadOMAPRoot(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_uploadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* uploadOMAPRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* uploadOMAPRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_createOMAP<ExperimentalWithCallbackMethod_readStore<ExperimentalWithCallbackMethod_writeInStore<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<ExperimentalWithCallbackMethod_search1<ExperimentalWithCallbackMethod_downloadStash<ExperimentalWithCallbackMethod_uploadStash<ExperimentalWithCallbackMethod_downloadOMAPRoot<ExperimentalWithCallbackMethod_uploadOMAPRoot<Service > > > > > > > > > > > > CallbackService;
-  #endif
-
   typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_createOMAP<ExperimentalWithCallbackMethod_readStore<ExperimentalWithCallbackMethod_writeInStore<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<ExperimentalWithCallbackMethod_search1<ExperimentalWithCallbackMethod_downloadStash<ExperimentalWithCallbackMethod_uploadStash<ExperimentalWithCallbackMethod_downloadOMAPRoot<ExperimentalWithCallbackMethod_uploadOMAPRoot<Service > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_setup : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_setup() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -1422,7 +909,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status setup(::grpc::ServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1430,7 +917,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_createOMAP : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_createOMAP() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -1439,7 +926,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status createOMAP(::grpc::ServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status createOMAP(::grpc::ServerContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1447,7 +934,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_readStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_readStore() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -1456,7 +943,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status readStore(::grpc::ServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status readStore(::grpc::ServerContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1464,7 +951,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_writeInStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_writeInStore() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -1473,7 +960,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status writeInStore(::grpc::ServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status writeInStore(::grpc::ServerContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1481,7 +968,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_update() {
       ::grpc::Service::MarkMethodGeneric(4);
@@ -1490,7 +977,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1498,7 +985,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_batchUpdate : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_batchUpdate() {
       ::grpc::Service::MarkMethodGeneric(5);
@@ -1507,7 +994,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1515,7 +1002,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_search : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_search() {
       ::grpc::Service::MarkMethodGeneric(6);
@@ -1524,7 +1011,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search(::grpc::ServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1532,7 +1019,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_search1 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_search1() {
       ::grpc::Service::MarkMethodGeneric(7);
@@ -1541,7 +1028,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search1(::grpc::ServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/) override {
+    ::grpc::Status search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1549,7 +1036,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_downloadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_downloadStash() {
       ::grpc::Service::MarkMethodGeneric(8);
@@ -1558,7 +1045,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadStash(::grpc::ServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/) override {
+    ::grpc::Status downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1566,7 +1053,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_uploadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_uploadStash() {
       ::grpc::Service::MarkMethodGeneric(9);
@@ -1575,7 +1062,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadStash(::grpc::ServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1583,7 +1070,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_downloadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_downloadOMAPRoot() {
       ::grpc::Service::MarkMethodGeneric(10);
@@ -1592,7 +1079,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
+    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1600,7 +1087,7 @@ class Musse final {
   template <class BaseClass>
   class WithGenericMethod_uploadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_uploadOMAPRoot() {
       ::grpc::Service::MarkMethodGeneric(11);
@@ -1609,7 +1096,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1617,7 +1104,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_setup : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_setup() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -1626,7 +1113,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status setup(::grpc::ServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1637,7 +1124,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_createOMAP : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_createOMAP() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -1646,7 +1133,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status createOMAP(::grpc::ServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status createOMAP(::grpc::ServerContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1657,7 +1144,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_readStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_readStore() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -1666,7 +1153,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status readStore(::grpc::ServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status readStore(::grpc::ServerContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1677,7 +1164,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_writeInStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_writeInStore() {
       ::grpc::Service::MarkMethodRaw(3);
@@ -1686,7 +1173,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status writeInStore(::grpc::ServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status writeInStore(::grpc::ServerContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1697,7 +1184,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_update() {
       ::grpc::Service::MarkMethodRaw(4);
@@ -1706,7 +1193,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1717,7 +1204,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_batchUpdate : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_batchUpdate() {
       ::grpc::Service::MarkMethodRaw(5);
@@ -1726,7 +1213,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1737,7 +1224,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_search : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_search() {
       ::grpc::Service::MarkMethodRaw(6);
@@ -1746,7 +1233,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search(::grpc::ServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1757,7 +1244,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_search1 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_search1() {
       ::grpc::Service::MarkMethodRaw(7);
@@ -1766,7 +1253,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search1(::grpc::ServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/) override {
+    ::grpc::Status search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1777,7 +1264,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_downloadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_downloadStash() {
       ::grpc::Service::MarkMethodRaw(8);
@@ -1786,7 +1273,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadStash(::grpc::ServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/) override {
+    ::grpc::Status downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1797,7 +1284,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_uploadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_uploadStash() {
       ::grpc::Service::MarkMethodRaw(9);
@@ -1806,7 +1293,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadStash(::grpc::ServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1817,7 +1304,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_downloadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_downloadOMAPRoot() {
       ::grpc::Service::MarkMethodRaw(10);
@@ -1826,7 +1313,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
+    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1837,7 +1324,7 @@ class Musse final {
   template <class BaseClass>
   class WithRawMethod_uploadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_uploadOMAPRoot() {
       ::grpc::Service::MarkMethodRaw(11);
@@ -1846,7 +1333,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1857,463 +1344,307 @@ class Musse final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_setup : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_setup() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->setup(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->setup(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_setup() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status setup(::grpc::ServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* setup(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* setup(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void setup(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_createOMAP : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_createOMAP() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->createOMAP(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->createOMAP(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_createOMAP() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status createOMAP(::grpc::ServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status createOMAP(::grpc::ServerContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* createOMAP(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* createOMAP(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void createOMAP(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_readStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_readStore() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->readStore(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->readStore(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_readStore() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status readStore(::grpc::ServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status readStore(::grpc::ServerContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* readStore(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* readStore(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void readStore(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_writeInStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_writeInStore() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->writeInStore(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->writeInStore(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_writeInStore() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status writeInStore(::grpc::ServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status writeInStore(::grpc::ServerContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* writeInStore(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* writeInStore(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void writeInStore(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_update() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->update(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->update(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* update(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* update(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void update(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_batchUpdate : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_batchUpdate() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->batchUpdate(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->batchUpdate(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_batchUpdate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* batchUpdate(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* batchUpdate(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void batchUpdate(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_search : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_search() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(6,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->search(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->search(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_search() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search(::grpc::ServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* search(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* search(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void search(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_search1 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_search1() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(7,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->search1(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->search1(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_search1() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status search1(::grpc::ServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/) override {
+    ::grpc::Status search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* search1(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* search1(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void search1(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_downloadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_downloadStash() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(8,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->downloadStash(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(8,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->downloadStash(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_downloadStash() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadStash(::grpc::ServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/) override {
+    ::grpc::Status downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* downloadStash(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* downloadStash(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void downloadStash(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_uploadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_uploadStash() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(9,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->uploadStash(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(9,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->uploadStash(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_uploadStash() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadStash(::grpc::ServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* uploadStash(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* uploadStash(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void uploadStash(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_downloadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_downloadOMAPRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(10,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->downloadOMAPRoot(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(10,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->downloadOMAPRoot(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_downloadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
+    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* downloadOMAPRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* downloadOMAPRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void downloadOMAPRoot(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_uploadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_uploadOMAPRoot() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(11,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->uploadOMAPRoot(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(11,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->uploadOMAPRoot(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_uploadOMAPRoot() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* uploadOMAPRoot(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* uploadOMAPRoot(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void uploadOMAPRoot(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_setup : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_setup() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -2323,7 +1654,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status setup(::grpc::ServerContext* /*context*/, const ::SetupMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2333,7 +1664,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_createOMAP : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_createOMAP() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -2343,7 +1674,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status createOMAP(::grpc::ServerContext* /*context*/, const ::CreateOMAPMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status createOMAP(::grpc::ServerContext* context, const ::CreateOMAPMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2353,7 +1684,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_readStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_readStore() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -2363,7 +1694,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status readStore(::grpc::ServerContext* /*context*/, const ::ReadStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status readStore(::grpc::ServerContext* context, const ::ReadStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2373,7 +1704,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_writeInStore : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_writeInStore() {
       ::grpc::Service::MarkMethodStreamed(3,
@@ -2383,7 +1714,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status writeInStore(::grpc::ServerContext* /*context*/, const ::WriteStoreRequest* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status writeInStore(::grpc::ServerContext* context, const ::WriteStoreRequest* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2393,7 +1724,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_update() {
       ::grpc::Service::MarkMethodStreamed(4,
@@ -2403,7 +1734,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2413,7 +1744,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_batchUpdate : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_batchUpdate() {
       ::grpc::Service::MarkMethodStreamed(5,
@@ -2423,7 +1754,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2433,7 +1764,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_search : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_search() {
       ::grpc::Service::MarkMethodStreamed(6,
@@ -2443,7 +1774,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status search(::grpc::ServerContext* /*context*/, const ::SearchMessage* /*request*/, ::SearchResponse* /*response*/) override {
+    ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2453,7 +1784,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_search1 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_search1() {
       ::grpc::Service::MarkMethodStreamed(7,
@@ -2463,7 +1794,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status search1(::grpc::ServerContext* /*context*/, const ::SearchMessage1* /*request*/, ::SearchResponse1* /*response*/) override {
+    ::grpc::Status search1(::grpc::ServerContext* context, const ::SearchMessage1* request, ::SearchResponse1* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2473,7 +1804,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_downloadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_downloadStash() {
       ::grpc::Service::MarkMethodStreamed(8,
@@ -2483,7 +1814,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status downloadStash(::grpc::ServerContext* /*context*/, const ::DownloadStashMessage* /*request*/, ::DownloadStashResponse* /*response*/) override {
+    ::grpc::Status downloadStash(::grpc::ServerContext* context, const ::DownloadStashMessage* request, ::DownloadStashResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2493,7 +1824,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_uploadStash : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_uploadStash() {
       ::grpc::Service::MarkMethodStreamed(9,
@@ -2503,7 +1834,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status uploadStash(::grpc::ServerContext* /*context*/, const ::UploadStashMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadStash(::grpc::ServerContext* context, const ::UploadStashMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2513,7 +1844,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_downloadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_downloadOMAPRoot() {
       ::grpc::Service::MarkMethodStreamed(10,
@@ -2523,7 +1854,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* /*context*/, const ::DownloadRootMessage* /*request*/, ::DownloadRootResponse* /*response*/) override {
+    ::grpc::Status downloadOMAPRoot(::grpc::ServerContext* context, const ::DownloadRootMessage* request, ::DownloadRootResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2533,7 +1864,7 @@ class Musse final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_uploadOMAPRoot : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_uploadOMAPRoot() {
       ::grpc::Service::MarkMethodStreamed(11,
@@ -2543,7 +1874,7 @@ class Musse final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* /*context*/, const ::UploadRootMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status uploadOMAPRoot(::grpc::ServerContext* context, const ::UploadRootMessage* request, ::google::protobuf::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

@@ -10,7 +10,7 @@ using namespace std;
 int main(int, char**) {
     TC<int> testCase;
     uint keywordLength = 16;
-    string serverAdr = "18.221.85.245:4241";
+    string serverAdr = "18.191.159.248:4241";
     Utilities::readConfigFile("config.txt", testCase);
     Utilities::generateTestCases(testCase, keywordLength, 14);
 
@@ -22,9 +22,11 @@ int main(int, char**) {
     cout << "Master Key and Users' Keys Generated" << endl;
 
     MusesOwnerRunner client(serverAdr,testCase.N, masterKey);
+//cout << "owner Generated" << endl;
     MusesUserRunner userRunner(serverAdr);
+//cout << "userrunner Generated" << endl;
     OMAPBasedUser user(NULL, user1Key, testCase.K * 2, client.getOwnerID(), &userRunner);
-
+//cout << "OMAP user Generated" << endl;
     client.registerUser(user.userID, user1Key, testCase.K * 2, user.omapkey);
 
     cout << "Start of FNU" << endl;
@@ -49,27 +51,27 @@ int main(int, char**) {
         auto item = testCase.filePairs[testCase.testKeywords[j]];
 
         //measuring search and update execution times
-        // cout << "Search for Keyword With " << testCase.Qs[j] << " Results " << endl;
-        // user.searchCommunicationSize = 0;
-        // for (int z = 0; z < 10; z++) {
-        //     Utilities::startTimer(500);
-        //     vector<int> res = userRunner.search(testCase.testKeywords[j], &user);
-        //     time = Utilities::stopTimer(500);
-        //     cout << "Search Computation Time (microseconds):" << time << endl;
-        //     cout << "Search Communication Size (Bytes):" << user.searchCommunicationSize << endl;
-        //     cout << "Number of return item:" << res.size() << endl;
-        // }
+         cout << "Search for Keyword With " << testCase.Qs[j] << " Results " << endl;
+         user.searchCommunicationSize = 0;
+         for (int z = 0; z < 10; z++) {
+             Utilities::startTimer(500);
+             vector<int> res = userRunner.search(testCase.testKeywords[j], &user);
+             time = Utilities::stopTimer(500);
+             cout << "Search Computation Time (microseconds):" << time << endl;
+             cout << "Search Communication Size (Bytes):" << user.searchCommunicationSize << endl;
+             cout << "Number of return item:" << res.size() << endl;
+         }
         // Utilities::startTimer(500);
         client.unshare(item[0], &user, &testCase);
         // time = Utilities::stopTimer(500);
         // cout << "Unshare Time:" << time << endl;
         for (int z = 0; z < 10; z++) {
             Utilities::startTimer(500);
-            client.beginSetup();
+  //          client.beginSetup();
             for(uint i=0;i<testCase.sharefilesize;i++){
                 client.share(testCase.sharekeywords[i], item[0], user.userID);
             }
-            client.endSetup();
+//            client.endSetup();
             // client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], user.userID);
             time = Utilities::stopTimer(500);
             cout << "Share Time:" << time << endl;
