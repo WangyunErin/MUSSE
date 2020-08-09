@@ -81,7 +81,7 @@ BlocksWithProof Server::writeInStore(vector<int> poses, vector<block> blocks, in
     BlocksWithProof res;
     for (unsigned int i = 0; i < poses.size(); i++) {
         ramStores[userID]->Write(poses[i], blocks[i]);
-        unsigned char* hash = Utilities::getSHA256(blocks[i].data(), blocks[i].size());
+        //unsigned char* hash = Utilities::getSHA256(blocks[i].data(), blocks[i].size());
         // omapsMerkleTree[userID]->addNode(hash, poses[i]);
     }
     // res.treeSize = omapsMerkleTree[userID]->size;
