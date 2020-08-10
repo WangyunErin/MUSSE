@@ -1243,10 +1243,10 @@ class WriteStoreRequest : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 pos = 1;
+  // repeated int32 pos = 2;
   int pos_size() const;
   void clear_pos();
-  static const int kPosFieldNumber = 1;
+  static const int kPosFieldNumber = 2;
   ::google::protobuf::int32 pos(int index) const;
   void set_pos(int index, ::google::protobuf::int32 value);
   void add_pos(::google::protobuf::int32 value);
@@ -1255,10 +1255,10 @@ class WriteStoreRequest : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_pos();
 
-  // repeated bytes value = 2;
+  // repeated bytes value = 3;
   int value_size() const;
   void clear_value();
-  static const int kValueFieldNumber = 2;
+  static const int kValueFieldNumber = 3;
   const ::std::string& value(int index) const;
   ::std::string* mutable_value(int index);
   void set_value(int index, const ::std::string& value);
@@ -1277,10 +1277,10 @@ class WriteStoreRequest : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
 
-  // repeated int32 size = 3;
+  // repeated int32 size = 4;
   int size_size() const;
   void clear_size();
-  static const int kSizeFieldNumber = 3;
+  static const int kSizeFieldNumber = 4;
   ::google::protobuf::int32 size(int index) const;
   void set_size(int index, ::google::protobuf::int32 value);
   void add_size(::google::protobuf::int32 value);
@@ -1289,9 +1289,9 @@ class WriteStoreRequest : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_size();
 
-  // int32 userID = 4;
+  // int32 userID = 1;
   void clear_userid();
-  static const int kUserIDFieldNumber = 4;
+  static const int kUserIDFieldNumber = 1;
   ::google::protobuf::int32 userid() const;
   void set_userid(::google::protobuf::int32 value);
 
@@ -2592,7 +2592,21 @@ inline void ReadStoreRequest::set_userid(::google::protobuf::int32 value) {
 
 // WriteStoreRequest
 
-// repeated int32 pos = 1;
+// int32 userID = 1;
+inline void WriteStoreRequest::clear_userid() {
+  userid_ = 0;
+}
+inline ::google::protobuf::int32 WriteStoreRequest::userid() const {
+  // @@protoc_insertion_point(field_get:WriteStoreRequest.userID)
+  return userid_;
+}
+inline void WriteStoreRequest::set_userid(::google::protobuf::int32 value) {
+  
+  userid_ = value;
+  // @@protoc_insertion_point(field_set:WriteStoreRequest.userID)
+}
+
+// repeated int32 pos = 2;
 inline int WriteStoreRequest::pos_size() const {
   return pos_.size();
 }
@@ -2622,7 +2636,7 @@ WriteStoreRequest::mutable_pos() {
   return &pos_;
 }
 
-// repeated bytes value = 2;
+// repeated bytes value = 3;
 inline int WriteStoreRequest::value_size() const {
   return value_.size();
 }
@@ -2691,7 +2705,7 @@ WriteStoreRequest::mutable_value() {
   return &value_;
 }
 
-// repeated int32 size = 3;
+// repeated int32 size = 4;
 inline int WriteStoreRequest::size_size() const {
   return size_.size();
 }
@@ -2719,20 +2733,6 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 WriteStoreRequest::mutable_size() {
   // @@protoc_insertion_point(field_mutable_list:WriteStoreRequest.size)
   return &size_;
-}
-
-// int32 userID = 4;
-inline void WriteStoreRequest::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 WriteStoreRequest::userid() const {
-  // @@protoc_insertion_point(field_get:WriteStoreRequest.userID)
-  return userid_;
-}
-inline void WriteStoreRequest::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:WriteStoreRequest.userID)
 }
 
 // -------------------------------------------------------------------

@@ -51,7 +51,7 @@ int main(int, char**) {
         auto item = testCase.filePairs[testCase.testKeywords[j]];
 
         //measuring search and update execution times
-         cout << "Search for Keyword With " << testCase.Qs[j] << " Results " << endl;
+         /*cout << "Search for Keyword With " << testCase.Qs[j] << " Results " << endl;
          user.searchCommunicationSize = 0;
          for (int z = 0; z < 10; z++) {
              Utilities::startTimer(500);
@@ -60,7 +60,7 @@ int main(int, char**) {
              cout << "Search Computation Time (microseconds):" << time << endl;
              cout << "Search Communication Size (Bytes):" << user.searchCommunicationSize << endl;
              cout << "Number of return item:" << res.size() << endl;
-         }
+         }*/
         // Utilities::startTimer(500);
         client.unshare(item[0], &user, &testCase);
         // time = Utilities::stopTimer(500);
