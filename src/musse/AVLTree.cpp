@@ -310,7 +310,9 @@ int AVLTree::sortedArrayToBST(vector<Node*> nodes, int start, int end, int& pos,
 string AVLTree::incrementFileCnt(Node* head, Bid key) {
     if (head == NULL || head->key == 0)
         return to_string(0);
+    cout<<"start readnode"<<endl;
     head = oram->ReadNode(head->key, head->pos, head->pos);
+    cout<<"readnode finished"<<endl;
     if (head->key > key) {
         return incrementFileCnt(oram->ReadNode(head->leftID, head->leftPos, head->leftPos), key);
     } else if (head->key < key) {
@@ -327,7 +329,9 @@ string AVLTree::incrementFileCnt(Node* head, Bid key) {
         // std::fill(head->value.begin(), head->value.end(), 0);
         // std::copy(newval.begin(), newval.end(), head->value.begin());
         head->value = newval;
+        cout<<"start writenode"<<endl;
         oram->WriteNode(key, head);
+        cout<<"writenode finished"<<endl;
         return to_string(newval);
     }
 }

@@ -506,8 +506,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::WriteStoreRequest, userid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::WriteStoreRequest, pos_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::WriteStoreRequest, userid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::WriteStoreRequest, value_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::WriteStoreRequest, size_),
   ~0u,  // no _has_bits_
@@ -624,8 +624,8 @@ void AddDescriptorsImpl() {
       "\014SetupMessage\022\024\n\014maxQueueSize\030\001 \001(\005\"0\n\021C"
       "reateOMAPMessage\022\013\n\003num\030\001 \001(\005\022\016\n\006userID\030"
       "\002 \001(\005\"1\n\020ReadStoreRequest\022\r\n\005poses\030\001 \003(\005"
-      "\022\016\n\006userID\030\002 \001(\005\"M\n\021WriteStoreRequest\022\016\n"
-      "\006userID\030\001 \001(\005\022\013\n\003pos\030\002 \003(\005\022\r\n\005value\030\003 \003("
+      "\022\016\n\006userID\030\002 \001(\005\"M\n\021WriteStoreRequest\022\013\n"
+      "\003pos\030\001 \003(\005\022\016\n\006userID\030\002 \001(\005\022\r\n\005value\030\003 \003("
       "\014\022\014\n\004size\030\004 \003(\005\"/\n\rUpdateMessage\022\017\n\007addr"
       "ess\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\" \n\rSearchMessag"
       "e\022\017\n\007address\030\001 \003(\014\"Q\n\016SearchResponse\022\022\n\n"
@@ -3220,8 +3220,8 @@ void ReadStoreRequest::InternalSwap(ReadStoreRequest* other) {
 void WriteStoreRequest::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int WriteStoreRequest::kUserIDFieldNumber;
 const int WriteStoreRequest::kPosFieldNumber;
+const int WriteStoreRequest::kUserIDFieldNumber;
 const int WriteStoreRequest::kValueFieldNumber;
 const int WriteStoreRequest::kSizeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -3305,33 +3305,33 @@ bool WriteStoreRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 userID = 1;
+      // repeated int32 pos = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &userid_)));
+                 input, this->mutable_pos())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 10u, input, this->mutable_pos())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated int32 pos = 2;
+      // int32 userID = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_pos())));
-        } else if (
-            static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 18u, input, this->mutable_pos())));
+                 input, &userid_)));
         } else {
           goto handle_unusual;
         }
@@ -3395,20 +3395,20 @@ void WriteStoreRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 userID = 1;
-  if (this->userid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->userid(), output);
-  }
-
-  // repeated int32 pos = 2;
+  // repeated int32 pos = 1;
   if (this->pos_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
         _pos_cached_byte_size_));
   }
   for (int i = 0, n = this->pos_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
       this->pos(i), output);
+  }
+
+  // int32 userID = 2;
+  if (this->userid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->userid(), output);
   }
 
   // repeated bytes value = 3;
@@ -3442,15 +3442,10 @@ void WriteStoreRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 userID = 1;
-  if (this->userid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->userid(), target);
-  }
-
-  // repeated int32 pos = 2;
+  // repeated int32 pos = 1;
   if (this->pos_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      2,
+      1,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -3458,6 +3453,11 @@ void WriteStoreRequest::SerializeWithCachedSizes(
             _pos_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32NoTagToArray(this->pos_, target);
+  }
+
+  // int32 userID = 2;
+  if (this->userid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->userid(), target);
   }
 
   // repeated bytes value = 3;
@@ -3496,7 +3496,7 @@ size_t WriteStoreRequest::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated int32 pos = 2;
+  // repeated int32 pos = 1;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
       Int32Size(this->pos_);
@@ -3536,7 +3536,7 @@ size_t WriteStoreRequest::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // int32 userID = 1;
+  // int32 userID = 2;
   if (this->userid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(

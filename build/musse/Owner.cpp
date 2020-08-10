@@ -58,7 +58,7 @@ int Owner::updateRequest(string keyword, int ind, prf_type& addr, prf_type& val,
     prf_type k_w;
     memset(k_w.data(), 0, AES_KEY_SIZE); //.data()function returns the address of array k_w (the address of its first element)
     copy(keyword.begin(), keyword.end(), k_w.data());//copy the elements of keyword to k_w,keyword has 32 bytes
-
+    //cout<<"start omap access:"<<endl;
     int fileCnt = 0;
     if (omaps.count(userID) != 0) {//count returns the number of element that is searched (userID):0/1, since there is no repeated element in a map
         std::array< uint8_t, ID_SIZE> mapkey;
@@ -74,7 +74,9 @@ int Owner::updateRequest(string keyword, int ind, prf_type& addr, prf_type& val,
             }
             value = setupPairs[userID][mapkey];
         } else {
+            cout<<"increment filecnt start"<<endl;
             value = omaps[userID]->incrementFileCnt(keyBid);
+            cout<<"incrementcnt finished"<<endl;
         }
         fileCnt = stoi(value);
     }

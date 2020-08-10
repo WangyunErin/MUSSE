@@ -94,6 +94,7 @@ message SearchMessage
 
 message SearchResponse
 {
+//    repeated int32 cipherPositions = 1;
     repeated bytes ciphertext = 1;  
     repeated int32 cipherSize = 2;
     //repeated bytes hash = 3;   

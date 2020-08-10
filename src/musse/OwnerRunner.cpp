@@ -79,16 +79,16 @@ int MusesOwnerRunner::share(std::string keyword, int index, int curUserID) {//in
         accessList[curUserID] = set<int>();
     }
     accessList[curUserID].insert(index);
-
+//    cout<<"access list added"<<endl;
     if (setupMode) {
         client_->updateRequest(keyword, index, addr, val, curUserID);
         setupPairs.push_back(pair<prf_type, prf_type>(addr, val));
     } else {
         client_->updateRequest(keyword, index, addr, val, curUserID);
-
+        cout<<"updaterequest finished"<<endl;
         message.set_address(addr.data(), addr.size());
         message.set_value(val.data(), val.size());
-
+        cout<<"server update:"<<endl;
         grpc::Status status = stub_->update(&context, message, &e);
 
         if (!status.ok()) {
@@ -329,14 +329,14 @@ BlocksWithProof MusesOwnerRunner::readStore(vector<int> poses, int userID) {
         message.add_poses(pos);
     }
     message.set_userid(userID);
-
+//cout<<"grpc readstore start"<<endl;
     grpc::Status status = stub_->readStore(&context, message, &response);
 
     if (!status.ok()) {
         cout << "readStore failed:" << std::endl;
         cout << status.error_message() << std::endl;
     }
-
+//cout<<"readstore finished"<<endl;
     BlocksWithProof result;
     for (int i = 0; i < response.ciphertext_size(); i++) {
         block item(response.ciphersize(i));
@@ -354,6 +354,7 @@ BlocksWithProof MusesOwnerRunner::readStore(vector<int> poses, int userID) {
     // }
 
     return result;
+    cout<<"readstore finished"<<endl;
 }
 
 BlocksWithProof MusesOwnerRunner::writeInStore(vector<int> pos, vector<block> b, int userID) {

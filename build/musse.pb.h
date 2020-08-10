@@ -1243,10 +1243,10 @@ class WriteStoreRequest : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 pos = 2;
+  // repeated int32 pos = 1;
   int pos_size() const;
   void clear_pos();
-  static const int kPosFieldNumber = 2;
+  static const int kPosFieldNumber = 1;
   ::google::protobuf::int32 pos(int index) const;
   void set_pos(int index, ::google::protobuf::int32 value);
   void add_pos(::google::protobuf::int32 value);
@@ -1289,9 +1289,9 @@ class WriteStoreRequest : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_size();
 
-  // int32 userID = 1;
+  // int32 userID = 2;
   void clear_userid();
-  static const int kUserIDFieldNumber = 1;
+  static const int kUserIDFieldNumber = 2;
   ::google::protobuf::int32 userid() const;
   void set_userid(::google::protobuf::int32 value);
 
@@ -2592,21 +2592,7 @@ inline void ReadStoreRequest::set_userid(::google::protobuf::int32 value) {
 
 // WriteStoreRequest
 
-// int32 userID = 1;
-inline void WriteStoreRequest::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 WriteStoreRequest::userid() const {
-  // @@protoc_insertion_point(field_get:WriteStoreRequest.userID)
-  return userid_;
-}
-inline void WriteStoreRequest::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:WriteStoreRequest.userID)
-}
-
-// repeated int32 pos = 2;
+// repeated int32 pos = 1;
 inline int WriteStoreRequest::pos_size() const {
   return pos_.size();
 }
@@ -2634,6 +2620,20 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 WriteStoreRequest::mutable_pos() {
   // @@protoc_insertion_point(field_mutable_list:WriteStoreRequest.pos)
   return &pos_;
+}
+
+// int32 userID = 2;
+inline void WriteStoreRequest::clear_userid() {
+  userid_ = 0;
+}
+inline ::google::protobuf::int32 WriteStoreRequest::userid() const {
+  // @@protoc_insertion_point(field_get:WriteStoreRequest.userID)
+  return userid_;
+}
+inline void WriteStoreRequest::set_userid(::google::protobuf::int32 value) {
+  
+  userid_ = value;
+  // @@protoc_insertion_point(field_set:WriteStoreRequest.userID)
 }
 
 // repeated bytes value = 3;

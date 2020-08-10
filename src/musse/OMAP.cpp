@@ -135,7 +135,9 @@ string OMAP::incrementFileCnt(Bid key) {
     Node* node = new Node();
     node->key = rootKey;
     node->pos = rootPos;
+    cout<<"tree increment:"<<endl;
     res = treeHandler->incrementFileCnt(node, key);
+    cout<<"tree increment finished"<<endl;
     if (res == "") {
         rootKey = treeHandler->insert(rootKey, rootPos, key, "1");
         res = "1";
