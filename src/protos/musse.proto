@@ -74,8 +74,8 @@ message ReadStoreRequest
 
 message WriteStoreRequest
 {
-    int32 userID = 1;
-    repeated int32 pos = 2;
+    repeated int32 pos = 1;
+    int32 userID = 2;
     repeated bytes value = 3;
     repeated int32 size = 4;
     //int32 userID = 4;
