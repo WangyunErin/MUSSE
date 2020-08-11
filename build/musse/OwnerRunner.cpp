@@ -329,14 +329,14 @@ BlocksWithProof MusesOwnerRunner::readStore(vector<int> poses, int userID) {
         message.add_poses(pos);
     }
     message.set_userid(userID);
-//cout<<"grpc readstore start"<<endl;
+    //cout<<"grpc readstore start"<<endl;
     grpc::Status status = stub_->readStore(&context, message, &response);
 
     if (!status.ok()) {
         cout << "readStore failed:" << std::endl;
         cout << status.error_message() << std::endl;
     }
-//cout<<"readstore finished"<<endl;
+    //cout<<"readstore finished"<<endl;
     BlocksWithProof result;
     for (int i = 0; i < response.ciphertext_size(); i++) {
         block item(response.ciphersize(i));

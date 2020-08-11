@@ -74,9 +74,14 @@ int main(int, char**) {
         for (int z = 0; z < 10; z++) {  
             client.updateCommunicationSize = 0;
             Utilities::startTimer(500);
+            client.beginSetup();
+            vector<pair<prf_type,prf_type>> KeyValues1;
             for(uint i=0;i<testCase.sharefilesize;i++){
-                client.share(testCase.sharekeywords[i], item[0], &user1);
+                pair<prf_type,prf_type> keyval = client.share(testCase.sharekeywords[i], item[0], &user1);
+                KeyValues1.push_back(keyval);
             }
+            server.update(KeyValues1);
+            client.endSetup();
             time = Utilities::stopTimer(500);
             cout << "Share Time:" << time << endl;
             cout << "Share Communication Size:" << client.updateCommunicationSize << endl;

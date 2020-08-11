@@ -137,7 +137,7 @@ grpc::Status MusesServerRunner::readStore(grpc::ServerContext* context, const Re
     for (unsigned int i = 0; i < result.values.size(); i++) {
         response->add_ciphertext((unsigned char*) result.values[i].data(), result.values[i].size());
         response->add_cipherpositions(result.valuesPoses[i]);
-        // response->add_ciphersize(result.values[i].size());
+        response->add_ciphersize(result.values[i].size());
     }
     return grpc::Status::OK;
 }

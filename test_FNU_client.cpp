@@ -69,7 +69,6 @@ int main(int, char**) {
             Utilities::startTimer(500);
   //          client.beginSetup();
             for(uint i=0;i<testCase.sharefilesize;i++){
-              cout<<"share start"<<endl;  
               client.share(testCase.sharekeywords[i], item[0], user.userID);
             }
 //            client.endSetup();
