@@ -158,9 +158,9 @@ vector<Bucket> ORAM::ReadBuckets(vector<int> indexes) {
     if (indexes.size() == 0) {
         return res;
     }
-cout<<"ownerrunner readstore start"<<endl;
+//cout<<"ownerrunner readstore start"<<endl;
      BlocksWithProof response = (server == NULL ? runner == NULL ? ownerrunner->readStore(indexes, userID) : runner->readStore(indexes, userID) : server->readStore(indexes, userID));
-cout<<"runner readstore fininshed"<<endl;
+//cout<<"runner readstore fininshed"<<endl;
     // if (!verifyMerkleProof(response.values, response.valuesPoses, response.proofs, response.treeSize, merkleRoot)) {
     //     cout << "The server has modified the ORAM!" << endl;
     //     exit(0);
@@ -235,9 +235,9 @@ void ORAM::FetchPath(int leaf) {
         }
         nodes.push_back(node);
     }
-    cout<<"start readbuckets"<<endl;
+//    cout<<"start readbuckets"<<endl;
     vector<Bucket> buckets = ReadBuckets(nodes);
-cout<<"finish readbuckets"<<endl;
+//cout<<"finish readbuckets"<<endl;
     for (unsigned int i = 0; i < buckets.size(); i++) {
 
         Bucket bucket = buckets[i];
@@ -326,9 +326,9 @@ void ORAM::WriteData(Bid bid, Node* node) {
 
 void ORAM::Access(Bid bid, Node*& node, int lastLeaf, int newLeaf) {
     FetchPath(lastLeaf);
-    cout<<"fetchpath finished"<<endl;
+    //cout<<"fetchpath finished"<<endl;
     node = ReadData(bid);
-    cout<<"readdata finished"<<endl;
+    //cout<<"readdata finished"<<endl;
     if (node != NULL) {
         node->pos = newLeaf;
         if (cache.count(bid) != 0) {
@@ -369,12 +369,12 @@ Node* ORAM::ReadNode(Bid bid, int lastLeaf, int newLeaf) {
     }
     if (cache.count(bid) == 0 || find(leafList.begin(), leafList.end(), lastLeaf) == leafList.end()) {
         Node* node;
-        cout<<"start access"<<endl;
+        //cout<<"start access"<<endl;
         Access(bid, node, lastLeaf, newLeaf);
         if (node != NULL) {
-            cout<<"start modified.insert"<<endl;
+            //cout<<"start modified.insert"<<endl;
             modified.insert(bid);
-            cout<<"modified.insert finished"<<endl;
+            //cout<<"modified.insert finished"<<endl;
         }
         return node;
     } else {

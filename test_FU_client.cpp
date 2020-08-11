@@ -10,7 +10,7 @@ using namespace std;
 int main(int, char**) {
     TC<int> testCase;
     uint keywordLength = 16;
-    string serverAdr = "3.129.15.218:4241";
+    string serverAdr = "18.218.171.99:4241";
     Utilities::readConfigFile("config.txt", testCase);
     Utilities::generateTestCases(testCase, keywordLength, 14);
 

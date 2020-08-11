@@ -74,9 +74,9 @@ int Owner::updateRequest(string keyword, int ind, prf_type& addr, prf_type& val,
             }
             value = setupPairs[userID][mapkey];
         } else {
-            cout<<"increment filecnt start"<<endl;
+            //cout<<"increment filecnt start"<<endl;
             value = omaps[userID]->incrementFileCnt(keyBid);
-            cout<<"incrementcnt finished"<<endl;
+            //cout<<"incrementcnt finished"<<endl;
         }
         fileCnt = stoi(value);
     }

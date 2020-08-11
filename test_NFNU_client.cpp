@@ -10,7 +10,7 @@ using namespace std;
 int main(int, char**) {
     TC<int> testCase;
     uint keywordLength = 16;
-    string serverAdr = "3.129.15.218:4241";
+    string serverAdr = "18.218.171.99:4241";
     Utilities::readConfigFile("config.txt", testCase);
     Utilities::generateTestCases(testCase, keywordLength, 14);
 
@@ -64,9 +64,9 @@ int main(int, char**) {
         // time = Utilities::stopTimer(500);
         // cout << "Unsahre Time:" << time << endl;
         for (int z = 0; z < 10; z++) {
-            client.beginSetup();
-            Utilities::startTimer(500);
             //client.beginSetup();
+            Utilities::startTimer(500);
+            client.beginSetup();
             for(uint i=0;i<testCase.sharefilesize;i++){
                 client.share(testCase.sharekeywords[i], item[0], &user);
             }

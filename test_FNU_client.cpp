@@ -10,7 +10,7 @@ using namespace std;
 int main(int, char**) {
     TC<int> testCase;
     uint keywordLength = 16;
-    string serverAdr = "3.129.15.218:4241";
+    string serverAdr = "18.218.171.99:4241";
     Utilities::readConfigFile("config.txt", testCase);
     Utilities::generateTestCases(testCase, keywordLength, 14);
 
@@ -22,7 +22,8 @@ int main(int, char**) {
     cout << "Master Key and Users' Keys Generated" << endl;
 
     MusesOwnerRunner client(serverAdr,testCase.N, masterKey);
-//cout << "owner Generated" << endl;
+    client.forFNU=true;
+    //cout << "owner Generated" << endl;
     MusesUserRunner userRunner(serverAdr);
 //cout << "userrunner Generated" << endl;
     OMAPBasedUser user(NULL, user1Key, testCase.K * 2, client.getOwnerID(), &userRunner);
@@ -65,17 +66,17 @@ int main(int, char**) {
         client.unshare(item[0], &user, &testCase);
         // time = Utilities::stopTimer(500);
         // cout << "Unshare Time:" << time << endl;
-        //for (int z = 0; z < 10; z++) {
+        for (int z = 0; z < 10; z++) {
             Utilities::startTimer(500);
-  //          client.beginSetup();
+            client.beginSetup();
             for(uint i=0;i<testCase.sharefilesize;i++){
               client.share(testCase.sharekeywords[i], item[0], user.userID);
             }
-//            client.endSetup();
+            client.endSetup();
             // client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], user.userID);
             time = Utilities::stopTimer(500);
             cout << "Share Time:" << time << endl;
-        //}
+        }
     }
     cout << "************" << endl;
     return 0;

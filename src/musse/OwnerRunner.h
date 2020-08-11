@@ -22,6 +22,7 @@ private:
 
 public:
     bool ForFU = false;
+    bool forFNU = false;
     MusesOwnerRunner(string serverAddress, int maxQueueSize, unsigned char* masterKey);
     virtual ~MusesOwnerRunner();
     int share(std::string keyword, int index, QueueBasedUser* user);

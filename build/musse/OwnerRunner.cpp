@@ -85,10 +85,10 @@ int MusesOwnerRunner::share(std::string keyword, int index, int curUserID) {//in
         setupPairs.push_back(pair<prf_type, prf_type>(addr, val));
     } else {
         client_->updateRequest(keyword, index, addr, val, curUserID);
-        cout<<"updaterequest finished"<<endl;
+//        cout<<"updaterequest finished"<<endl;
         message.set_address(addr.data(), addr.size());
         message.set_value(val.data(), val.size());
-        cout<<"server update:"<<endl;
+//        cout<<"server update:"<<endl;
         grpc::Status status = stub_->update(&context, message, &e);
 
         if (!status.ok()) {
@@ -207,8 +207,10 @@ void MusesOwnerRunner::endSetup() {
         cout << status.error_message() << std::endl;
     }
 
-    for (auto item : client_->omaps) {
-        item.second->setupInsert(client_->setupPairs[item.first]);
+    if(forFNU){
+    	for (auto item : client_->omaps) {
+        	item.second->setupInsert(client_->setupPairs[item.first]);
+    	}
     }
 }
 
