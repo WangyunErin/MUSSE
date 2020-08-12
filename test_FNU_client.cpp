@@ -10,7 +10,7 @@ using namespace std;
 int main(int, char**) {
     TC<int> testCase;
     uint keywordLength = 16;
-    string serverAdr = "18.218.171.99:4241";
+    string serverAdr = "3.17.69.237:4241";
     Utilities::readConfigFile("config.txt", testCase);
     Utilities::generateTestCases(testCase, keywordLength, 14);
 
@@ -25,9 +25,9 @@ int main(int, char**) {
     client.forFNU=true;
     //cout << "owner Generated" << endl;
     MusesUserRunner userRunner(serverAdr);
-//cout << "userrunner Generated" << endl;
-    OMAPBasedUser user(NULL, user1Key, testCase.K * 2, client.getOwnerID(), &userRunner);
-//cout << "OMAP user Generated" << endl;
+    //cout << "userrunner Generated" << endl;
+    OMAPBasedUser user(NULL, user1Key, testCase.K * 2, client.getOwnerID(), &userRunner);    
+    //cout << "OMAP user Generated" << endl;
     client.registerUser(user.userID, user1Key, testCase.K * 2, user.omapkey);
 
     cout << "Start of FNU" << endl;
@@ -52,7 +52,7 @@ int main(int, char**) {
         auto item = testCase.filePairs[testCase.testKeywords[j]];
 
         //measuring search and update execution times
-         /*cout << "Search for Keyword With " << testCase.Qs[j] << " Results " << endl;
+         cout << "Search for Keyword With " << testCase.Qs[j] << " Results " << endl;
          user.searchCommunicationSize = 0;
          for (int z = 0; z < 10; z++) {
              Utilities::startTimer(500);
@@ -61,9 +61,9 @@ int main(int, char**) {
              cout << "Search Computation Time (microseconds):" << time << endl;
              cout << "Search Communication Size (Bytes):" << user.searchCommunicationSize << endl;
              cout << "Number of return item:" << res.size() << endl;
-         }*/
+         }
         // Utilities::startTimer(500);
-        client.unshare(item[0], &user, &testCase);
+        /*client.unshare(item[0], &user, &testCase);
         // time = Utilities::stopTimer(500);
         // cout << "Unshare Time:" << time << endl;
         for (int z = 0; z < 10; z++) {
@@ -76,7 +76,7 @@ int main(int, char**) {
             // client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], user.userID);
             time = Utilities::stopTimer(500);
             cout << "Share Time:" << time << endl;
-        }
+        }*/
     }
     cout << "************" << endl;
     return 0;
