@@ -76,7 +76,6 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
         	item.second->setupInsert(client_->setupPairs[item.first]);
     	}
     }
-}
 
     return 0;
 }
