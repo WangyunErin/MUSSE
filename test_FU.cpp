@@ -53,7 +53,7 @@ int main(int, char**) {
 
         // measuring search and share execution times
         cout << "Search for Keyword With " << testCase.Qs[j] << " Results"/* << testCase.delNumber[j] << " Deletions:" */<< endl;
-        for (int z = 0; z < 1; z++) {
+        for (int z = 0; z < 10; z++) {
             user1.searchCommunicationSize = 0;
             Utilities::startTimer(500);
             vector<int> res = user1.search(testCase.testKeywords[j]);
@@ -62,24 +62,24 @@ int main(int, char**) {
             cout << "Search Communication Size (Bytes):" << user1.searchCommunicationSize << endl;
             cout << "Number of return item:" << res.size() << endl;
         }
-        cout << "Share one document With " << testCase.sharefilesize << " Keywords"<< endl;  
-        // client.updateCommunicationSize = 0;
-        // Utilities::startTimer(500);
-        client.unshare(item[0], &user1, &testCase);
-        // time = Utilities::stopTimer(500);
-        // cout << "Unshare Time:" << time << endl;
-        // cout << "Unshare Communication Size:" << client.updateCommunicationSize << endl;
-        for (int z = 0; z < 10; z++) {  
-            client.updateCommunicationSize = 0;
-            Utilities::startTimer(500);
-            for(uint i=0;i<testCase.sharefilesize;i++){
-                client.share(testCase.sharekeywords[i], item[0], &user1);
-            }
-            // client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], &user1);
-            time = Utilities::stopTimer(500);
-            cout << "Share Time:" << time << endl;
-            cout << "Share Communication Size:" << client.updateCommunicationSize << endl;
-        }
+        // cout << "Share one document With " << testCase.sharefilesize << " Keywords"<< endl;  
+        // // client.updateCommunicationSize = 0;
+        // // Utilities::startTimer(500);
+        // client.unshare(item[0], &user1, &testCase);
+        // // time = Utilities::stopTimer(500);
+        // // cout << "Unshare Time:" << time << endl;
+        // // cout << "Unshare Communication Size:" << client.updateCommunicationSize << endl;
+        // for (int z = 0; z < 10; z++) {  
+        //     client.updateCommunicationSize = 0;
+        //     Utilities::startTimer(500);
+        //     for(uint i=0;i<testCase.sharefilesize;i++){
+        //         client.share(testCase.sharekeywords[i], item[0], &user1);
+        //     }
+        //     // client.share(testCase.testKeywords[j], testCase.filePairs[testCase.testKeywords[j]][0], &user1);
+        //     time = Utilities::stopTimer(500);
+        //     cout << "Share Time:" << time << endl;
+        //     cout << "Share Communication Size:" << client.updateCommunicationSize << endl;
+        // }
     }
     cout << "************" << endl;
     client.ForFU = false;

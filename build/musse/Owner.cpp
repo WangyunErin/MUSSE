@@ -49,7 +49,7 @@ int Owner::updateRequest(string keyword, int ind, prf_type& addr, prf_type& val,
         } else {
             user->FileCnt[k_w]++;
         }
-        updateCommunicationSize += (AES_KEY_SIZE+4);//4 is int size (4 bytes),update the user's Filecnt, k_w is AES_KEY_SIZE, cnt is 4
+        //updateCommunicationSize += (AES_KEY_SIZE+4);//4 is int size (4 bytes),update the user's Filecnt, k_w is AES_KEY_SIZE, cnt is 4
     }
     return 0;
 }

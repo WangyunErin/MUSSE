@@ -36,6 +36,36 @@ MusesOwnerRunner::MusesOwnerRunner(string serverAddress, int maxQueueSize, unsig
 MusesOwnerRunner::~MusesOwnerRunner() {
 }
 
+int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, QueueBasedUser* user) {//index is document id
+    grpc::ClientContext context;
+    BatchUpdateMessage message;
+    google::protobuf::Empty e;
+    prf_type addr, val;
+    int curUserID = user->userID;
+
+    client_->ForFU = this->ForFU;
+
+    if (accessList.count(curUserID) == 0) {
+        accessList[curUserID] = set<int>();
+    }
+    accessList[curUserID].insert(index);
+
+    for(auto keyword : Keywords){
+        client_->updateRequest(keyword, index, addr, val, user);
+        message.add_address(addr.data(), addr.size());
+        message.add_value(val.data(), val.size());
+    }
+
+    grpc::Status status = stub_->batchUpdate(&context, message, &e);
+    
+    if (!status.ok()) {
+        cout << "Update failed:" << std::endl;
+        cout << status.error_message() << std::endl;
+    }
+
+    return 0;
+}
+
 int MusesOwnerRunner::share(std::string keyword, int index, QueueBasedUser* user) {//index is document id
     grpc::ClientContext context;
     UpdateMessage message;

@@ -27,6 +27,7 @@ public:
     virtual ~MusesOwnerRunner();
     int share(std::string keyword, int index, QueueBasedUser* user);
     int share(std::string keyword, int index, int curUserID);
+    int sharedata(std::vector<std::string> Keywords, int index, QueueBasedUser* user);
     void unshare(int ind, QueueBasedUser* user, const TC<int>* testCase);
     void unshare(int ind, OMAPBasedUser* user, const TC<int>* testCase);
     void registerUser(int userID, unsigned char* key, int maxKeywordSize, bytes<Key> omapkey);
