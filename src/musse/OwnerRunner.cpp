@@ -51,7 +51,14 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
     accessList[curUserID].insert(index);
 
     for(auto keyword : Keywords){
-        client_->updateRequest(keyword, index, addr, val, user);
+        if(forFNU){
+            client_->setupMode=true;
+            client_->updateRequest(keyword, index, addr, val, curUserID);  
+        }else
+        {
+            client_->updateRequest(keyword, index, addr, val, user);
+        }
+
         message.add_address(addr.data(), addr.size());
         message.add_value(val.data(), val.size());
     }
@@ -62,6 +69,14 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
         cout << "Update failed:" << std::endl;
         cout << status.error_message() << std::endl;
     }
+
+    if(forFNU){
+        client_->setupMode=false;
+    	for (auto item : client_->omaps) {
+        	item.second->setupInsert(client_->setupPairs[item.first]);
+    	}
+    }
+}
 
     return 0;
 }
