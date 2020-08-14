@@ -42,7 +42,7 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
     google::protobuf::Empty e;
     prf_type addr, val;
     int curUserID = user->userID;
-
+    client_->sharepairs.clear();
     client_->ForFU = this->ForFU;
 
     if (accessList.count(curUserID) == 0) {
@@ -72,9 +72,7 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
 
     if(forFNU){
         client_->setupMode=false;
-    	for (auto item : client_->omaps) {
-        	item.second->setupInsert(client_->setupPairs[item.first]);
-    	}
+        client_->omaps[curUserID]->setupInsert(client_->sharepairs);
     }
 
     return 0;
