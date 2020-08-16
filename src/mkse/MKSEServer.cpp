@@ -43,6 +43,21 @@ Result MKSEServer::search(prf_type q) {
     return result;
 }
 
+vector<int> MKSEServer::search1(prf_type q) {
+    vector<int> result;
+    for (auto item : DictW) {
+        int r = item.first;
+        prf_type rcipher, dcipher;
+        memset(rcipher.data(), 0, AES_KEY_SIZE);
+        memcpy(rcipher.data(), &r, sizeof (int));
+        Utilities::encrypt((unsigned char*) rcipher.data(), AES_KEY_SIZE - 1, q.data(), iv, (unsigned char*) dcipher.data());
+        if (DictW[r].count(dcipher) != 0) {
+            result.push_back(DictW[r][dcipher].first);
+        }
+    }
+    return result;
+}
+
 bool MKSEServer::doesRExit(int r) {
     for(std::map<int,int>::iterator it = rs.begin();it!=rs.end();it++) {
         if(it->second==r){

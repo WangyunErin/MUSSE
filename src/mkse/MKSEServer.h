@@ -49,6 +49,7 @@ public:
     int getRofFile(int fileId);
     prf_type update(int r, prf_type cipher, int fileid);
     Result search(prf_type q);
+    vector<int> search1(prf_type q);
     bool doesRExit(int r);
 
 

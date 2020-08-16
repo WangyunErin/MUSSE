@@ -51,11 +51,10 @@ grpc::Status MKSEServerRunner::search(grpc::ServerContext* context, const Search
     prf_type q;
     copy(message->q().begin(), message->q().end(), q.begin());
 
-    Result result = server_->search(q);
-    std::cout<<"result size:"<<result.ids.size()<<endl;
-    for (unsigned int i = 0; i < result.ids.size(); i++) {
-        response->add_value(result.values[i].data(), result.values[i].size());
-        response->add_id(result.ids[i]);
+    vector<int> result = server_->search1(q);
+
+    for (unsigned int i = 0; i < result.size(); i++) {
+        response->add_id(result[i]);
     }
     return grpc::Status::OK;
 }

@@ -43,9 +43,8 @@ message SearchMessage
 }
 
 message SearchResponse
-{
-    repeated bytes value = 1;  
-    repeated int32 id = 2;
+{  
+    repeated int32 id = 1;
     
 }
 
