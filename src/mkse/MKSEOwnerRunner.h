@@ -21,6 +21,7 @@ private:
     MKSEOwner* client_;
     std::unique_ptr<MKSE::Stub> stub_;
     std::map<prf_type, std::pair<int, int>> setuppairs;
+    map<int, int> rofFile;
 
 public:
     MKSEOwnerRunner(string serverAddress, int maxQueueSize, unsigned char* masterKey);

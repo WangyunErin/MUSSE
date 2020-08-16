@@ -52,10 +52,13 @@ int MKSEOwnerRunner::getRofFile(int ind){
     return result;
 }
 
-int MKSEOwnerRunner::share(std::string keyword, int ind, int userID) {//index is document id
-    int r = getRofFile(ind);
-    if (r == -1) {
+int MKSEOwnerRunner::share(std::string keyword, int ind, int userID) {
+    int r;
+    if (rofFile.count(ind)==0) {
         r = rand();
+        rofFile[ind]=r;
+    }else{
+        r=rofFile[ind];
     }
 
     prf_type dcipher = client_->sharerequest(keyword, ind, userID,r);

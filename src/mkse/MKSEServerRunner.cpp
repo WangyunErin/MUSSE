@@ -21,7 +21,7 @@ grpc::Status MKSEServerRunner::update(grpc::ServerContext* context, const Update
     int ind = mes->ind();
     std::copy(mes->dcipher().begin(), mes->dcipher().end(), dcipher.begin());
 
-    server_->update(r,dcipher,ind);
+    prf_type result = server_->update(r,dcipher,ind);
 
     return grpc::Status::OK;
 }
@@ -37,7 +37,7 @@ grpc::Status MKSEServerRunner::batchUpdate(grpc::ServerContext* context, const B
         int r = mes->r(i);
         int ind = mes->ind(i);
         std::copy(mes->dcipher(i).begin(), mes->dcipher(i).end(), dcipher.begin());
-        server_->update(r,dcipher,ind);
+        prf_type result = server_->update(r,dcipher,ind);
     }
 
     return grpc::Status::OK;
