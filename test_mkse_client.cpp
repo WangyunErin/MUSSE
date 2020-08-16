@@ -19,7 +19,7 @@ int main(int, char**) {
     }
     cout << "Master Key and Users' Keys Generated" << endl;
 
-    MKSEOwnerRunner client(serverAdr, masterKey);
+    MKSEOwnerRunner client(serverAdr, testCase.N, masterKey);
     MKSEUserRunner userRunner(serverAdr);
     MKSEUser user(NULL, user1Key, &userRunner);
 

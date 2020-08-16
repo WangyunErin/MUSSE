@@ -22,7 +22,7 @@ int main(int, char**) {
         user1Key[i] = rand() % 256;
     }
     cout << "Master Key and Users' Keys Generated" << endl;
-    MKSEServer server;
+    MKSEServer server(testCase.N);
     MKSEOwner client(&server, masterKey,NULL);
     MKSEUser user1(&server, user1Key,NULL);
     client.registerUser(user1.userID, user1Key);
