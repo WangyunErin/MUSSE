@@ -62,8 +62,9 @@ FU_client         = outter_env.Program('FU_client',    ['test_FU_client.cpp']   
 FNU_client         = outter_env.Program('FNU_client',    ['test_FNU_client.cpp']     + objects["musse"])
 MUSSE_server       = outter_env.Program('MUSSE_server',   ['test_MUSSE_server.cpp']   + objects["musse"])
 mkse         = outter_env.Program('mkse',    ['test_mkse.cpp'] + objects["mkse"] )
+mkse_server       = outter_env.Program('mkse_server',   ['test_mkse_server.cpp']   + objects["mkse"])
+mkse_client        = outter_env.Program('mkse_client',    ['test_mkse_client.cpp'] + objects["mkse"] )
 
-
-env.Alias('musse', [NFNU_test, FU_test, FNU_test, NFNU_client, FU_client, FNU_client, MUSSE_server, mkse])
+env.Alias('musse', [NFNU_test, FU_test, FNU_test, NFNU_client, FU_client, FNU_client, MUSSE_server, mkse,mkse_server,mkse_client])
 
 env.Default(['musse'])
