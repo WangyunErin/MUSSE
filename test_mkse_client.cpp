@@ -54,6 +54,9 @@ int main(int, char**) {
             Utilities::startTimer(500);
             vector<int> res = userRunner.search(testCase.testKeywords[j], &user);
             time = Utilities::stopTimer(500);
+            for(int i=0;i<res.size();i++){
+               cout<<"result id:"<<res[i]<<endl;
+            }
             cout << "Search Computation Time (microseconds):" << time << endl;
             cout << "Number of return item:" << res.size() << endl;
         }

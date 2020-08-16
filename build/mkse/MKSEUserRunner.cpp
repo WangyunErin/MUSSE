@@ -55,7 +55,7 @@ vector<int> MKSEUserRunner::search(std::string keyword, MKSEUser* user_) {
         cout << status.error_message() << std::endl;
     }
 
-    for (int i = 0; i < response.value_size(); i++) {
+    for (int i = 0; i < response.id_size(); i++) {
         int item = response.id(i);
         result.push_back(item);
     }

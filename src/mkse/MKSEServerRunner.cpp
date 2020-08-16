@@ -53,7 +53,7 @@ grpc::Status MKSEServerRunner::search(grpc::ServerContext* context, const Search
 
     Result result = server_->search(q);
 
-    for (unsigned int i = 0; i < result.values.size(); i++) {
+    for (unsigned int i = 0; i < result.ids.size(); i++) {
         response->add_value(result.values[i].data(), result.values[i].size());
         response->add_id(result.ids[i]);
     }
