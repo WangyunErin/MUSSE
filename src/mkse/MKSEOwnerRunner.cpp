@@ -13,23 +13,23 @@
 #include <grpc++/security/credentials.h>
 #include <bits/stl_vector.h>
 
-MKSEOwnerRunner::MKSEOwnerRunner(string serverAddress, unsigned char* masterKey) {
+MKSEOwnerRunner::MKSEOwnerRunner(string serverAddress, int maxQueueSize, unsigned char* masterKey) {
     grpc::ChannelArguments options;
     options.SetMaxReceiveMessageSize(1024 * 1024 * 1024);
     options.SetMaxSendMessageSize(1024 * 1024 * 1024);
     std::shared_ptr<grpc::Channel> channel(grpc::CreateCustomChannel(serverAddress, grpc::InsecureChannelCredentials(), options));
     stub_ = MKSE::NewStub(channel);
     client_ = new MKSEOwner(NULL, masterKey, this);
-    // grpc::ClientContext context;
-    // SetupMessage message;
-    // google::protobuf::Empty e;
-    // message.set_maxqueuesize(maxQueueSize);
+    grpc::ClientContext context;
+    SetupMessage message;
+    google::protobuf::Empty e;
+    message.set_maxqueuesize(maxQueueSize);
 
-    // grpc::Status status = stub_->setup(&context, message, &e);
+    grpc::Status status = stub_->setup(&context, message, &e);
 
-    // if (!status.ok()) {
-    //     cout << "Setup failed: " << std::endl;
-    // }
+    if (!status.ok()) {
+        cout << "Setup failed: " << std::endl;
+    }
 }
 
 MKSEOwnerRunner::~MKSEOwnerRunner() {

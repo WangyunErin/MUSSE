@@ -6,10 +6,10 @@ MKSEServerRunner::MKSEServerRunner() {
 MKSEServerRunner::~MKSEServerRunner() {
 }
 
-// grpc::Status MKSEServerRunner::setup(grpc::ServerContext* context, const SetupMessage* request, google::protobuf::Empty* e) {
-//     server_ = make_unique<MKSEServer>();
-//     return grpc::Status::OK;
-// }
+grpc::Status MKSEServerRunner::setup(grpc::ServerContext* context, const SetupMessage* request, google::protobuf::Empty* e) {
+    server_ = make_unique<MKSEServer>(request->maxqueuesize());
+    return grpc::Status::OK;
+}
 
 grpc::Status MKSEServerRunner::update(grpc::ServerContext* context, const UpdateMessage* mes, google::protobuf::Empty* e) {
     if (!server_) {

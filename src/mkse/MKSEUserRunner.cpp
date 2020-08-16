@@ -19,15 +19,15 @@ MKSEUserRunner::MKSEUserRunner(string serverAddress) {
     options.SetMaxSendMessageSize(1024 * 1024 * 1024);
     std::shared_ptr<grpc::Channel> channel(grpc::CreateCustomChannel(serverAddress, grpc::InsecureChannelCredentials(), options));
     stub_ = MKSE::NewStub(channel);
-    // grpc::ClientContext context;
-    // SetupMessage message;
-    // google::protobuf::Empty e;
+    grpc::ClientContext context;
+    SetupMessage message;
+    google::protobuf::Empty e;
 
-    // grpc::Status status = stub_->setup(&context, message, &e);
+    grpc::Status status = stub_->setup(&context, message, &e);
 
-    // if (!status.ok()) {
-    //     cout << "Setup failed: " << std::endl;
-    // }
+    if (!status.ok()) {
+        cout << "Setup failed: " << std::endl;
+    }
 }
 
 MKSEUserRunner::~MKSEUserRunner() {

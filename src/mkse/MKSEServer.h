@@ -41,9 +41,10 @@ private:
     map<int, int> rs;
     unsigned char iv[AES_KEY_SIZE];
     int counter = 0;
+    int maxCounter;
 
 public:
-    MKSEServer();
+    MKSEServer(int maxCounterSize);
     virtual ~MKSEServer();
     int getRofFile(int fileId);
     prf_type update(int r, prf_type cipher, int fileid);

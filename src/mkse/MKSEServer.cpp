@@ -1,7 +1,8 @@
 #include "MKSEServer.h"
 
-MKSEServer::MKSEServer() {
+MKSEServer::MKSEServer(int maxCounterSize) {
     memset(iv, 0x00, AES_KEY_SIZE);
+    maxCounter = maxCounterSize;
 }
 
 MKSEServer::~MKSEServer() {

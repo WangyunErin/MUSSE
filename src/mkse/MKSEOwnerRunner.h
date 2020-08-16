@@ -23,7 +23,7 @@ private:
     std::map<prf_type, std::pair<int, int>> setuppairs;
 
 public:
-    MKSEOwnerRunner(string serverAddress, unsigned char* masterKey);
+    MKSEOwnerRunner(string serverAddress, int maxQueueSize, unsigned char* masterKey);
     virtual ~MKSEOwnerRunner();
     int getRofFile(int ind);
     int share(std::string keyword, int ind, int userID);

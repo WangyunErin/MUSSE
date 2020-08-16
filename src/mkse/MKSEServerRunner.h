@@ -17,7 +17,7 @@ private:
 public:
     MKSEServerRunner();
     virtual ~MKSEServerRunner();
-    // grpc::Status setup(grpc::ServerContext* context, const SetupMessage* request, google::protobuf::Empty* e);
+    grpc::Status setup(grpc::ServerContext* context, const SetupMessage* request, google::protobuf::Empty* e);
     grpc::Status update(grpc::ServerContext* context, const UpdateMessage* request, google::protobuf::Empty* e);
     grpc::Status batchUpdate(grpc::ServerContext* context, const BatchUpdateMessage* request, google::protobuf::Empty* e);
     grpc::Status search(grpc::ServerContext* context, const SearchMessage* mes, SearchResponse* res);
