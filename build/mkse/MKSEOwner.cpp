@@ -32,7 +32,7 @@ prf_type  MKSEOwner::sharerequest(string keyword, int ind, int userID, int r) {
 void MKSEOwner::shareData(string keyword, int ind, int userID) {
     prf_type k_w;
     int r = server->getRofFile(ind);
-    if (server->getRofFile(ind) == -1) {
+    if (server->getRofFile(ind) == 0) {
         do {
             r = rand();
         } while (server->doesRExit(r));
