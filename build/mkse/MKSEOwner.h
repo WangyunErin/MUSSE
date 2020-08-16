@@ -15,12 +15,14 @@ using namespace std;
 class MKSEOwnerRunner;
 
 class MKSEOwner {
+    friend class MKSEOwnerRunner;
 private:
     unsigned char iv[AES_KEY_SIZE];
     unsigned char key[AES_KEY_SIZE];
     map<int, unsigned char* > keys;
     vector<string> keywords;
     MKSEServer* server;
+    MKSEOwnerRunner* runner = NULL;
     int userID;
     bool setupMode;
 
@@ -28,8 +30,8 @@ public:
     int updateCommunicationSize;
     virtual ~MKSEOwner();
 
-    MKSEOwner(MKSEServer* server, unsigned char* masterKey);
-
+    MKSEOwner(MKSEServer* server, unsigned char* masterKey, MKSEOwnerRunner* runner);
+    prf_type  sharerequest(string keyword, int ind, int userID, int r);
     void shareData(string keyword, int ind, int userID);
     void registerUser(int userID, unsigned char* key);
     void beginSetup();

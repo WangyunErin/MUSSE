@@ -37,126 +37,39 @@ namespace protobuf_mkse_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[23];
+  static const ::google::protobuf::internal::ParseTable schema[7];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors();
-void InitDefaultsDownloadRootMessageImpl();
-void InitDefaultsDownloadRootMessage();
-void InitDefaultsDownloadRootResponseImpl();
-void InitDefaultsDownloadRootResponse();
-void InitDefaultsUploadRootMessageImpl();
-void InitDefaultsUploadRootMessage();
-void InitDefaultsDownloadStashMessageImpl();
-void InitDefaultsDownloadStashMessage();
-void InitDefaultsDownloadStashResponseImpl();
-void InitDefaultsDownloadStashResponse();
-void InitDefaultsUploadStashMessageImpl();
-void InitDefaultsUploadStashMessage();
 void InitDefaultsSetupMessageImpl();
 void InitDefaultsSetupMessage();
-void InitDefaultsAddFileCntQueueMessageImpl();
-void InitDefaultsAddFileCntQueueMessage();
-void InitDefaultsBatchAddFileCntQueueMessageImpl();
-void InitDefaultsBatchAddFileCntQueueMessage();
-void InitDefaultsFileCntQueueRequestMessageImpl();
-void InitDefaultsFileCntQueueRequestMessage();
-void InitDefaultsFileCntDiffMessageImpl();
-void InitDefaultsFileCntDiffMessage();
-void InitDefaultsUpdateMerkleRootMessageImpl();
-void InitDefaultsUpdateMerkleRootMessage();
-void InitDefaultsGetMerkleRootMessageImpl();
-void InitDefaultsGetMerkleRootMessage();
-void InitDefaultsCreateOMAPMessageImpl();
-void InitDefaultsCreateOMAPMessage();
-void InitDefaultsReadStoreRequestImpl();
-void InitDefaultsReadStoreRequest();
-void InitDefaultsWriteStoreRequestImpl();
-void InitDefaultsWriteStoreRequest();
+void InitDefaultsgetRofFileRequestImpl();
+void InitDefaultsgetRofFileRequest();
+void InitDefaultsgetRofFileResponseImpl();
+void InitDefaultsgetRofFileResponse();
 void InitDefaultsUpdateMessageImpl();
 void InitDefaultsUpdateMessage();
-void InitDefaultsUpdateResponseImpl();
-void InitDefaultsUpdateResponse();
 void InitDefaultsSearchMessageImpl();
 void InitDefaultsSearchMessage();
 void InitDefaultsSearchResponseImpl();
 void InitDefaultsSearchResponse();
 void InitDefaultsBatchUpdateMessageImpl();
 void InitDefaultsBatchUpdateMessage();
-void InitDefaultsCommandMessageImpl();
-void InitDefaultsCommandMessage();
-void InitDefaultsResultMessageImpl();
-void InitDefaultsResultMessage();
 inline void InitDefaults() {
-  InitDefaultsDownloadRootMessage();
-  InitDefaultsDownloadRootResponse();
-  InitDefaultsUploadRootMessage();
-  InitDefaultsDownloadStashMessage();
-  InitDefaultsDownloadStashResponse();
-  InitDefaultsUploadStashMessage();
   InitDefaultsSetupMessage();
-  InitDefaultsAddFileCntQueueMessage();
-  InitDefaultsBatchAddFileCntQueueMessage();
-  InitDefaultsFileCntQueueRequestMessage();
-  InitDefaultsFileCntDiffMessage();
-  InitDefaultsUpdateMerkleRootMessage();
-  InitDefaultsGetMerkleRootMessage();
-  InitDefaultsCreateOMAPMessage();
-  InitDefaultsReadStoreRequest();
-  InitDefaultsWriteStoreRequest();
+  InitDefaultsgetRofFileRequest();
+  InitDefaultsgetRofFileResponse();
   InitDefaultsUpdateMessage();
-  InitDefaultsUpdateResponse();
   InitDefaultsSearchMessage();
   InitDefaultsSearchResponse();
   InitDefaultsBatchUpdateMessage();
-  InitDefaultsCommandMessage();
-  InitDefaultsResultMessage();
 }
 }  // namespace protobuf_mkse_2eproto
-class AddFileCntQueueMessage;
-class AddFileCntQueueMessageDefaultTypeInternal;
-extern AddFileCntQueueMessageDefaultTypeInternal _AddFileCntQueueMessage_default_instance_;
-class BatchAddFileCntQueueMessage;
-class BatchAddFileCntQueueMessageDefaultTypeInternal;
-extern BatchAddFileCntQueueMessageDefaultTypeInternal _BatchAddFileCntQueueMessage_default_instance_;
 class BatchUpdateMessage;
 class BatchUpdateMessageDefaultTypeInternal;
 extern BatchUpdateMessageDefaultTypeInternal _BatchUpdateMessage_default_instance_;
-class CommandMessage;
-class CommandMessageDefaultTypeInternal;
-extern CommandMessageDefaultTypeInternal _CommandMessage_default_instance_;
-class CreateOMAPMessage;
-class CreateOMAPMessageDefaultTypeInternal;
-extern CreateOMAPMessageDefaultTypeInternal _CreateOMAPMessage_default_instance_;
-class DownloadRootMessage;
-class DownloadRootMessageDefaultTypeInternal;
-extern DownloadRootMessageDefaultTypeInternal _DownloadRootMessage_default_instance_;
-class DownloadRootResponse;
-class DownloadRootResponseDefaultTypeInternal;
-extern DownloadRootResponseDefaultTypeInternal _DownloadRootResponse_default_instance_;
-class DownloadStashMessage;
-class DownloadStashMessageDefaultTypeInternal;
-extern DownloadStashMessageDefaultTypeInternal _DownloadStashMessage_default_instance_;
-class DownloadStashResponse;
-class DownloadStashResponseDefaultTypeInternal;
-extern DownloadStashResponseDefaultTypeInternal _DownloadStashResponse_default_instance_;
-class FileCntDiffMessage;
-class FileCntDiffMessageDefaultTypeInternal;
-extern FileCntDiffMessageDefaultTypeInternal _FileCntDiffMessage_default_instance_;
-class FileCntQueueRequestMessage;
-class FileCntQueueRequestMessageDefaultTypeInternal;
-extern FileCntQueueRequestMessageDefaultTypeInternal _FileCntQueueRequestMessage_default_instance_;
-class GetMerkleRootMessage;
-class GetMerkleRootMessageDefaultTypeInternal;
-extern GetMerkleRootMessageDefaultTypeInternal _GetMerkleRootMessage_default_instance_;
-class ReadStoreRequest;
-class ReadStoreRequestDefaultTypeInternal;
-extern ReadStoreRequestDefaultTypeInternal _ReadStoreRequest_default_instance_;
-class ResultMessage;
-class ResultMessageDefaultTypeInternal;
-extern ResultMessageDefaultTypeInternal _ResultMessage_default_instance_;
 class SearchMessage;
 class SearchMessageDefaultTypeInternal;
 extern SearchMessageDefaultTypeInternal _SearchMessage_default_instance_;
@@ -166,724 +79,17 @@ extern SearchResponseDefaultTypeInternal _SearchResponse_default_instance_;
 class SetupMessage;
 class SetupMessageDefaultTypeInternal;
 extern SetupMessageDefaultTypeInternal _SetupMessage_default_instance_;
-class UpdateMerkleRootMessage;
-class UpdateMerkleRootMessageDefaultTypeInternal;
-extern UpdateMerkleRootMessageDefaultTypeInternal _UpdateMerkleRootMessage_default_instance_;
 class UpdateMessage;
 class UpdateMessageDefaultTypeInternal;
 extern UpdateMessageDefaultTypeInternal _UpdateMessage_default_instance_;
-class UpdateResponse;
-class UpdateResponseDefaultTypeInternal;
-extern UpdateResponseDefaultTypeInternal _UpdateResponse_default_instance_;
-class UploadRootMessage;
-class UploadRootMessageDefaultTypeInternal;
-extern UploadRootMessageDefaultTypeInternal _UploadRootMessage_default_instance_;
-class UploadStashMessage;
-class UploadStashMessageDefaultTypeInternal;
-extern UploadStashMessageDefaultTypeInternal _UploadStashMessage_default_instance_;
-class WriteStoreRequest;
-class WriteStoreRequestDefaultTypeInternal;
-extern WriteStoreRequestDefaultTypeInternal _WriteStoreRequest_default_instance_;
+class getRofFileRequest;
+class getRofFileRequestDefaultTypeInternal;
+extern getRofFileRequestDefaultTypeInternal _getRofFileRequest_default_instance_;
+class getRofFileResponse;
+class getRofFileResponseDefaultTypeInternal;
+extern getRofFileResponseDefaultTypeInternal _getRofFileResponse_default_instance_;
 
 // ===================================================================
-
-class DownloadRootMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DownloadRootMessage) */ {
- public:
-  DownloadRootMessage();
-  virtual ~DownloadRootMessage();
-
-  DownloadRootMessage(const DownloadRootMessage& from);
-
-  inline DownloadRootMessage& operator=(const DownloadRootMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  DownloadRootMessage(DownloadRootMessage&& from) noexcept
-    : DownloadRootMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline DownloadRootMessage& operator=(DownloadRootMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const DownloadRootMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DownloadRootMessage* internal_default_instance() {
-    return reinterpret_cast<const DownloadRootMessage*>(
-               &_DownloadRootMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    0;
-
-  void Swap(DownloadRootMessage* other);
-  friend void swap(DownloadRootMessage& a, DownloadRootMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline DownloadRootMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  DownloadRootMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const DownloadRootMessage& from);
-  void MergeFrom(const DownloadRootMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(DownloadRootMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // int32 userID = 1;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 1;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:DownloadRootMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 userid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsDownloadRootMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class DownloadRootResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DownloadRootResponse) */ {
- public:
-  DownloadRootResponse();
-  virtual ~DownloadRootResponse();
-
-  DownloadRootResponse(const DownloadRootResponse& from);
-
-  inline DownloadRootResponse& operator=(const DownloadRootResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  DownloadRootResponse(DownloadRootResponse&& from) noexcept
-    : DownloadRootResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline DownloadRootResponse& operator=(DownloadRootResponse&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const DownloadRootResponse& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DownloadRootResponse* internal_default_instance() {
-    return reinterpret_cast<const DownloadRootResponse*>(
-               &_DownloadRootResponse_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    1;
-
-  void Swap(DownloadRootResponse* other);
-  friend void swap(DownloadRootResponse& a, DownloadRootResponse& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline DownloadRootResponse* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  DownloadRootResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const DownloadRootResponse& from);
-  void MergeFrom(const DownloadRootResponse& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(DownloadRootResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // bytes value = 2;
-  void clear_value();
-  static const int kValueFieldNumber = 2;
-  const ::std::string& value() const;
-  void set_value(const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(::std::string&& value);
-  #endif
-  void set_value(const char* value);
-  void set_value(const void* value, size_t size);
-  ::std::string* mutable_value();
-  ::std::string* release_value();
-  void set_allocated_value(::std::string* value);
-
-  // int32 pos = 1;
-  void clear_pos();
-  static const int kPosFieldNumber = 1;
-  ::google::protobuf::int32 pos() const;
-  void set_pos(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:DownloadRootResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr value_;
-  ::google::protobuf::int32 pos_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsDownloadRootResponseImpl();
-};
-// -------------------------------------------------------------------
-
-class UploadRootMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:UploadRootMessage) */ {
- public:
-  UploadRootMessage();
-  virtual ~UploadRootMessage();
-
-  UploadRootMessage(const UploadRootMessage& from);
-
-  inline UploadRootMessage& operator=(const UploadRootMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  UploadRootMessage(UploadRootMessage&& from) noexcept
-    : UploadRootMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline UploadRootMessage& operator=(UploadRootMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const UploadRootMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const UploadRootMessage* internal_default_instance() {
-    return reinterpret_cast<const UploadRootMessage*>(
-               &_UploadRootMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
-
-  void Swap(UploadRootMessage* other);
-  friend void swap(UploadRootMessage& a, UploadRootMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline UploadRootMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  UploadRootMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const UploadRootMessage& from);
-  void MergeFrom(const UploadRootMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(UploadRootMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // bytes value = 3;
-  void clear_value();
-  static const int kValueFieldNumber = 3;
-  const ::std::string& value() const;
-  void set_value(const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(::std::string&& value);
-  #endif
-  void set_value(const char* value);
-  void set_value(const void* value, size_t size);
-  ::std::string* mutable_value();
-  ::std::string* release_value();
-  void set_allocated_value(::std::string* value);
-
-  // int32 userID = 1;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 1;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // int32 pos = 2;
-  void clear_pos();
-  static const int kPosFieldNumber = 2;
-  ::google::protobuf::int32 pos() const;
-  void set_pos(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:UploadRootMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr value_;
-  ::google::protobuf::int32 userid_;
-  ::google::protobuf::int32 pos_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsUploadRootMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class DownloadStashMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DownloadStashMessage) */ {
- public:
-  DownloadStashMessage();
-  virtual ~DownloadStashMessage();
-
-  DownloadStashMessage(const DownloadStashMessage& from);
-
-  inline DownloadStashMessage& operator=(const DownloadStashMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  DownloadStashMessage(DownloadStashMessage&& from) noexcept
-    : DownloadStashMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline DownloadStashMessage& operator=(DownloadStashMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const DownloadStashMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DownloadStashMessage* internal_default_instance() {
-    return reinterpret_cast<const DownloadStashMessage*>(
-               &_DownloadStashMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
-
-  void Swap(DownloadStashMessage* other);
-  friend void swap(DownloadStashMessage& a, DownloadStashMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline DownloadStashMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  DownloadStashMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const DownloadStashMessage& from);
-  void MergeFrom(const DownloadStashMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(DownloadStashMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // int32 userID = 1;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 1;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:DownloadStashMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 userid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsDownloadStashMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class DownloadStashResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DownloadStashResponse) */ {
- public:
-  DownloadStashResponse();
-  virtual ~DownloadStashResponse();
-
-  DownloadStashResponse(const DownloadStashResponse& from);
-
-  inline DownloadStashResponse& operator=(const DownloadStashResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  DownloadStashResponse(DownloadStashResponse&& from) noexcept
-    : DownloadStashResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline DownloadStashResponse& operator=(DownloadStashResponse&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const DownloadStashResponse& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DownloadStashResponse* internal_default_instance() {
-    return reinterpret_cast<const DownloadStashResponse*>(
-               &_DownloadStashResponse_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
-
-  void Swap(DownloadStashResponse* other);
-  friend void swap(DownloadStashResponse& a, DownloadStashResponse& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline DownloadStashResponse* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  DownloadStashResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const DownloadStashResponse& from);
-  void MergeFrom(const DownloadStashResponse& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(DownloadStashResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated int32 pos = 1;
-  int pos_size() const;
-  void clear_pos();
-  static const int kPosFieldNumber = 1;
-  ::google::protobuf::int32 pos(int index) const;
-  void set_pos(int index, ::google::protobuf::int32 value);
-  void add_pos(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      pos() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_pos();
-
-  // repeated bytes value = 2;
-  int value_size() const;
-  void clear_value();
-  static const int kValueFieldNumber = 2;
-  const ::std::string& value(int index) const;
-  ::std::string* mutable_value(int index);
-  void set_value(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(int index, ::std::string&& value);
-  #endif
-  void set_value(int index, const char* value);
-  void set_value(int index, const void* value, size_t size);
-  ::std::string* add_value();
-  void add_value(const ::std::string& value);
-  #if LANG_CXX11
-  void add_value(::std::string&& value);
-  #endif
-  void add_value(const char* value);
-  void add_value(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
-
-  // @@protoc_insertion_point(class_scope:DownloadStashResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pos_;
-  mutable int _pos_cached_byte_size_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> value_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsDownloadStashResponseImpl();
-};
-// -------------------------------------------------------------------
-
-class UploadStashMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:UploadStashMessage) */ {
- public:
-  UploadStashMessage();
-  virtual ~UploadStashMessage();
-
-  UploadStashMessage(const UploadStashMessage& from);
-
-  inline UploadStashMessage& operator=(const UploadStashMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  UploadStashMessage(UploadStashMessage&& from) noexcept
-    : UploadStashMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline UploadStashMessage& operator=(UploadStashMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const UploadStashMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const UploadStashMessage* internal_default_instance() {
-    return reinterpret_cast<const UploadStashMessage*>(
-               &_UploadStashMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
-
-  void Swap(UploadStashMessage* other);
-  friend void swap(UploadStashMessage& a, UploadStashMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline UploadStashMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  UploadStashMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const UploadStashMessage& from);
-  void MergeFrom(const UploadStashMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(UploadStashMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated int32 pos = 2;
-  int pos_size() const;
-  void clear_pos();
-  static const int kPosFieldNumber = 2;
-  ::google::protobuf::int32 pos(int index) const;
-  void set_pos(int index, ::google::protobuf::int32 value);
-  void add_pos(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      pos() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_pos();
-
-  // repeated bytes value = 3;
-  int value_size() const;
-  void clear_value();
-  static const int kValueFieldNumber = 3;
-  const ::std::string& value(int index) const;
-  ::std::string* mutable_value(int index);
-  void set_value(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(int index, ::std::string&& value);
-  #endif
-  void set_value(int index, const char* value);
-  void set_value(int index, const void* value, size_t size);
-  ::std::string* add_value();
-  void add_value(const ::std::string& value);
-  #if LANG_CXX11
-  void add_value(::std::string&& value);
-  #endif
-  void add_value(const char* value);
-  void add_value(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
-
-  // int32 userID = 1;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 1;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:UploadStashMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pos_;
-  mutable int _pos_cached_byte_size_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> value_;
-  ::google::protobuf::int32 userid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsUploadStashMessageImpl();
-};
-// -------------------------------------------------------------------
 
 class SetupMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:SetupMessage) */ {
  public:
@@ -920,7 +126,7 @@ class SetupMessage : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_SetupMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    0;
 
   void Swap(SetupMessage* other);
   friend void swap(SetupMessage& a, SetupMessage& b) {
@@ -984,24 +190,24 @@ class SetupMessage : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
-class AddFileCntQueueMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:AddFileCntQueueMessage) */ {
+class getRofFileRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:getRofFileRequest) */ {
  public:
-  AddFileCntQueueMessage();
-  virtual ~AddFileCntQueueMessage();
+  getRofFileRequest();
+  virtual ~getRofFileRequest();
 
-  AddFileCntQueueMessage(const AddFileCntQueueMessage& from);
+  getRofFileRequest(const getRofFileRequest& from);
 
-  inline AddFileCntQueueMessage& operator=(const AddFileCntQueueMessage& from) {
+  inline getRofFileRequest& operator=(const getRofFileRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  AddFileCntQueueMessage(AddFileCntQueueMessage&& from) noexcept
-    : AddFileCntQueueMessage() {
+  getRofFileRequest(getRofFileRequest&& from) noexcept
+    : getRofFileRequest() {
     *this = ::std::move(from);
   }
 
-  inline AddFileCntQueueMessage& operator=(AddFileCntQueueMessage&& from) noexcept {
+  inline getRofFileRequest& operator=(getRofFileRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1011,30 +217,30 @@ class AddFileCntQueueMessage : public ::google::protobuf::Message /* @@protoc_in
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const AddFileCntQueueMessage& default_instance();
+  static const getRofFileRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const AddFileCntQueueMessage* internal_default_instance() {
-    return reinterpret_cast<const AddFileCntQueueMessage*>(
-               &_AddFileCntQueueMessage_default_instance_);
+  static inline const getRofFileRequest* internal_default_instance() {
+    return reinterpret_cast<const getRofFileRequest*>(
+               &_getRofFileRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    1;
 
-  void Swap(AddFileCntQueueMessage* other);
-  friend void swap(AddFileCntQueueMessage& a, AddFileCntQueueMessage& b) {
+  void Swap(getRofFileRequest* other);
+  friend void swap(getRofFileRequest& a, getRofFileRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline AddFileCntQueueMessage* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline getRofFileRequest* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  AddFileCntQueueMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  getRofFileRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const AddFileCntQueueMessage& from);
-  void MergeFrom(const AddFileCntQueueMessage& from);
+  void CopyFrom(const getRofFileRequest& from);
+  void MergeFrom(const getRofFileRequest& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -1050,7 +256,7 @@ class AddFileCntQueueMessage : public ::google::protobuf::Message /* @@protoc_in
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(AddFileCntQueueMessage* other);
+  void InternalSwap(getRofFileRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1066,56 +272,41 @@ class AddFileCntQueueMessage : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // bytes value = 1;
-  void clear_value();
-  static const int kValueFieldNumber = 1;
-  const ::std::string& value() const;
-  void set_value(const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(::std::string&& value);
-  #endif
-  void set_value(const char* value);
-  void set_value(const void* value, size_t size);
-  ::std::string* mutable_value();
-  ::std::string* release_value();
-  void set_allocated_value(::std::string* value);
+  // int32 ind = 1;
+  void clear_ind();
+  static const int kIndFieldNumber = 1;
+  ::google::protobuf::int32 ind() const;
+  void set_ind(::google::protobuf::int32 value);
 
-  // int32 userID = 2;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 2;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:AddFileCntQueueMessage)
+  // @@protoc_insertion_point(class_scope:getRofFileRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr value_;
-  ::google::protobuf::int32 userid_;
+  ::google::protobuf::int32 ind_;
   mutable int _cached_size_;
   friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsAddFileCntQueueMessageImpl();
+  friend void ::protobuf_mkse_2eproto::InitDefaultsgetRofFileRequestImpl();
 };
 // -------------------------------------------------------------------
 
-class BatchAddFileCntQueueMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BatchAddFileCntQueueMessage) */ {
+class getRofFileResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:getRofFileResponse) */ {
  public:
-  BatchAddFileCntQueueMessage();
-  virtual ~BatchAddFileCntQueueMessage();
+  getRofFileResponse();
+  virtual ~getRofFileResponse();
 
-  BatchAddFileCntQueueMessage(const BatchAddFileCntQueueMessage& from);
+  getRofFileResponse(const getRofFileResponse& from);
 
-  inline BatchAddFileCntQueueMessage& operator=(const BatchAddFileCntQueueMessage& from) {
+  inline getRofFileResponse& operator=(const getRofFileResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  BatchAddFileCntQueueMessage(BatchAddFileCntQueueMessage&& from) noexcept
-    : BatchAddFileCntQueueMessage() {
+  getRofFileResponse(getRofFileResponse&& from) noexcept
+    : getRofFileResponse() {
     *this = ::std::move(from);
   }
 
-  inline BatchAddFileCntQueueMessage& operator=(BatchAddFileCntQueueMessage&& from) noexcept {
+  inline getRofFileResponse& operator=(getRofFileResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1125,30 +316,30 @@ class BatchAddFileCntQueueMessage : public ::google::protobuf::Message /* @@prot
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const BatchAddFileCntQueueMessage& default_instance();
+  static const getRofFileResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const BatchAddFileCntQueueMessage* internal_default_instance() {
-    return reinterpret_cast<const BatchAddFileCntQueueMessage*>(
-               &_BatchAddFileCntQueueMessage_default_instance_);
+  static inline const getRofFileResponse* internal_default_instance() {
+    return reinterpret_cast<const getRofFileResponse*>(
+               &_getRofFileResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    8;
+    2;
 
-  void Swap(BatchAddFileCntQueueMessage* other);
-  friend void swap(BatchAddFileCntQueueMessage& a, BatchAddFileCntQueueMessage& b) {
+  void Swap(getRofFileResponse* other);
+  friend void swap(getRofFileResponse& a, getRofFileResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline BatchAddFileCntQueueMessage* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline getRofFileResponse* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  BatchAddFileCntQueueMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  getRofFileResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const BatchAddFileCntQueueMessage& from);
-  void MergeFrom(const BatchAddFileCntQueueMessage& from);
+  void CopyFrom(const getRofFileResponse& from);
+  void MergeFrom(const getRofFileResponse& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -1164,7 +355,7 @@ class BatchAddFileCntQueueMessage : public ::google::protobuf::Message /* @@prot
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(BatchAddFileCntQueueMessage* other);
+  void InternalSwap(getRofFileResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1180,870 +371,20 @@ class BatchAddFileCntQueueMessage : public ::google::protobuf::Message /* @@prot
 
   // accessors -------------------------------------------------------
 
-  // repeated bytes values = 1;
-  int values_size() const;
-  void clear_values();
-  static const int kValuesFieldNumber = 1;
-  const ::std::string& values(int index) const;
-  ::std::string* mutable_values(int index);
-  void set_values(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_values(int index, ::std::string&& value);
-  #endif
-  void set_values(int index, const char* value);
-  void set_values(int index, const void* value, size_t size);
-  ::std::string* add_values();
-  void add_values(const ::std::string& value);
-  #if LANG_CXX11
-  void add_values(::std::string&& value);
-  #endif
-  void add_values(const char* value);
-  void add_values(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& values() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_values();
+  // int32 r = 1;
+  void clear_r();
+  static const int kRFieldNumber = 1;
+  ::google::protobuf::int32 r() const;
+  void set_r(::google::protobuf::int32 value);
 
-  // int32 userID = 2;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 2;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:BatchAddFileCntQueueMessage)
+  // @@protoc_insertion_point(class_scope:getRofFileResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> values_;
-  ::google::protobuf::int32 userid_;
+  ::google::protobuf::int32 r_;
   mutable int _cached_size_;
   friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsBatchAddFileCntQueueMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class FileCntQueueRequestMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:FileCntQueueRequestMessage) */ {
- public:
-  FileCntQueueRequestMessage();
-  virtual ~FileCntQueueRequestMessage();
-
-  FileCntQueueRequestMessage(const FileCntQueueRequestMessage& from);
-
-  inline FileCntQueueRequestMessage& operator=(const FileCntQueueRequestMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  FileCntQueueRequestMessage(FileCntQueueRequestMessage&& from) noexcept
-    : FileCntQueueRequestMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline FileCntQueueRequestMessage& operator=(FileCntQueueRequestMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const FileCntQueueRequestMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const FileCntQueueRequestMessage* internal_default_instance() {
-    return reinterpret_cast<const FileCntQueueRequestMessage*>(
-               &_FileCntQueueRequestMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    9;
-
-  void Swap(FileCntQueueRequestMessage* other);
-  friend void swap(FileCntQueueRequestMessage& a, FileCntQueueRequestMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline FileCntQueueRequestMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  FileCntQueueRequestMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const FileCntQueueRequestMessage& from);
-  void MergeFrom(const FileCntQueueRequestMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(FileCntQueueRequestMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // int32 userID = 1;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 1;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:FileCntQueueRequestMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 userid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsFileCntQueueRequestMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class FileCntDiffMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:FileCntDiffMessage) */ {
- public:
-  FileCntDiffMessage();
-  virtual ~FileCntDiffMessage();
-
-  FileCntDiffMessage(const FileCntDiffMessage& from);
-
-  inline FileCntDiffMessage& operator=(const FileCntDiffMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  FileCntDiffMessage(FileCntDiffMessage&& from) noexcept
-    : FileCntDiffMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline FileCntDiffMessage& operator=(FileCntDiffMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const FileCntDiffMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const FileCntDiffMessage* internal_default_instance() {
-    return reinterpret_cast<const FileCntDiffMessage*>(
-               &_FileCntDiffMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    10;
-
-  void Swap(FileCntDiffMessage* other);
-  friend void swap(FileCntDiffMessage& a, FileCntDiffMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline FileCntDiffMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  FileCntDiffMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const FileCntDiffMessage& from);
-  void MergeFrom(const FileCntDiffMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(FileCntDiffMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated bytes value = 1;
-  int value_size() const;
-  void clear_value();
-  static const int kValueFieldNumber = 1;
-  const ::std::string& value(int index) const;
-  ::std::string* mutable_value(int index);
-  void set_value(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(int index, ::std::string&& value);
-  #endif
-  void set_value(int index, const char* value);
-  void set_value(int index, const void* value, size_t size);
-  ::std::string* add_value();
-  void add_value(const ::std::string& value);
-  #if LANG_CXX11
-  void add_value(::std::string&& value);
-  #endif
-  void add_value(const char* value);
-  void add_value(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
-
-  // @@protoc_insertion_point(class_scope:FileCntDiffMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> value_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsFileCntDiffMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class UpdateMerkleRootMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:UpdateMerkleRootMessage) */ {
- public:
-  UpdateMerkleRootMessage();
-  virtual ~UpdateMerkleRootMessage();
-
-  UpdateMerkleRootMessage(const UpdateMerkleRootMessage& from);
-
-  inline UpdateMerkleRootMessage& operator=(const UpdateMerkleRootMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  UpdateMerkleRootMessage(UpdateMerkleRootMessage&& from) noexcept
-    : UpdateMerkleRootMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline UpdateMerkleRootMessage& operator=(UpdateMerkleRootMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const UpdateMerkleRootMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const UpdateMerkleRootMessage* internal_default_instance() {
-    return reinterpret_cast<const UpdateMerkleRootMessage*>(
-               &_UpdateMerkleRootMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
-
-  void Swap(UpdateMerkleRootMessage* other);
-  friend void swap(UpdateMerkleRootMessage& a, UpdateMerkleRootMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline UpdateMerkleRootMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  UpdateMerkleRootMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const UpdateMerkleRootMessage& from);
-  void MergeFrom(const UpdateMerkleRootMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(UpdateMerkleRootMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // bytes valuesRoot = 1;
-  void clear_valuesroot();
-  static const int kValuesRootFieldNumber = 1;
-  const ::std::string& valuesroot() const;
-  void set_valuesroot(const ::std::string& value);
-  #if LANG_CXX11
-  void set_valuesroot(::std::string&& value);
-  #endif
-  void set_valuesroot(const char* value);
-  void set_valuesroot(const void* value, size_t size);
-  ::std::string* mutable_valuesroot();
-  ::std::string* release_valuesroot();
-  void set_allocated_valuesroot(::std::string* valuesroot);
-
-  // bytes queuesRoot = 2;
-  void clear_queuesroot();
-  static const int kQueuesRootFieldNumber = 2;
-  const ::std::string& queuesroot() const;
-  void set_queuesroot(const ::std::string& value);
-  #if LANG_CXX11
-  void set_queuesroot(::std::string&& value);
-  #endif
-  void set_queuesroot(const char* value);
-  void set_queuesroot(const void* value, size_t size);
-  ::std::string* mutable_queuesroot();
-  ::std::string* release_queuesroot();
-  void set_allocated_queuesroot(::std::string* queuesroot);
-
-  // @@protoc_insertion_point(class_scope:UpdateMerkleRootMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr valuesroot_;
-  ::google::protobuf::internal::ArenaStringPtr queuesroot_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsUpdateMerkleRootMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class GetMerkleRootMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:GetMerkleRootMessage) */ {
- public:
-  GetMerkleRootMessage();
-  virtual ~GetMerkleRootMessage();
-
-  GetMerkleRootMessage(const GetMerkleRootMessage& from);
-
-  inline GetMerkleRootMessage& operator=(const GetMerkleRootMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  GetMerkleRootMessage(GetMerkleRootMessage&& from) noexcept
-    : GetMerkleRootMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline GetMerkleRootMessage& operator=(GetMerkleRootMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetMerkleRootMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetMerkleRootMessage* internal_default_instance() {
-    return reinterpret_cast<const GetMerkleRootMessage*>(
-               &_GetMerkleRootMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
-
-  void Swap(GetMerkleRootMessage* other);
-  friend void swap(GetMerkleRootMessage& a, GetMerkleRootMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetMerkleRootMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  GetMerkleRootMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const GetMerkleRootMessage& from);
-  void MergeFrom(const GetMerkleRootMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(GetMerkleRootMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // bytes valuesRoot = 1;
-  void clear_valuesroot();
-  static const int kValuesRootFieldNumber = 1;
-  const ::std::string& valuesroot() const;
-  void set_valuesroot(const ::std::string& value);
-  #if LANG_CXX11
-  void set_valuesroot(::std::string&& value);
-  #endif
-  void set_valuesroot(const char* value);
-  void set_valuesroot(const void* value, size_t size);
-  ::std::string* mutable_valuesroot();
-  ::std::string* release_valuesroot();
-  void set_allocated_valuesroot(::std::string* valuesroot);
-
-  // bytes queuesRoot = 2;
-  void clear_queuesroot();
-  static const int kQueuesRootFieldNumber = 2;
-  const ::std::string& queuesroot() const;
-  void set_queuesroot(const ::std::string& value);
-  #if LANG_CXX11
-  void set_queuesroot(::std::string&& value);
-  #endif
-  void set_queuesroot(const char* value);
-  void set_queuesroot(const void* value, size_t size);
-  ::std::string* mutable_queuesroot();
-  ::std::string* release_queuesroot();
-  void set_allocated_queuesroot(::std::string* queuesroot);
-
-  // @@protoc_insertion_point(class_scope:GetMerkleRootMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr valuesroot_;
-  ::google::protobuf::internal::ArenaStringPtr queuesroot_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsGetMerkleRootMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class CreateOMAPMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:CreateOMAPMessage) */ {
- public:
-  CreateOMAPMessage();
-  virtual ~CreateOMAPMessage();
-
-  CreateOMAPMessage(const CreateOMAPMessage& from);
-
-  inline CreateOMAPMessage& operator=(const CreateOMAPMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  CreateOMAPMessage(CreateOMAPMessage&& from) noexcept
-    : CreateOMAPMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline CreateOMAPMessage& operator=(CreateOMAPMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const CreateOMAPMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const CreateOMAPMessage* internal_default_instance() {
-    return reinterpret_cast<const CreateOMAPMessage*>(
-               &_CreateOMAPMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
-
-  void Swap(CreateOMAPMessage* other);
-  friend void swap(CreateOMAPMessage& a, CreateOMAPMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CreateOMAPMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  CreateOMAPMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const CreateOMAPMessage& from);
-  void MergeFrom(const CreateOMAPMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(CreateOMAPMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // int32 num = 1;
-  void clear_num();
-  static const int kNumFieldNumber = 1;
-  ::google::protobuf::int32 num() const;
-  void set_num(::google::protobuf::int32 value);
-
-  // int32 userID = 2;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 2;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:CreateOMAPMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 num_;
-  ::google::protobuf::int32 userid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsCreateOMAPMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class ReadStoreRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ReadStoreRequest) */ {
- public:
-  ReadStoreRequest();
-  virtual ~ReadStoreRequest();
-
-  ReadStoreRequest(const ReadStoreRequest& from);
-
-  inline ReadStoreRequest& operator=(const ReadStoreRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  ReadStoreRequest(ReadStoreRequest&& from) noexcept
-    : ReadStoreRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline ReadStoreRequest& operator=(ReadStoreRequest&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const ReadStoreRequest& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const ReadStoreRequest* internal_default_instance() {
-    return reinterpret_cast<const ReadStoreRequest*>(
-               &_ReadStoreRequest_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
-
-  void Swap(ReadStoreRequest* other);
-  friend void swap(ReadStoreRequest& a, ReadStoreRequest& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline ReadStoreRequest* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  ReadStoreRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const ReadStoreRequest& from);
-  void MergeFrom(const ReadStoreRequest& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(ReadStoreRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated int32 poses = 1;
-  int poses_size() const;
-  void clear_poses();
-  static const int kPosesFieldNumber = 1;
-  ::google::protobuf::int32 poses(int index) const;
-  void set_poses(int index, ::google::protobuf::int32 value);
-  void add_poses(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      poses() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_poses();
-
-  // int32 userID = 2;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 2;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:ReadStoreRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > poses_;
-  mutable int _poses_cached_byte_size_;
-  ::google::protobuf::int32 userid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsReadStoreRequestImpl();
-};
-// -------------------------------------------------------------------
-
-class WriteStoreRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:WriteStoreRequest) */ {
- public:
-  WriteStoreRequest();
-  virtual ~WriteStoreRequest();
-
-  WriteStoreRequest(const WriteStoreRequest& from);
-
-  inline WriteStoreRequest& operator=(const WriteStoreRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  WriteStoreRequest(WriteStoreRequest&& from) noexcept
-    : WriteStoreRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline WriteStoreRequest& operator=(WriteStoreRequest&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const WriteStoreRequest& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const WriteStoreRequest* internal_default_instance() {
-    return reinterpret_cast<const WriteStoreRequest*>(
-               &_WriteStoreRequest_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
-
-  void Swap(WriteStoreRequest* other);
-  friend void swap(WriteStoreRequest& a, WriteStoreRequest& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline WriteStoreRequest* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  WriteStoreRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const WriteStoreRequest& from);
-  void MergeFrom(const WriteStoreRequest& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(WriteStoreRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated int32 pos = 1;
-  int pos_size() const;
-  void clear_pos();
-  static const int kPosFieldNumber = 1;
-  ::google::protobuf::int32 pos(int index) const;
-  void set_pos(int index, ::google::protobuf::int32 value);
-  void add_pos(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      pos() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_pos();
-
-  // repeated bytes value = 2;
-  int value_size() const;
-  void clear_value();
-  static const int kValueFieldNumber = 2;
-  const ::std::string& value(int index) const;
-  ::std::string* mutable_value(int index);
-  void set_value(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(int index, ::std::string&& value);
-  #endif
-  void set_value(int index, const char* value);
-  void set_value(int index, const void* value, size_t size);
-  ::std::string* add_value();
-  void add_value(const ::std::string& value);
-  #if LANG_CXX11
-  void add_value(::std::string&& value);
-  #endif
-  void add_value(const char* value);
-  void add_value(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
-
-  // repeated int32 size = 3;
-  int size_size() const;
-  void clear_size();
-  static const int kSizeFieldNumber = 3;
-  ::google::protobuf::int32 size(int index) const;
-  void set_size(int index, ::google::protobuf::int32 value);
-  void add_size(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      size() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_size();
-
-  // int32 userID = 4;
-  void clear_userid();
-  static const int kUserIDFieldNumber = 4;
-  ::google::protobuf::int32 userid() const;
-  void set_userid(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:WriteStoreRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pos_;
-  mutable int _pos_cached_byte_size_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> value_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > size_;
-  mutable int _size_cached_byte_size_;
-  ::google::protobuf::int32 userid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsWriteStoreRequestImpl();
+  friend void ::protobuf_mkse_2eproto::InitDefaultsgetRofFileResponseImpl();
 };
 // -------------------------------------------------------------------
 
@@ -2082,7 +423,7 @@ class UpdateMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_UpdateMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    3;
 
   void Swap(UpdateMessage* other);
   friend void swap(UpdateMessage& a, UpdateMessage& b) {
@@ -2129,186 +470,42 @@ class UpdateMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // bytes address = 1;
-  void clear_address();
-  static const int kAddressFieldNumber = 1;
-  const ::std::string& address() const;
-  void set_address(const ::std::string& value);
+  // bytes dcipher = 2;
+  void clear_dcipher();
+  static const int kDcipherFieldNumber = 2;
+  const ::std::string& dcipher() const;
+  void set_dcipher(const ::std::string& value);
   #if LANG_CXX11
-  void set_address(::std::string&& value);
+  void set_dcipher(::std::string&& value);
   #endif
-  void set_address(const char* value);
-  void set_address(const void* value, size_t size);
-  ::std::string* mutable_address();
-  ::std::string* release_address();
-  void set_allocated_address(::std::string* address);
+  void set_dcipher(const char* value);
+  void set_dcipher(const void* value, size_t size);
+  ::std::string* mutable_dcipher();
+  ::std::string* release_dcipher();
+  void set_allocated_dcipher(::std::string* dcipher);
 
-  // bytes value = 2;
-  void clear_value();
-  static const int kValueFieldNumber = 2;
-  const ::std::string& value() const;
-  void set_value(const ::std::string& value);
-  #if LANG_CXX11
-  void set_value(::std::string&& value);
-  #endif
-  void set_value(const char* value);
-  void set_value(const void* value, size_t size);
-  ::std::string* mutable_value();
-  ::std::string* release_value();
-  void set_allocated_value(::std::string* value);
+  // int32 r = 1;
+  void clear_r();
+  static const int kRFieldNumber = 1;
+  ::google::protobuf::int32 r() const;
+  void set_r(::google::protobuf::int32 value);
+
+  // int32 ind = 3;
+  void clear_ind();
+  static const int kIndFieldNumber = 3;
+  ::google::protobuf::int32 ind() const;
+  void set_ind(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:UpdateMessage)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr address_;
-  ::google::protobuf::internal::ArenaStringPtr value_;
+  ::google::protobuf::internal::ArenaStringPtr dcipher_;
+  ::google::protobuf::int32 r_;
+  ::google::protobuf::int32 ind_;
   mutable int _cached_size_;
   friend struct ::protobuf_mkse_2eproto::TableStruct;
   friend void ::protobuf_mkse_2eproto::InitDefaultsUpdateMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class UpdateResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:UpdateResponse) */ {
- public:
-  UpdateResponse();
-  virtual ~UpdateResponse();
-
-  UpdateResponse(const UpdateResponse& from);
-
-  inline UpdateResponse& operator=(const UpdateResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  UpdateResponse(UpdateResponse&& from) noexcept
-    : UpdateResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline UpdateResponse& operator=(UpdateResponse&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const UpdateResponse& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const UpdateResponse* internal_default_instance() {
-    return reinterpret_cast<const UpdateResponse*>(
-               &_UpdateResponse_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
-
-  void Swap(UpdateResponse* other);
-  friend void swap(UpdateResponse& a, UpdateResponse& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline UpdateResponse* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  UpdateResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const UpdateResponse& from);
-  void MergeFrom(const UpdateResponse& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(UpdateResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated bytes hashes = 1;
-  int hashes_size() const;
-  void clear_hashes();
-  static const int kHashesFieldNumber = 1;
-  const ::std::string& hashes(int index) const;
-  ::std::string* mutable_hashes(int index);
-  void set_hashes(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_hashes(int index, ::std::string&& value);
-  #endif
-  void set_hashes(int index, const char* value);
-  void set_hashes(int index, const void* value, size_t size);
-  ::std::string* add_hashes();
-  void add_hashes(const ::std::string& value);
-  #if LANG_CXX11
-  void add_hashes(::std::string&& value);
-  #endif
-  void add_hashes(const char* value);
-  void add_hashes(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& hashes() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_hashes();
-
-  // repeated int32 positions = 2;
-  int positions_size() const;
-  void clear_positions();
-  static const int kPositionsFieldNumber = 2;
-  ::google::protobuf::int32 positions(int index) const;
-  void set_positions(int index, ::google::protobuf::int32 value);
-  void add_positions(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      positions() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_positions();
-
-  // int32 treeSize = 3;
-  void clear_treesize();
-  static const int kTreeSizeFieldNumber = 3;
-  ::google::protobuf::int32 treesize() const;
-  void set_treesize(::google::protobuf::int32 value);
-
-  // int32 pos = 4;
-  void clear_pos();
-  static const int kPosFieldNumber = 4;
-  ::google::protobuf::int32 pos() const;
-  void set_pos(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:UpdateResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> hashes_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > positions_;
-  mutable int _positions_cached_byte_size_;
-  ::google::protobuf::int32 treesize_;
-  ::google::protobuf::int32 pos_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsUpdateResponseImpl();
 };
 // -------------------------------------------------------------------
 
@@ -2347,7 +544,7 @@ class SearchMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_SearchMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    4;
 
   void Swap(SearchMessage* other);
   friend void swap(SearchMessage& a, SearchMessage& b) {
@@ -2394,33 +591,25 @@ class SearchMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // repeated bytes address = 1;
-  int address_size() const;
-  void clear_address();
-  static const int kAddressFieldNumber = 1;
-  const ::std::string& address(int index) const;
-  ::std::string* mutable_address(int index);
-  void set_address(int index, const ::std::string& value);
+  // bytes q = 1;
+  void clear_q();
+  static const int kQFieldNumber = 1;
+  const ::std::string& q() const;
+  void set_q(const ::std::string& value);
   #if LANG_CXX11
-  void set_address(int index, ::std::string&& value);
+  void set_q(::std::string&& value);
   #endif
-  void set_address(int index, const char* value);
-  void set_address(int index, const void* value, size_t size);
-  ::std::string* add_address();
-  void add_address(const ::std::string& value);
-  #if LANG_CXX11
-  void add_address(::std::string&& value);
-  #endif
-  void add_address(const char* value);
-  void add_address(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& address() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_address();
+  void set_q(const char* value);
+  void set_q(const void* value, size_t size);
+  ::std::string* mutable_q();
+  ::std::string* release_q();
+  void set_allocated_q(::std::string* q);
 
   // @@protoc_insertion_point(class_scope:SearchMessage)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> address_;
+  ::google::protobuf::internal::ArenaStringPtr q_;
   mutable int _cached_size_;
   friend struct ::protobuf_mkse_2eproto::TableStruct;
   friend void ::protobuf_mkse_2eproto::InitDefaultsSearchMessageImpl();
@@ -2462,7 +651,7 @@ class SearchResponse : public ::google::protobuf::Message /* @@protoc_insertion_
                &_SearchResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    5;
 
   void Swap(SearchResponse* other);
   friend void swap(SearchResponse& a, SearchResponse& b) {
@@ -2509,105 +698,47 @@ class SearchResponse : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // repeated bytes ciphertext = 1;
-  int ciphertext_size() const;
-  void clear_ciphertext();
-  static const int kCiphertextFieldNumber = 1;
-  const ::std::string& ciphertext(int index) const;
-  ::std::string* mutable_ciphertext(int index);
-  void set_ciphertext(int index, const ::std::string& value);
+  // repeated bytes value = 1;
+  int value_size() const;
+  void clear_value();
+  static const int kValueFieldNumber = 1;
+  const ::std::string& value(int index) const;
+  ::std::string* mutable_value(int index);
+  void set_value(int index, const ::std::string& value);
   #if LANG_CXX11
-  void set_ciphertext(int index, ::std::string&& value);
+  void set_value(int index, ::std::string&& value);
   #endif
-  void set_ciphertext(int index, const char* value);
-  void set_ciphertext(int index, const void* value, size_t size);
-  ::std::string* add_ciphertext();
-  void add_ciphertext(const ::std::string& value);
+  void set_value(int index, const char* value);
+  void set_value(int index, const void* value, size_t size);
+  ::std::string* add_value();
+  void add_value(const ::std::string& value);
   #if LANG_CXX11
-  void add_ciphertext(::std::string&& value);
+  void add_value(::std::string&& value);
   #endif
-  void add_ciphertext(const char* value);
-  void add_ciphertext(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& ciphertext() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_ciphertext();
+  void add_value(const char* value);
+  void add_value(const void* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
 
-  // repeated int32 cipherSize = 2;
-  int ciphersize_size() const;
-  void clear_ciphersize();
-  static const int kCipherSizeFieldNumber = 2;
-  ::google::protobuf::int32 ciphersize(int index) const;
-  void set_ciphersize(int index, ::google::protobuf::int32 value);
-  void add_ciphersize(::google::protobuf::int32 value);
+  // repeated int32 id = 2;
+  int id_size() const;
+  void clear_id();
+  static const int kIdFieldNumber = 2;
+  ::google::protobuf::int32 id(int index) const;
+  void set_id(int index, ::google::protobuf::int32 value);
+  void add_id(::google::protobuf::int32 value);
   const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      ciphersize() const;
+      id() const;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_ciphersize();
-
-  // repeated bytes hash = 3;
-  int hash_size() const;
-  void clear_hash();
-  static const int kHashFieldNumber = 3;
-  const ::std::string& hash(int index) const;
-  ::std::string* mutable_hash(int index);
-  void set_hash(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_hash(int index, ::std::string&& value);
-  #endif
-  void set_hash(int index, const char* value);
-  void set_hash(int index, const void* value, size_t size);
-  ::std::string* add_hash();
-  void add_hash(const ::std::string& value);
-  #if LANG_CXX11
-  void add_hash(::std::string&& value);
-  #endif
-  void add_hash(const char* value);
-  void add_hash(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& hash() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_hash();
-
-  // repeated int32 cipherPositions = 4;
-  int cipherpositions_size() const;
-  void clear_cipherpositions();
-  static const int kCipherPositionsFieldNumber = 4;
-  ::google::protobuf::int32 cipherpositions(int index) const;
-  void set_cipherpositions(int index, ::google::protobuf::int32 value);
-  void add_cipherpositions(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      cipherpositions() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_cipherpositions();
-
-  // repeated int32 proofPosistions = 6;
-  int proofposistions_size() const;
-  void clear_proofposistions();
-  static const int kProofPosistionsFieldNumber = 6;
-  ::google::protobuf::int32 proofposistions(int index) const;
-  void set_proofposistions(int index, ::google::protobuf::int32 value);
-  void add_proofposistions(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      proofposistions() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_proofposistions();
-
-  // int32 treeSize = 5;
-  void clear_treesize();
-  static const int kTreeSizeFieldNumber = 5;
-  ::google::protobuf::int32 treesize() const;
-  void set_treesize(::google::protobuf::int32 value);
+      mutable_id();
 
   // @@protoc_insertion_point(class_scope:SearchResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> ciphertext_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > ciphersize_;
-  mutable int _ciphersize_cached_byte_size_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> hash_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > cipherpositions_;
-  mutable int _cipherpositions_cached_byte_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > proofposistions_;
-  mutable int _proofposistions_cached_byte_size_;
-  ::google::protobuf::int32 treesize_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> value_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > id_;
+  mutable int _id_cached_byte_size_;
   mutable int _cached_size_;
   friend struct ::protobuf_mkse_2eproto::TableStruct;
   friend void ::protobuf_mkse_2eproto::InitDefaultsSearchResponseImpl();
@@ -2649,7 +780,7 @@ class BatchUpdateMessage : public ::google::protobuf::Message /* @@protoc_insert
                &_BatchUpdateMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    6;
 
   void Swap(BatchUpdateMessage* other);
   friend void swap(BatchUpdateMessage& a, BatchUpdateMessage& b) {
@@ -2696,287 +827,64 @@ class BatchUpdateMessage : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // repeated bytes address = 1;
-  int address_size() const;
-  void clear_address();
-  static const int kAddressFieldNumber = 1;
-  const ::std::string& address(int index) const;
-  ::std::string* mutable_address(int index);
-  void set_address(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_address(int index, ::std::string&& value);
-  #endif
-  void set_address(int index, const char* value);
-  void set_address(int index, const void* value, size_t size);
-  ::std::string* add_address();
-  void add_address(const ::std::string& value);
-  #if LANG_CXX11
-  void add_address(::std::string&& value);
-  #endif
-  void add_address(const char* value);
-  void add_address(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& address() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_address();
+  // repeated int32 r = 1;
+  int r_size() const;
+  void clear_r();
+  static const int kRFieldNumber = 1;
+  ::google::protobuf::int32 r(int index) const;
+  void set_r(int index, ::google::protobuf::int32 value);
+  void add_r(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      r() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_r();
 
-  // repeated bytes value = 2;
-  int value_size() const;
-  void clear_value();
-  static const int kValueFieldNumber = 2;
-  const ::std::string& value(int index) const;
-  ::std::string* mutable_value(int index);
-  void set_value(int index, const ::std::string& value);
+  // repeated bytes dcipher = 2;
+  int dcipher_size() const;
+  void clear_dcipher();
+  static const int kDcipherFieldNumber = 2;
+  const ::std::string& dcipher(int index) const;
+  ::std::string* mutable_dcipher(int index);
+  void set_dcipher(int index, const ::std::string& value);
   #if LANG_CXX11
-  void set_value(int index, ::std::string&& value);
+  void set_dcipher(int index, ::std::string&& value);
   #endif
-  void set_value(int index, const char* value);
-  void set_value(int index, const void* value, size_t size);
-  ::std::string* add_value();
-  void add_value(const ::std::string& value);
+  void set_dcipher(int index, const char* value);
+  void set_dcipher(int index, const void* value, size_t size);
+  ::std::string* add_dcipher();
+  void add_dcipher(const ::std::string& value);
   #if LANG_CXX11
-  void add_value(::std::string&& value);
+  void add_dcipher(::std::string&& value);
   #endif
-  void add_value(const char* value);
-  void add_value(const void* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
+  void add_dcipher(const char* value);
+  void add_dcipher(const void* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& dcipher() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_dcipher();
+
+  // repeated int32 ind = 3;
+  int ind_size() const;
+  void clear_ind();
+  static const int kIndFieldNumber = 3;
+  ::google::protobuf::int32 ind(int index) const;
+  void set_ind(int index, ::google::protobuf::int32 value);
+  void add_ind(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      ind() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_ind();
 
   // @@protoc_insertion_point(class_scope:BatchUpdateMessage)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> address_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> value_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > r_;
+  mutable int _r_cached_byte_size_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> dcipher_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > ind_;
+  mutable int _ind_cached_byte_size_;
   mutable int _cached_size_;
   friend struct ::protobuf_mkse_2eproto::TableStruct;
   friend void ::protobuf_mkse_2eproto::InitDefaultsBatchUpdateMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class CommandMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:CommandMessage) */ {
- public:
-  CommandMessage();
-  virtual ~CommandMessage();
-
-  CommandMessage(const CommandMessage& from);
-
-  inline CommandMessage& operator=(const CommandMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  CommandMessage(CommandMessage&& from) noexcept
-    : CommandMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline CommandMessage& operator=(CommandMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const CommandMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const CommandMessage* internal_default_instance() {
-    return reinterpret_cast<const CommandMessage*>(
-               &_CommandMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
-
-  void Swap(CommandMessage* other);
-  friend void swap(CommandMessage& a, CommandMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CommandMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  CommandMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const CommandMessage& from);
-  void MergeFrom(const CommandMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(CommandMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // bytes cmd = 1;
-  void clear_cmd();
-  static const int kCmdFieldNumber = 1;
-  const ::std::string& cmd() const;
-  void set_cmd(const ::std::string& value);
-  #if LANG_CXX11
-  void set_cmd(::std::string&& value);
-  #endif
-  void set_cmd(const char* value);
-  void set_cmd(const void* value, size_t size);
-  ::std::string* mutable_cmd();
-  ::std::string* release_cmd();
-  void set_allocated_cmd(::std::string* cmd);
-
-  // int32 size = 2;
-  void clear_size();
-  static const int kSizeFieldNumber = 2;
-  ::google::protobuf::int32 size() const;
-  void set_size(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:CommandMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr cmd_;
-  ::google::protobuf::int32 size_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsCommandMessageImpl();
-};
-// -------------------------------------------------------------------
-
-class ResultMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ResultMessage) */ {
- public:
-  ResultMessage();
-  virtual ~ResultMessage();
-
-  ResultMessage(const ResultMessage& from);
-
-  inline ResultMessage& operator=(const ResultMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  ResultMessage(ResultMessage&& from) noexcept
-    : ResultMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline ResultMessage& operator=(ResultMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const ResultMessage& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const ResultMessage* internal_default_instance() {
-    return reinterpret_cast<const ResultMessage*>(
-               &_ResultMessage_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
-
-  void Swap(ResultMessage* other);
-  friend void swap(ResultMessage& a, ResultMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline ResultMessage* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  ResultMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const ResultMessage& from);
-  void MergeFrom(const ResultMessage& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(ResultMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // bytes result = 1;
-  void clear_result();
-  static const int kResultFieldNumber = 1;
-  const ::std::string& result() const;
-  void set_result(const ::std::string& value);
-  #if LANG_CXX11
-  void set_result(::std::string&& value);
-  #endif
-  void set_result(const char* value);
-  void set_result(const void* value, size_t size);
-  ::std::string* mutable_result();
-  ::std::string* release_result();
-  void set_allocated_result(::std::string* result);
-
-  // int32 size = 2;
-  void clear_size();
-  static const int kSizeFieldNumber = 2;
-  ::google::protobuf::int32 size() const;
-  void set_size(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:ResultMessage)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr result_;
-  ::google::protobuf::int32 size_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_mkse_2eproto::TableStruct;
-  friend void ::protobuf_mkse_2eproto::InitDefaultsResultMessageImpl();
 };
 // ===================================================================
 
@@ -2987,418 +895,6 @@ class ResultMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// DownloadRootMessage
-
-// int32 userID = 1;
-inline void DownloadRootMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 DownloadRootMessage::userid() const {
-  // @@protoc_insertion_point(field_get:DownloadRootMessage.userID)
-  return userid_;
-}
-inline void DownloadRootMessage::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:DownloadRootMessage.userID)
-}
-
-// -------------------------------------------------------------------
-
-// DownloadRootResponse
-
-// int32 pos = 1;
-inline void DownloadRootResponse::clear_pos() {
-  pos_ = 0;
-}
-inline ::google::protobuf::int32 DownloadRootResponse::pos() const {
-  // @@protoc_insertion_point(field_get:DownloadRootResponse.pos)
-  return pos_;
-}
-inline void DownloadRootResponse::set_pos(::google::protobuf::int32 value) {
-  
-  pos_ = value;
-  // @@protoc_insertion_point(field_set:DownloadRootResponse.pos)
-}
-
-// bytes value = 2;
-inline void DownloadRootResponse::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& DownloadRootResponse::value() const {
-  // @@protoc_insertion_point(field_get:DownloadRootResponse.value)
-  return value_.GetNoArena();
-}
-inline void DownloadRootResponse::set_value(const ::std::string& value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DownloadRootResponse.value)
-}
-#if LANG_CXX11
-inline void DownloadRootResponse::set_value(::std::string&& value) {
-  
-  value_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:DownloadRootResponse.value)
-}
-#endif
-inline void DownloadRootResponse::set_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DownloadRootResponse.value)
-}
-inline void DownloadRootResponse::set_value(const void* value, size_t size) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DownloadRootResponse.value)
-}
-inline ::std::string* DownloadRootResponse::mutable_value() {
-  
-  // @@protoc_insertion_point(field_mutable:DownloadRootResponse.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* DownloadRootResponse::release_value() {
-  // @@protoc_insertion_point(field_release:DownloadRootResponse.value)
-  
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void DownloadRootResponse::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    
-  } else {
-    
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:DownloadRootResponse.value)
-}
-
-// -------------------------------------------------------------------
-
-// UploadRootMessage
-
-// int32 userID = 1;
-inline void UploadRootMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 UploadRootMessage::userid() const {
-  // @@protoc_insertion_point(field_get:UploadRootMessage.userID)
-  return userid_;
-}
-inline void UploadRootMessage::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:UploadRootMessage.userID)
-}
-
-// int32 pos = 2;
-inline void UploadRootMessage::clear_pos() {
-  pos_ = 0;
-}
-inline ::google::protobuf::int32 UploadRootMessage::pos() const {
-  // @@protoc_insertion_point(field_get:UploadRootMessage.pos)
-  return pos_;
-}
-inline void UploadRootMessage::set_pos(::google::protobuf::int32 value) {
-  
-  pos_ = value;
-  // @@protoc_insertion_point(field_set:UploadRootMessage.pos)
-}
-
-// bytes value = 3;
-inline void UploadRootMessage::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& UploadRootMessage::value() const {
-  // @@protoc_insertion_point(field_get:UploadRootMessage.value)
-  return value_.GetNoArena();
-}
-inline void UploadRootMessage::set_value(const ::std::string& value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:UploadRootMessage.value)
-}
-#if LANG_CXX11
-inline void UploadRootMessage::set_value(::std::string&& value) {
-  
-  value_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:UploadRootMessage.value)
-}
-#endif
-inline void UploadRootMessage::set_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:UploadRootMessage.value)
-}
-inline void UploadRootMessage::set_value(const void* value, size_t size) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:UploadRootMessage.value)
-}
-inline ::std::string* UploadRootMessage::mutable_value() {
-  
-  // @@protoc_insertion_point(field_mutable:UploadRootMessage.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* UploadRootMessage::release_value() {
-  // @@protoc_insertion_point(field_release:UploadRootMessage.value)
-  
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void UploadRootMessage::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    
-  } else {
-    
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:UploadRootMessage.value)
-}
-
-// -------------------------------------------------------------------
-
-// DownloadStashMessage
-
-// int32 userID = 1;
-inline void DownloadStashMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 DownloadStashMessage::userid() const {
-  // @@protoc_insertion_point(field_get:DownloadStashMessage.userID)
-  return userid_;
-}
-inline void DownloadStashMessage::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:DownloadStashMessage.userID)
-}
-
-// -------------------------------------------------------------------
-
-// DownloadStashResponse
-
-// repeated int32 pos = 1;
-inline int DownloadStashResponse::pos_size() const {
-  return pos_.size();
-}
-inline void DownloadStashResponse::clear_pos() {
-  pos_.Clear();
-}
-inline ::google::protobuf::int32 DownloadStashResponse::pos(int index) const {
-  // @@protoc_insertion_point(field_get:DownloadStashResponse.pos)
-  return pos_.Get(index);
-}
-inline void DownloadStashResponse::set_pos(int index, ::google::protobuf::int32 value) {
-  pos_.Set(index, value);
-  // @@protoc_insertion_point(field_set:DownloadStashResponse.pos)
-}
-inline void DownloadStashResponse::add_pos(::google::protobuf::int32 value) {
-  pos_.Add(value);
-  // @@protoc_insertion_point(field_add:DownloadStashResponse.pos)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-DownloadStashResponse::pos() const {
-  // @@protoc_insertion_point(field_list:DownloadStashResponse.pos)
-  return pos_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-DownloadStashResponse::mutable_pos() {
-  // @@protoc_insertion_point(field_mutable_list:DownloadStashResponse.pos)
-  return &pos_;
-}
-
-// repeated bytes value = 2;
-inline int DownloadStashResponse::value_size() const {
-  return value_.size();
-}
-inline void DownloadStashResponse::clear_value() {
-  value_.Clear();
-}
-inline const ::std::string& DownloadStashResponse::value(int index) const {
-  // @@protoc_insertion_point(field_get:DownloadStashResponse.value)
-  return value_.Get(index);
-}
-inline ::std::string* DownloadStashResponse::mutable_value(int index) {
-  // @@protoc_insertion_point(field_mutable:DownloadStashResponse.value)
-  return value_.Mutable(index);
-}
-inline void DownloadStashResponse::set_value(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:DownloadStashResponse.value)
-  value_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void DownloadStashResponse::set_value(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:DownloadStashResponse.value)
-  value_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void DownloadStashResponse::set_value(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:DownloadStashResponse.value)
-}
-inline void DownloadStashResponse::set_value(int index, const void* value, size_t size) {
-  value_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:DownloadStashResponse.value)
-}
-inline ::std::string* DownloadStashResponse::add_value() {
-  // @@protoc_insertion_point(field_add_mutable:DownloadStashResponse.value)
-  return value_.Add();
-}
-inline void DownloadStashResponse::add_value(const ::std::string& value) {
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:DownloadStashResponse.value)
-}
-#if LANG_CXX11
-inline void DownloadStashResponse::add_value(::std::string&& value) {
-  value_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:DownloadStashResponse.value)
-}
-#endif
-inline void DownloadStashResponse::add_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:DownloadStashResponse.value)
-}
-inline void DownloadStashResponse::add_value(const void* value, size_t size) {
-  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:DownloadStashResponse.value)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-DownloadStashResponse::value() const {
-  // @@protoc_insertion_point(field_list:DownloadStashResponse.value)
-  return value_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-DownloadStashResponse::mutable_value() {
-  // @@protoc_insertion_point(field_mutable_list:DownloadStashResponse.value)
-  return &value_;
-}
-
-// -------------------------------------------------------------------
-
-// UploadStashMessage
-
-// int32 userID = 1;
-inline void UploadStashMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 UploadStashMessage::userid() const {
-  // @@protoc_insertion_point(field_get:UploadStashMessage.userID)
-  return userid_;
-}
-inline void UploadStashMessage::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:UploadStashMessage.userID)
-}
-
-// repeated int32 pos = 2;
-inline int UploadStashMessage::pos_size() const {
-  return pos_.size();
-}
-inline void UploadStashMessage::clear_pos() {
-  pos_.Clear();
-}
-inline ::google::protobuf::int32 UploadStashMessage::pos(int index) const {
-  // @@protoc_insertion_point(field_get:UploadStashMessage.pos)
-  return pos_.Get(index);
-}
-inline void UploadStashMessage::set_pos(int index, ::google::protobuf::int32 value) {
-  pos_.Set(index, value);
-  // @@protoc_insertion_point(field_set:UploadStashMessage.pos)
-}
-inline void UploadStashMessage::add_pos(::google::protobuf::int32 value) {
-  pos_.Add(value);
-  // @@protoc_insertion_point(field_add:UploadStashMessage.pos)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-UploadStashMessage::pos() const {
-  // @@protoc_insertion_point(field_list:UploadStashMessage.pos)
-  return pos_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-UploadStashMessage::mutable_pos() {
-  // @@protoc_insertion_point(field_mutable_list:UploadStashMessage.pos)
-  return &pos_;
-}
-
-// repeated bytes value = 3;
-inline int UploadStashMessage::value_size() const {
-  return value_.size();
-}
-inline void UploadStashMessage::clear_value() {
-  value_.Clear();
-}
-inline const ::std::string& UploadStashMessage::value(int index) const {
-  // @@protoc_insertion_point(field_get:UploadStashMessage.value)
-  return value_.Get(index);
-}
-inline ::std::string* UploadStashMessage::mutable_value(int index) {
-  // @@protoc_insertion_point(field_mutable:UploadStashMessage.value)
-  return value_.Mutable(index);
-}
-inline void UploadStashMessage::set_value(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:UploadStashMessage.value)
-  value_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void UploadStashMessage::set_value(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:UploadStashMessage.value)
-  value_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void UploadStashMessage::set_value(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:UploadStashMessage.value)
-}
-inline void UploadStashMessage::set_value(int index, const void* value, size_t size) {
-  value_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:UploadStashMessage.value)
-}
-inline ::std::string* UploadStashMessage::add_value() {
-  // @@protoc_insertion_point(field_add_mutable:UploadStashMessage.value)
-  return value_.Add();
-}
-inline void UploadStashMessage::add_value(const ::std::string& value) {
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:UploadStashMessage.value)
-}
-#if LANG_CXX11
-inline void UploadStashMessage::add_value(::std::string&& value) {
-  value_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:UploadStashMessage.value)
-}
-#endif
-inline void UploadStashMessage::add_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:UploadStashMessage.value)
-}
-inline void UploadStashMessage::add_value(const void* value, size_t size) {
-  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:UploadStashMessage.value)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-UploadStashMessage::value() const {
-  // @@protoc_insertion_point(field_list:UploadStashMessage.value)
-  return value_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-UploadStashMessage::mutable_value() {
-  // @@protoc_insertion_point(field_mutable_list:UploadStashMessage.value)
-  return &value_;
-}
-
-// -------------------------------------------------------------------
-
 // SetupMessage
 
 // int32 maxQueueSize = 1;
@@ -3417,1579 +913,421 @@ inline void SetupMessage::set_maxqueuesize(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// AddFileCntQueueMessage
+// getRofFileRequest
 
-// bytes value = 1;
-inline void AddFileCntQueueMessage::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// int32 ind = 1;
+inline void getRofFileRequest::clear_ind() {
+  ind_ = 0;
 }
-inline const ::std::string& AddFileCntQueueMessage::value() const {
-  // @@protoc_insertion_point(field_get:AddFileCntQueueMessage.value)
-  return value_.GetNoArena();
+inline ::google::protobuf::int32 getRofFileRequest::ind() const {
+  // @@protoc_insertion_point(field_get:getRofFileRequest.ind)
+  return ind_;
 }
-inline void AddFileCntQueueMessage::set_value(const ::std::string& value) {
+inline void getRofFileRequest::set_ind(::google::protobuf::int32 value) {
   
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:AddFileCntQueueMessage.value)
-}
-#if LANG_CXX11
-inline void AddFileCntQueueMessage::set_value(::std::string&& value) {
-  
-  value_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:AddFileCntQueueMessage.value)
-}
-#endif
-inline void AddFileCntQueueMessage::set_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:AddFileCntQueueMessage.value)
-}
-inline void AddFileCntQueueMessage::set_value(const void* value, size_t size) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:AddFileCntQueueMessage.value)
-}
-inline ::std::string* AddFileCntQueueMessage::mutable_value() {
-  
-  // @@protoc_insertion_point(field_mutable:AddFileCntQueueMessage.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* AddFileCntQueueMessage::release_value() {
-  // @@protoc_insertion_point(field_release:AddFileCntQueueMessage.value)
-  
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void AddFileCntQueueMessage::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    
-  } else {
-    
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:AddFileCntQueueMessage.value)
-}
-
-// int32 userID = 2;
-inline void AddFileCntQueueMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 AddFileCntQueueMessage::userid() const {
-  // @@protoc_insertion_point(field_get:AddFileCntQueueMessage.userID)
-  return userid_;
-}
-inline void AddFileCntQueueMessage::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:AddFileCntQueueMessage.userID)
+  ind_ = value;
+  // @@protoc_insertion_point(field_set:getRofFileRequest.ind)
 }
 
 // -------------------------------------------------------------------
 
-// BatchAddFileCntQueueMessage
+// getRofFileResponse
 
-// repeated bytes values = 1;
-inline int BatchAddFileCntQueueMessage::values_size() const {
-  return values_.size();
+// int32 r = 1;
+inline void getRofFileResponse::clear_r() {
+  r_ = 0;
 }
-inline void BatchAddFileCntQueueMessage::clear_values() {
-  values_.Clear();
+inline ::google::protobuf::int32 getRofFileResponse::r() const {
+  // @@protoc_insertion_point(field_get:getRofFileResponse.r)
+  return r_;
 }
-inline const ::std::string& BatchAddFileCntQueueMessage::values(int index) const {
-  // @@protoc_insertion_point(field_get:BatchAddFileCntQueueMessage.values)
-  return values_.Get(index);
-}
-inline ::std::string* BatchAddFileCntQueueMessage::mutable_values(int index) {
-  // @@protoc_insertion_point(field_mutable:BatchAddFileCntQueueMessage.values)
-  return values_.Mutable(index);
-}
-inline void BatchAddFileCntQueueMessage::set_values(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:BatchAddFileCntQueueMessage.values)
-  values_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void BatchAddFileCntQueueMessage::set_values(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:BatchAddFileCntQueueMessage.values)
-  values_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void BatchAddFileCntQueueMessage::set_values(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  values_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:BatchAddFileCntQueueMessage.values)
-}
-inline void BatchAddFileCntQueueMessage::set_values(int index, const void* value, size_t size) {
-  values_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:BatchAddFileCntQueueMessage.values)
-}
-inline ::std::string* BatchAddFileCntQueueMessage::add_values() {
-  // @@protoc_insertion_point(field_add_mutable:BatchAddFileCntQueueMessage.values)
-  return values_.Add();
-}
-inline void BatchAddFileCntQueueMessage::add_values(const ::std::string& value) {
-  values_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:BatchAddFileCntQueueMessage.values)
-}
-#if LANG_CXX11
-inline void BatchAddFileCntQueueMessage::add_values(::std::string&& value) {
-  values_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:BatchAddFileCntQueueMessage.values)
-}
-#endif
-inline void BatchAddFileCntQueueMessage::add_values(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  values_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:BatchAddFileCntQueueMessage.values)
-}
-inline void BatchAddFileCntQueueMessage::add_values(const void* value, size_t size) {
-  values_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:BatchAddFileCntQueueMessage.values)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-BatchAddFileCntQueueMessage::values() const {
-  // @@protoc_insertion_point(field_list:BatchAddFileCntQueueMessage.values)
-  return values_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-BatchAddFileCntQueueMessage::mutable_values() {
-  // @@protoc_insertion_point(field_mutable_list:BatchAddFileCntQueueMessage.values)
-  return &values_;
-}
-
-// int32 userID = 2;
-inline void BatchAddFileCntQueueMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 BatchAddFileCntQueueMessage::userid() const {
-  // @@protoc_insertion_point(field_get:BatchAddFileCntQueueMessage.userID)
-  return userid_;
-}
-inline void BatchAddFileCntQueueMessage::set_userid(::google::protobuf::int32 value) {
+inline void getRofFileResponse::set_r(::google::protobuf::int32 value) {
   
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:BatchAddFileCntQueueMessage.userID)
-}
-
-// -------------------------------------------------------------------
-
-// FileCntQueueRequestMessage
-
-// int32 userID = 1;
-inline void FileCntQueueRequestMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 FileCntQueueRequestMessage::userid() const {
-  // @@protoc_insertion_point(field_get:FileCntQueueRequestMessage.userID)
-  return userid_;
-}
-inline void FileCntQueueRequestMessage::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:FileCntQueueRequestMessage.userID)
-}
-
-// -------------------------------------------------------------------
-
-// FileCntDiffMessage
-
-// repeated bytes value = 1;
-inline int FileCntDiffMessage::value_size() const {
-  return value_.size();
-}
-inline void FileCntDiffMessage::clear_value() {
-  value_.Clear();
-}
-inline const ::std::string& FileCntDiffMessage::value(int index) const {
-  // @@protoc_insertion_point(field_get:FileCntDiffMessage.value)
-  return value_.Get(index);
-}
-inline ::std::string* FileCntDiffMessage::mutable_value(int index) {
-  // @@protoc_insertion_point(field_mutable:FileCntDiffMessage.value)
-  return value_.Mutable(index);
-}
-inline void FileCntDiffMessage::set_value(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:FileCntDiffMessage.value)
-  value_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void FileCntDiffMessage::set_value(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:FileCntDiffMessage.value)
-  value_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void FileCntDiffMessage::set_value(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:FileCntDiffMessage.value)
-}
-inline void FileCntDiffMessage::set_value(int index, const void* value, size_t size) {
-  value_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:FileCntDiffMessage.value)
-}
-inline ::std::string* FileCntDiffMessage::add_value() {
-  // @@protoc_insertion_point(field_add_mutable:FileCntDiffMessage.value)
-  return value_.Add();
-}
-inline void FileCntDiffMessage::add_value(const ::std::string& value) {
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:FileCntDiffMessage.value)
-}
-#if LANG_CXX11
-inline void FileCntDiffMessage::add_value(::std::string&& value) {
-  value_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:FileCntDiffMessage.value)
-}
-#endif
-inline void FileCntDiffMessage::add_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:FileCntDiffMessage.value)
-}
-inline void FileCntDiffMessage::add_value(const void* value, size_t size) {
-  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:FileCntDiffMessage.value)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-FileCntDiffMessage::value() const {
-  // @@protoc_insertion_point(field_list:FileCntDiffMessage.value)
-  return value_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-FileCntDiffMessage::mutable_value() {
-  // @@protoc_insertion_point(field_mutable_list:FileCntDiffMessage.value)
-  return &value_;
-}
-
-// -------------------------------------------------------------------
-
-// UpdateMerkleRootMessage
-
-// bytes valuesRoot = 1;
-inline void UpdateMerkleRootMessage::clear_valuesroot() {
-  valuesroot_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& UpdateMerkleRootMessage::valuesroot() const {
-  // @@protoc_insertion_point(field_get:UpdateMerkleRootMessage.valuesRoot)
-  return valuesroot_.GetNoArena();
-}
-inline void UpdateMerkleRootMessage::set_valuesroot(const ::std::string& value) {
-  
-  valuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:UpdateMerkleRootMessage.valuesRoot)
-}
-#if LANG_CXX11
-inline void UpdateMerkleRootMessage::set_valuesroot(::std::string&& value) {
-  
-  valuesroot_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:UpdateMerkleRootMessage.valuesRoot)
-}
-#endif
-inline void UpdateMerkleRootMessage::set_valuesroot(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  valuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:UpdateMerkleRootMessage.valuesRoot)
-}
-inline void UpdateMerkleRootMessage::set_valuesroot(const void* value, size_t size) {
-  
-  valuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:UpdateMerkleRootMessage.valuesRoot)
-}
-inline ::std::string* UpdateMerkleRootMessage::mutable_valuesroot() {
-  
-  // @@protoc_insertion_point(field_mutable:UpdateMerkleRootMessage.valuesRoot)
-  return valuesroot_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* UpdateMerkleRootMessage::release_valuesroot() {
-  // @@protoc_insertion_point(field_release:UpdateMerkleRootMessage.valuesRoot)
-  
-  return valuesroot_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void UpdateMerkleRootMessage::set_allocated_valuesroot(::std::string* valuesroot) {
-  if (valuesroot != NULL) {
-    
-  } else {
-    
-  }
-  valuesroot_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), valuesroot);
-  // @@protoc_insertion_point(field_set_allocated:UpdateMerkleRootMessage.valuesRoot)
-}
-
-// bytes queuesRoot = 2;
-inline void UpdateMerkleRootMessage::clear_queuesroot() {
-  queuesroot_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& UpdateMerkleRootMessage::queuesroot() const {
-  // @@protoc_insertion_point(field_get:UpdateMerkleRootMessage.queuesRoot)
-  return queuesroot_.GetNoArena();
-}
-inline void UpdateMerkleRootMessage::set_queuesroot(const ::std::string& value) {
-  
-  queuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:UpdateMerkleRootMessage.queuesRoot)
-}
-#if LANG_CXX11
-inline void UpdateMerkleRootMessage::set_queuesroot(::std::string&& value) {
-  
-  queuesroot_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:UpdateMerkleRootMessage.queuesRoot)
-}
-#endif
-inline void UpdateMerkleRootMessage::set_queuesroot(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  queuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:UpdateMerkleRootMessage.queuesRoot)
-}
-inline void UpdateMerkleRootMessage::set_queuesroot(const void* value, size_t size) {
-  
-  queuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:UpdateMerkleRootMessage.queuesRoot)
-}
-inline ::std::string* UpdateMerkleRootMessage::mutable_queuesroot() {
-  
-  // @@protoc_insertion_point(field_mutable:UpdateMerkleRootMessage.queuesRoot)
-  return queuesroot_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* UpdateMerkleRootMessage::release_queuesroot() {
-  // @@protoc_insertion_point(field_release:UpdateMerkleRootMessage.queuesRoot)
-  
-  return queuesroot_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void UpdateMerkleRootMessage::set_allocated_queuesroot(::std::string* queuesroot) {
-  if (queuesroot != NULL) {
-    
-  } else {
-    
-  }
-  queuesroot_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), queuesroot);
-  // @@protoc_insertion_point(field_set_allocated:UpdateMerkleRootMessage.queuesRoot)
-}
-
-// -------------------------------------------------------------------
-
-// GetMerkleRootMessage
-
-// bytes valuesRoot = 1;
-inline void GetMerkleRootMessage::clear_valuesroot() {
-  valuesroot_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetMerkleRootMessage::valuesroot() const {
-  // @@protoc_insertion_point(field_get:GetMerkleRootMessage.valuesRoot)
-  return valuesroot_.GetNoArena();
-}
-inline void GetMerkleRootMessage::set_valuesroot(const ::std::string& value) {
-  
-  valuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:GetMerkleRootMessage.valuesRoot)
-}
-#if LANG_CXX11
-inline void GetMerkleRootMessage::set_valuesroot(::std::string&& value) {
-  
-  valuesroot_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:GetMerkleRootMessage.valuesRoot)
-}
-#endif
-inline void GetMerkleRootMessage::set_valuesroot(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  valuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:GetMerkleRootMessage.valuesRoot)
-}
-inline void GetMerkleRootMessage::set_valuesroot(const void* value, size_t size) {
-  
-  valuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:GetMerkleRootMessage.valuesRoot)
-}
-inline ::std::string* GetMerkleRootMessage::mutable_valuesroot() {
-  
-  // @@protoc_insertion_point(field_mutable:GetMerkleRootMessage.valuesRoot)
-  return valuesroot_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetMerkleRootMessage::release_valuesroot() {
-  // @@protoc_insertion_point(field_release:GetMerkleRootMessage.valuesRoot)
-  
-  return valuesroot_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetMerkleRootMessage::set_allocated_valuesroot(::std::string* valuesroot) {
-  if (valuesroot != NULL) {
-    
-  } else {
-    
-  }
-  valuesroot_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), valuesroot);
-  // @@protoc_insertion_point(field_set_allocated:GetMerkleRootMessage.valuesRoot)
-}
-
-// bytes queuesRoot = 2;
-inline void GetMerkleRootMessage::clear_queuesroot() {
-  queuesroot_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetMerkleRootMessage::queuesroot() const {
-  // @@protoc_insertion_point(field_get:GetMerkleRootMessage.queuesRoot)
-  return queuesroot_.GetNoArena();
-}
-inline void GetMerkleRootMessage::set_queuesroot(const ::std::string& value) {
-  
-  queuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:GetMerkleRootMessage.queuesRoot)
-}
-#if LANG_CXX11
-inline void GetMerkleRootMessage::set_queuesroot(::std::string&& value) {
-  
-  queuesroot_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:GetMerkleRootMessage.queuesRoot)
-}
-#endif
-inline void GetMerkleRootMessage::set_queuesroot(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  queuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:GetMerkleRootMessage.queuesRoot)
-}
-inline void GetMerkleRootMessage::set_queuesroot(const void* value, size_t size) {
-  
-  queuesroot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:GetMerkleRootMessage.queuesRoot)
-}
-inline ::std::string* GetMerkleRootMessage::mutable_queuesroot() {
-  
-  // @@protoc_insertion_point(field_mutable:GetMerkleRootMessage.queuesRoot)
-  return queuesroot_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetMerkleRootMessage::release_queuesroot() {
-  // @@protoc_insertion_point(field_release:GetMerkleRootMessage.queuesRoot)
-  
-  return queuesroot_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetMerkleRootMessage::set_allocated_queuesroot(::std::string* queuesroot) {
-  if (queuesroot != NULL) {
-    
-  } else {
-    
-  }
-  queuesroot_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), queuesroot);
-  // @@protoc_insertion_point(field_set_allocated:GetMerkleRootMessage.queuesRoot)
-}
-
-// -------------------------------------------------------------------
-
-// CreateOMAPMessage
-
-// int32 num = 1;
-inline void CreateOMAPMessage::clear_num() {
-  num_ = 0;
-}
-inline ::google::protobuf::int32 CreateOMAPMessage::num() const {
-  // @@protoc_insertion_point(field_get:CreateOMAPMessage.num)
-  return num_;
-}
-inline void CreateOMAPMessage::set_num(::google::protobuf::int32 value) {
-  
-  num_ = value;
-  // @@protoc_insertion_point(field_set:CreateOMAPMessage.num)
-}
-
-// int32 userID = 2;
-inline void CreateOMAPMessage::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 CreateOMAPMessage::userid() const {
-  // @@protoc_insertion_point(field_get:CreateOMAPMessage.userID)
-  return userid_;
-}
-inline void CreateOMAPMessage::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:CreateOMAPMessage.userID)
-}
-
-// -------------------------------------------------------------------
-
-// ReadStoreRequest
-
-// repeated int32 poses = 1;
-inline int ReadStoreRequest::poses_size() const {
-  return poses_.size();
-}
-inline void ReadStoreRequest::clear_poses() {
-  poses_.Clear();
-}
-inline ::google::protobuf::int32 ReadStoreRequest::poses(int index) const {
-  // @@protoc_insertion_point(field_get:ReadStoreRequest.poses)
-  return poses_.Get(index);
-}
-inline void ReadStoreRequest::set_poses(int index, ::google::protobuf::int32 value) {
-  poses_.Set(index, value);
-  // @@protoc_insertion_point(field_set:ReadStoreRequest.poses)
-}
-inline void ReadStoreRequest::add_poses(::google::protobuf::int32 value) {
-  poses_.Add(value);
-  // @@protoc_insertion_point(field_add:ReadStoreRequest.poses)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-ReadStoreRequest::poses() const {
-  // @@protoc_insertion_point(field_list:ReadStoreRequest.poses)
-  return poses_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-ReadStoreRequest::mutable_poses() {
-  // @@protoc_insertion_point(field_mutable_list:ReadStoreRequest.poses)
-  return &poses_;
-}
-
-// int32 userID = 2;
-inline void ReadStoreRequest::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 ReadStoreRequest::userid() const {
-  // @@protoc_insertion_point(field_get:ReadStoreRequest.userID)
-  return userid_;
-}
-inline void ReadStoreRequest::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:ReadStoreRequest.userID)
-}
-
-// -------------------------------------------------------------------
-
-// WriteStoreRequest
-
-// repeated int32 pos = 1;
-inline int WriteStoreRequest::pos_size() const {
-  return pos_.size();
-}
-inline void WriteStoreRequest::clear_pos() {
-  pos_.Clear();
-}
-inline ::google::protobuf::int32 WriteStoreRequest::pos(int index) const {
-  // @@protoc_insertion_point(field_get:WriteStoreRequest.pos)
-  return pos_.Get(index);
-}
-inline void WriteStoreRequest::set_pos(int index, ::google::protobuf::int32 value) {
-  pos_.Set(index, value);
-  // @@protoc_insertion_point(field_set:WriteStoreRequest.pos)
-}
-inline void WriteStoreRequest::add_pos(::google::protobuf::int32 value) {
-  pos_.Add(value);
-  // @@protoc_insertion_point(field_add:WriteStoreRequest.pos)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-WriteStoreRequest::pos() const {
-  // @@protoc_insertion_point(field_list:WriteStoreRequest.pos)
-  return pos_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-WriteStoreRequest::mutable_pos() {
-  // @@protoc_insertion_point(field_mutable_list:WriteStoreRequest.pos)
-  return &pos_;
-}
-
-// repeated bytes value = 2;
-inline int WriteStoreRequest::value_size() const {
-  return value_.size();
-}
-inline void WriteStoreRequest::clear_value() {
-  value_.Clear();
-}
-inline const ::std::string& WriteStoreRequest::value(int index) const {
-  // @@protoc_insertion_point(field_get:WriteStoreRequest.value)
-  return value_.Get(index);
-}
-inline ::std::string* WriteStoreRequest::mutable_value(int index) {
-  // @@protoc_insertion_point(field_mutable:WriteStoreRequest.value)
-  return value_.Mutable(index);
-}
-inline void WriteStoreRequest::set_value(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:WriteStoreRequest.value)
-  value_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void WriteStoreRequest::set_value(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:WriteStoreRequest.value)
-  value_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void WriteStoreRequest::set_value(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:WriteStoreRequest.value)
-}
-inline void WriteStoreRequest::set_value(int index, const void* value, size_t size) {
-  value_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:WriteStoreRequest.value)
-}
-inline ::std::string* WriteStoreRequest::add_value() {
-  // @@protoc_insertion_point(field_add_mutable:WriteStoreRequest.value)
-  return value_.Add();
-}
-inline void WriteStoreRequest::add_value(const ::std::string& value) {
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:WriteStoreRequest.value)
-}
-#if LANG_CXX11
-inline void WriteStoreRequest::add_value(::std::string&& value) {
-  value_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:WriteStoreRequest.value)
-}
-#endif
-inline void WriteStoreRequest::add_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:WriteStoreRequest.value)
-}
-inline void WriteStoreRequest::add_value(const void* value, size_t size) {
-  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:WriteStoreRequest.value)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-WriteStoreRequest::value() const {
-  // @@protoc_insertion_point(field_list:WriteStoreRequest.value)
-  return value_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-WriteStoreRequest::mutable_value() {
-  // @@protoc_insertion_point(field_mutable_list:WriteStoreRequest.value)
-  return &value_;
-}
-
-// repeated int32 size = 3;
-inline int WriteStoreRequest::size_size() const {
-  return size_.size();
-}
-inline void WriteStoreRequest::clear_size() {
-  size_.Clear();
-}
-inline ::google::protobuf::int32 WriteStoreRequest::size(int index) const {
-  // @@protoc_insertion_point(field_get:WriteStoreRequest.size)
-  return size_.Get(index);
-}
-inline void WriteStoreRequest::set_size(int index, ::google::protobuf::int32 value) {
-  size_.Set(index, value);
-  // @@protoc_insertion_point(field_set:WriteStoreRequest.size)
-}
-inline void WriteStoreRequest::add_size(::google::protobuf::int32 value) {
-  size_.Add(value);
-  // @@protoc_insertion_point(field_add:WriteStoreRequest.size)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-WriteStoreRequest::size() const {
-  // @@protoc_insertion_point(field_list:WriteStoreRequest.size)
-  return size_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-WriteStoreRequest::mutable_size() {
-  // @@protoc_insertion_point(field_mutable_list:WriteStoreRequest.size)
-  return &size_;
-}
-
-// int32 userID = 4;
-inline void WriteStoreRequest::clear_userid() {
-  userid_ = 0;
-}
-inline ::google::protobuf::int32 WriteStoreRequest::userid() const {
-  // @@protoc_insertion_point(field_get:WriteStoreRequest.userID)
-  return userid_;
-}
-inline void WriteStoreRequest::set_userid(::google::protobuf::int32 value) {
-  
-  userid_ = value;
-  // @@protoc_insertion_point(field_set:WriteStoreRequest.userID)
+  r_ = value;
+  // @@protoc_insertion_point(field_set:getRofFileResponse.r)
 }
 
 // -------------------------------------------------------------------
 
 // UpdateMessage
 
-// bytes address = 1;
-inline void UpdateMessage::clear_address() {
-  address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// int32 r = 1;
+inline void UpdateMessage::clear_r() {
+  r_ = 0;
 }
-inline const ::std::string& UpdateMessage::address() const {
-  // @@protoc_insertion_point(field_get:UpdateMessage.address)
-  return address_.GetNoArena();
+inline ::google::protobuf::int32 UpdateMessage::r() const {
+  // @@protoc_insertion_point(field_get:UpdateMessage.r)
+  return r_;
 }
-inline void UpdateMessage::set_address(const ::std::string& value) {
+inline void UpdateMessage::set_r(::google::protobuf::int32 value) {
   
-  address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:UpdateMessage.address)
+  r_ = value;
+  // @@protoc_insertion_point(field_set:UpdateMessage.r)
+}
+
+// bytes dcipher = 2;
+inline void UpdateMessage::clear_dcipher() {
+  dcipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UpdateMessage::dcipher() const {
+  // @@protoc_insertion_point(field_get:UpdateMessage.dcipher)
+  return dcipher_.GetNoArena();
+}
+inline void UpdateMessage::set_dcipher(const ::std::string& value) {
+  
+  dcipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:UpdateMessage.dcipher)
 }
 #if LANG_CXX11
-inline void UpdateMessage::set_address(::std::string&& value) {
+inline void UpdateMessage::set_dcipher(::std::string&& value) {
   
-  address_.SetNoArena(
+  dcipher_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:UpdateMessage.address)
+  // @@protoc_insertion_point(field_set_rvalue:UpdateMessage.dcipher)
 }
 #endif
-inline void UpdateMessage::set_address(const char* value) {
+inline void UpdateMessage::set_dcipher(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:UpdateMessage.address)
+  dcipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:UpdateMessage.dcipher)
 }
-inline void UpdateMessage::set_address(const void* value, size_t size) {
+inline void UpdateMessage::set_dcipher(const void* value, size_t size) {
   
-  address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  dcipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:UpdateMessage.address)
+  // @@protoc_insertion_point(field_set_pointer:UpdateMessage.dcipher)
 }
-inline ::std::string* UpdateMessage::mutable_address() {
+inline ::std::string* UpdateMessage::mutable_dcipher() {
   
-  // @@protoc_insertion_point(field_mutable:UpdateMessage.address)
-  return address_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:UpdateMessage.dcipher)
+  return dcipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UpdateMessage::release_address() {
-  // @@protoc_insertion_point(field_release:UpdateMessage.address)
+inline ::std::string* UpdateMessage::release_dcipher() {
+  // @@protoc_insertion_point(field_release:UpdateMessage.dcipher)
   
-  return address_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return dcipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UpdateMessage::set_allocated_address(::std::string* address) {
-  if (address != NULL) {
+inline void UpdateMessage::set_allocated_dcipher(::std::string* dcipher) {
+  if (dcipher != NULL) {
     
   } else {
     
   }
-  address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), address);
-  // @@protoc_insertion_point(field_set_allocated:UpdateMessage.address)
+  dcipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dcipher);
+  // @@protoc_insertion_point(field_set_allocated:UpdateMessage.dcipher)
 }
 
-// bytes value = 2;
-inline void UpdateMessage::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// int32 ind = 3;
+inline void UpdateMessage::clear_ind() {
+  ind_ = 0;
 }
-inline const ::std::string& UpdateMessage::value() const {
-  // @@protoc_insertion_point(field_get:UpdateMessage.value)
-  return value_.GetNoArena();
+inline ::google::protobuf::int32 UpdateMessage::ind() const {
+  // @@protoc_insertion_point(field_get:UpdateMessage.ind)
+  return ind_;
 }
-inline void UpdateMessage::set_value(const ::std::string& value) {
+inline void UpdateMessage::set_ind(::google::protobuf::int32 value) {
   
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:UpdateMessage.value)
-}
-#if LANG_CXX11
-inline void UpdateMessage::set_value(::std::string&& value) {
-  
-  value_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:UpdateMessage.value)
-}
-#endif
-inline void UpdateMessage::set_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:UpdateMessage.value)
-}
-inline void UpdateMessage::set_value(const void* value, size_t size) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:UpdateMessage.value)
-}
-inline ::std::string* UpdateMessage::mutable_value() {
-  
-  // @@protoc_insertion_point(field_mutable:UpdateMessage.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* UpdateMessage::release_value() {
-  // @@protoc_insertion_point(field_release:UpdateMessage.value)
-  
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void UpdateMessage::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    
-  } else {
-    
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:UpdateMessage.value)
-}
-
-// -------------------------------------------------------------------
-
-// UpdateResponse
-
-// repeated bytes hashes = 1;
-inline int UpdateResponse::hashes_size() const {
-  return hashes_.size();
-}
-inline void UpdateResponse::clear_hashes() {
-  hashes_.Clear();
-}
-inline const ::std::string& UpdateResponse::hashes(int index) const {
-  // @@protoc_insertion_point(field_get:UpdateResponse.hashes)
-  return hashes_.Get(index);
-}
-inline ::std::string* UpdateResponse::mutable_hashes(int index) {
-  // @@protoc_insertion_point(field_mutable:UpdateResponse.hashes)
-  return hashes_.Mutable(index);
-}
-inline void UpdateResponse::set_hashes(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:UpdateResponse.hashes)
-  hashes_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void UpdateResponse::set_hashes(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:UpdateResponse.hashes)
-  hashes_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void UpdateResponse::set_hashes(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hashes_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:UpdateResponse.hashes)
-}
-inline void UpdateResponse::set_hashes(int index, const void* value, size_t size) {
-  hashes_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:UpdateResponse.hashes)
-}
-inline ::std::string* UpdateResponse::add_hashes() {
-  // @@protoc_insertion_point(field_add_mutable:UpdateResponse.hashes)
-  return hashes_.Add();
-}
-inline void UpdateResponse::add_hashes(const ::std::string& value) {
-  hashes_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:UpdateResponse.hashes)
-}
-#if LANG_CXX11
-inline void UpdateResponse::add_hashes(::std::string&& value) {
-  hashes_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:UpdateResponse.hashes)
-}
-#endif
-inline void UpdateResponse::add_hashes(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hashes_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:UpdateResponse.hashes)
-}
-inline void UpdateResponse::add_hashes(const void* value, size_t size) {
-  hashes_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:UpdateResponse.hashes)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-UpdateResponse::hashes() const {
-  // @@protoc_insertion_point(field_list:UpdateResponse.hashes)
-  return hashes_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-UpdateResponse::mutable_hashes() {
-  // @@protoc_insertion_point(field_mutable_list:UpdateResponse.hashes)
-  return &hashes_;
-}
-
-// repeated int32 positions = 2;
-inline int UpdateResponse::positions_size() const {
-  return positions_.size();
-}
-inline void UpdateResponse::clear_positions() {
-  positions_.Clear();
-}
-inline ::google::protobuf::int32 UpdateResponse::positions(int index) const {
-  // @@protoc_insertion_point(field_get:UpdateResponse.positions)
-  return positions_.Get(index);
-}
-inline void UpdateResponse::set_positions(int index, ::google::protobuf::int32 value) {
-  positions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:UpdateResponse.positions)
-}
-inline void UpdateResponse::add_positions(::google::protobuf::int32 value) {
-  positions_.Add(value);
-  // @@protoc_insertion_point(field_add:UpdateResponse.positions)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-UpdateResponse::positions() const {
-  // @@protoc_insertion_point(field_list:UpdateResponse.positions)
-  return positions_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-UpdateResponse::mutable_positions() {
-  // @@protoc_insertion_point(field_mutable_list:UpdateResponse.positions)
-  return &positions_;
-}
-
-// int32 treeSize = 3;
-inline void UpdateResponse::clear_treesize() {
-  treesize_ = 0;
-}
-inline ::google::protobuf::int32 UpdateResponse::treesize() const {
-  // @@protoc_insertion_point(field_get:UpdateResponse.treeSize)
-  return treesize_;
-}
-inline void UpdateResponse::set_treesize(::google::protobuf::int32 value) {
-  
-  treesize_ = value;
-  // @@protoc_insertion_point(field_set:UpdateResponse.treeSize)
-}
-
-// int32 pos = 4;
-inline void UpdateResponse::clear_pos() {
-  pos_ = 0;
-}
-inline ::google::protobuf::int32 UpdateResponse::pos() const {
-  // @@protoc_insertion_point(field_get:UpdateResponse.pos)
-  return pos_;
-}
-inline void UpdateResponse::set_pos(::google::protobuf::int32 value) {
-  
-  pos_ = value;
-  // @@protoc_insertion_point(field_set:UpdateResponse.pos)
+  ind_ = value;
+  // @@protoc_insertion_point(field_set:UpdateMessage.ind)
 }
 
 // -------------------------------------------------------------------
 
 // SearchMessage
 
-// repeated bytes address = 1;
-inline int SearchMessage::address_size() const {
-  return address_.size();
+// bytes q = 1;
+inline void SearchMessage::clear_q() {
+  q_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void SearchMessage::clear_address() {
-  address_.Clear();
+inline const ::std::string& SearchMessage::q() const {
+  // @@protoc_insertion_point(field_get:SearchMessage.q)
+  return q_.GetNoArena();
 }
-inline const ::std::string& SearchMessage::address(int index) const {
-  // @@protoc_insertion_point(field_get:SearchMessage.address)
-  return address_.Get(index);
-}
-inline ::std::string* SearchMessage::mutable_address(int index) {
-  // @@protoc_insertion_point(field_mutable:SearchMessage.address)
-  return address_.Mutable(index);
-}
-inline void SearchMessage::set_address(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:SearchMessage.address)
-  address_.Mutable(index)->assign(value);
+inline void SearchMessage::set_q(const ::std::string& value) {
+  
+  q_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:SearchMessage.q)
 }
 #if LANG_CXX11
-inline void SearchMessage::set_address(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:SearchMessage.address)
-  address_.Mutable(index)->assign(std::move(value));
+inline void SearchMessage::set_q(::std::string&& value) {
+  
+  q_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:SearchMessage.q)
 }
 #endif
-inline void SearchMessage::set_address(int index, const char* value) {
+inline void SearchMessage::set_q(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  address_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:SearchMessage.address)
+  
+  q_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:SearchMessage.q)
 }
-inline void SearchMessage::set_address(int index, const void* value, size_t size) {
-  address_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:SearchMessage.address)
+inline void SearchMessage::set_q(const void* value, size_t size) {
+  
+  q_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:SearchMessage.q)
 }
-inline ::std::string* SearchMessage::add_address() {
-  // @@protoc_insertion_point(field_add_mutable:SearchMessage.address)
-  return address_.Add();
+inline ::std::string* SearchMessage::mutable_q() {
+  
+  // @@protoc_insertion_point(field_mutable:SearchMessage.q)
+  return q_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void SearchMessage::add_address(const ::std::string& value) {
-  address_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:SearchMessage.address)
+inline ::std::string* SearchMessage::release_q() {
+  // @@protoc_insertion_point(field_release:SearchMessage.q)
+  
+  return q_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-#if LANG_CXX11
-inline void SearchMessage::add_address(::std::string&& value) {
-  address_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:SearchMessage.address)
-}
-#endif
-inline void SearchMessage::add_address(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  address_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:SearchMessage.address)
-}
-inline void SearchMessage::add_address(const void* value, size_t size) {
-  address_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:SearchMessage.address)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-SearchMessage::address() const {
-  // @@protoc_insertion_point(field_list:SearchMessage.address)
-  return address_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-SearchMessage::mutable_address() {
-  // @@protoc_insertion_point(field_mutable_list:SearchMessage.address)
-  return &address_;
+inline void SearchMessage::set_allocated_q(::std::string* q) {
+  if (q != NULL) {
+    
+  } else {
+    
+  }
+  q_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), q);
+  // @@protoc_insertion_point(field_set_allocated:SearchMessage.q)
 }
 
 // -------------------------------------------------------------------
 
 // SearchResponse
 
-// repeated bytes ciphertext = 1;
-inline int SearchResponse::ciphertext_size() const {
-  return ciphertext_.size();
+// repeated bytes value = 1;
+inline int SearchResponse::value_size() const {
+  return value_.size();
 }
-inline void SearchResponse::clear_ciphertext() {
-  ciphertext_.Clear();
+inline void SearchResponse::clear_value() {
+  value_.Clear();
 }
-inline const ::std::string& SearchResponse::ciphertext(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse.ciphertext)
-  return ciphertext_.Get(index);
+inline const ::std::string& SearchResponse::value(int index) const {
+  // @@protoc_insertion_point(field_get:SearchResponse.value)
+  return value_.Get(index);
 }
-inline ::std::string* SearchResponse::mutable_ciphertext(int index) {
-  // @@protoc_insertion_point(field_mutable:SearchResponse.ciphertext)
-  return ciphertext_.Mutable(index);
+inline ::std::string* SearchResponse::mutable_value(int index) {
+  // @@protoc_insertion_point(field_mutable:SearchResponse.value)
+  return value_.Mutable(index);
 }
-inline void SearchResponse::set_ciphertext(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse.ciphertext)
-  ciphertext_.Mutable(index)->assign(value);
+inline void SearchResponse::set_value(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:SearchResponse.value)
+  value_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void SearchResponse::set_ciphertext(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse.ciphertext)
-  ciphertext_.Mutable(index)->assign(std::move(value));
+inline void SearchResponse::set_value(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:SearchResponse.value)
+  value_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void SearchResponse::set_ciphertext(int index, const char* value) {
+inline void SearchResponse::set_value(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  ciphertext_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:SearchResponse.ciphertext)
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:SearchResponse.value)
 }
-inline void SearchResponse::set_ciphertext(int index, const void* value, size_t size) {
-  ciphertext_.Mutable(index)->assign(
+inline void SearchResponse::set_value(int index, const void* value, size_t size) {
+  value_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:SearchResponse.ciphertext)
+  // @@protoc_insertion_point(field_set_pointer:SearchResponse.value)
 }
-inline ::std::string* SearchResponse::add_ciphertext() {
-  // @@protoc_insertion_point(field_add_mutable:SearchResponse.ciphertext)
-  return ciphertext_.Add();
+inline ::std::string* SearchResponse::add_value() {
+  // @@protoc_insertion_point(field_add_mutable:SearchResponse.value)
+  return value_.Add();
 }
-inline void SearchResponse::add_ciphertext(const ::std::string& value) {
-  ciphertext_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:SearchResponse.ciphertext)
+inline void SearchResponse::add_value(const ::std::string& value) {
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:SearchResponse.value)
 }
 #if LANG_CXX11
-inline void SearchResponse::add_ciphertext(::std::string&& value) {
-  ciphertext_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:SearchResponse.ciphertext)
+inline void SearchResponse::add_value(::std::string&& value) {
+  value_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:SearchResponse.value)
 }
 #endif
-inline void SearchResponse::add_ciphertext(const char* value) {
+inline void SearchResponse::add_value(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  ciphertext_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:SearchResponse.ciphertext)
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:SearchResponse.value)
 }
-inline void SearchResponse::add_ciphertext(const void* value, size_t size) {
-  ciphertext_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:SearchResponse.ciphertext)
+inline void SearchResponse::add_value(const void* value, size_t size) {
+  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:SearchResponse.value)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-SearchResponse::ciphertext() const {
-  // @@protoc_insertion_point(field_list:SearchResponse.ciphertext)
-  return ciphertext_;
+SearchResponse::value() const {
+  // @@protoc_insertion_point(field_list:SearchResponse.value)
+  return value_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-SearchResponse::mutable_ciphertext() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse.ciphertext)
-  return &ciphertext_;
+SearchResponse::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:SearchResponse.value)
+  return &value_;
 }
 
-// repeated int32 cipherSize = 2;
-inline int SearchResponse::ciphersize_size() const {
-  return ciphersize_.size();
+// repeated int32 id = 2;
+inline int SearchResponse::id_size() const {
+  return id_.size();
 }
-inline void SearchResponse::clear_ciphersize() {
-  ciphersize_.Clear();
+inline void SearchResponse::clear_id() {
+  id_.Clear();
 }
-inline ::google::protobuf::int32 SearchResponse::ciphersize(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse.cipherSize)
-  return ciphersize_.Get(index);
+inline ::google::protobuf::int32 SearchResponse::id(int index) const {
+  // @@protoc_insertion_point(field_get:SearchResponse.id)
+  return id_.Get(index);
 }
-inline void SearchResponse::set_ciphersize(int index, ::google::protobuf::int32 value) {
-  ciphersize_.Set(index, value);
-  // @@protoc_insertion_point(field_set:SearchResponse.cipherSize)
+inline void SearchResponse::set_id(int index, ::google::protobuf::int32 value) {
+  id_.Set(index, value);
+  // @@protoc_insertion_point(field_set:SearchResponse.id)
 }
-inline void SearchResponse::add_ciphersize(::google::protobuf::int32 value) {
-  ciphersize_.Add(value);
-  // @@protoc_insertion_point(field_add:SearchResponse.cipherSize)
+inline void SearchResponse::add_id(::google::protobuf::int32 value) {
+  id_.Add(value);
+  // @@protoc_insertion_point(field_add:SearchResponse.id)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-SearchResponse::ciphersize() const {
-  // @@protoc_insertion_point(field_list:SearchResponse.cipherSize)
-  return ciphersize_;
+SearchResponse::id() const {
+  // @@protoc_insertion_point(field_list:SearchResponse.id)
+  return id_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-SearchResponse::mutable_ciphersize() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse.cipherSize)
-  return &ciphersize_;
-}
-
-// repeated bytes hash = 3;
-inline int SearchResponse::hash_size() const {
-  return hash_.size();
-}
-inline void SearchResponse::clear_hash() {
-  hash_.Clear();
-}
-inline const ::std::string& SearchResponse::hash(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse.hash)
-  return hash_.Get(index);
-}
-inline ::std::string* SearchResponse::mutable_hash(int index) {
-  // @@protoc_insertion_point(field_mutable:SearchResponse.hash)
-  return hash_.Mutable(index);
-}
-inline void SearchResponse::set_hash(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse.hash)
-  hash_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void SearchResponse::set_hash(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:SearchResponse.hash)
-  hash_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void SearchResponse::set_hash(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hash_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:SearchResponse.hash)
-}
-inline void SearchResponse::set_hash(int index, const void* value, size_t size) {
-  hash_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:SearchResponse.hash)
-}
-inline ::std::string* SearchResponse::add_hash() {
-  // @@protoc_insertion_point(field_add_mutable:SearchResponse.hash)
-  return hash_.Add();
-}
-inline void SearchResponse::add_hash(const ::std::string& value) {
-  hash_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:SearchResponse.hash)
-}
-#if LANG_CXX11
-inline void SearchResponse::add_hash(::std::string&& value) {
-  hash_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:SearchResponse.hash)
-}
-#endif
-inline void SearchResponse::add_hash(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  hash_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:SearchResponse.hash)
-}
-inline void SearchResponse::add_hash(const void* value, size_t size) {
-  hash_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:SearchResponse.hash)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-SearchResponse::hash() const {
-  // @@protoc_insertion_point(field_list:SearchResponse.hash)
-  return hash_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-SearchResponse::mutable_hash() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse.hash)
-  return &hash_;
-}
-
-// repeated int32 cipherPositions = 4;
-inline int SearchResponse::cipherpositions_size() const {
-  return cipherpositions_.size();
-}
-inline void SearchResponse::clear_cipherpositions() {
-  cipherpositions_.Clear();
-}
-inline ::google::protobuf::int32 SearchResponse::cipherpositions(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse.cipherPositions)
-  return cipherpositions_.Get(index);
-}
-inline void SearchResponse::set_cipherpositions(int index, ::google::protobuf::int32 value) {
-  cipherpositions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:SearchResponse.cipherPositions)
-}
-inline void SearchResponse::add_cipherpositions(::google::protobuf::int32 value) {
-  cipherpositions_.Add(value);
-  // @@protoc_insertion_point(field_add:SearchResponse.cipherPositions)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-SearchResponse::cipherpositions() const {
-  // @@protoc_insertion_point(field_list:SearchResponse.cipherPositions)
-  return cipherpositions_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-SearchResponse::mutable_cipherpositions() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse.cipherPositions)
-  return &cipherpositions_;
-}
-
-// int32 treeSize = 5;
-inline void SearchResponse::clear_treesize() {
-  treesize_ = 0;
-}
-inline ::google::protobuf::int32 SearchResponse::treesize() const {
-  // @@protoc_insertion_point(field_get:SearchResponse.treeSize)
-  return treesize_;
-}
-inline void SearchResponse::set_treesize(::google::protobuf::int32 value) {
-  
-  treesize_ = value;
-  // @@protoc_insertion_point(field_set:SearchResponse.treeSize)
-}
-
-// repeated int32 proofPosistions = 6;
-inline int SearchResponse::proofposistions_size() const {
-  return proofposistions_.size();
-}
-inline void SearchResponse::clear_proofposistions() {
-  proofposistions_.Clear();
-}
-inline ::google::protobuf::int32 SearchResponse::proofposistions(int index) const {
-  // @@protoc_insertion_point(field_get:SearchResponse.proofPosistions)
-  return proofposistions_.Get(index);
-}
-inline void SearchResponse::set_proofposistions(int index, ::google::protobuf::int32 value) {
-  proofposistions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:SearchResponse.proofPosistions)
-}
-inline void SearchResponse::add_proofposistions(::google::protobuf::int32 value) {
-  proofposistions_.Add(value);
-  // @@protoc_insertion_point(field_add:SearchResponse.proofPosistions)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-SearchResponse::proofposistions() const {
-  // @@protoc_insertion_point(field_list:SearchResponse.proofPosistions)
-  return proofposistions_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-SearchResponse::mutable_proofposistions() {
-  // @@protoc_insertion_point(field_mutable_list:SearchResponse.proofPosistions)
-  return &proofposistions_;
+SearchResponse::mutable_id() {
+  // @@protoc_insertion_point(field_mutable_list:SearchResponse.id)
+  return &id_;
 }
 
 // -------------------------------------------------------------------
 
 // BatchUpdateMessage
 
-// repeated bytes address = 1;
-inline int BatchUpdateMessage::address_size() const {
-  return address_.size();
+// repeated int32 r = 1;
+inline int BatchUpdateMessage::r_size() const {
+  return r_.size();
 }
-inline void BatchUpdateMessage::clear_address() {
-  address_.Clear();
+inline void BatchUpdateMessage::clear_r() {
+  r_.Clear();
 }
-inline const ::std::string& BatchUpdateMessage::address(int index) const {
-  // @@protoc_insertion_point(field_get:BatchUpdateMessage.address)
-  return address_.Get(index);
+inline ::google::protobuf::int32 BatchUpdateMessage::r(int index) const {
+  // @@protoc_insertion_point(field_get:BatchUpdateMessage.r)
+  return r_.Get(index);
 }
-inline ::std::string* BatchUpdateMessage::mutable_address(int index) {
-  // @@protoc_insertion_point(field_mutable:BatchUpdateMessage.address)
-  return address_.Mutable(index);
+inline void BatchUpdateMessage::set_r(int index, ::google::protobuf::int32 value) {
+  r_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BatchUpdateMessage.r)
 }
-inline void BatchUpdateMessage::set_address(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:BatchUpdateMessage.address)
-  address_.Mutable(index)->assign(value);
+inline void BatchUpdateMessage::add_r(::google::protobuf::int32 value) {
+  r_.Add(value);
+  // @@protoc_insertion_point(field_add:BatchUpdateMessage.r)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+BatchUpdateMessage::r() const {
+  // @@protoc_insertion_point(field_list:BatchUpdateMessage.r)
+  return r_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+BatchUpdateMessage::mutable_r() {
+  // @@protoc_insertion_point(field_mutable_list:BatchUpdateMessage.r)
+  return &r_;
+}
+
+// repeated bytes dcipher = 2;
+inline int BatchUpdateMessage::dcipher_size() const {
+  return dcipher_.size();
+}
+inline void BatchUpdateMessage::clear_dcipher() {
+  dcipher_.Clear();
+}
+inline const ::std::string& BatchUpdateMessage::dcipher(int index) const {
+  // @@protoc_insertion_point(field_get:BatchUpdateMessage.dcipher)
+  return dcipher_.Get(index);
+}
+inline ::std::string* BatchUpdateMessage::mutable_dcipher(int index) {
+  // @@protoc_insertion_point(field_mutable:BatchUpdateMessage.dcipher)
+  return dcipher_.Mutable(index);
+}
+inline void BatchUpdateMessage::set_dcipher(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:BatchUpdateMessage.dcipher)
+  dcipher_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void BatchUpdateMessage::set_address(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:BatchUpdateMessage.address)
-  address_.Mutable(index)->assign(std::move(value));
+inline void BatchUpdateMessage::set_dcipher(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:BatchUpdateMessage.dcipher)
+  dcipher_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void BatchUpdateMessage::set_address(int index, const char* value) {
+inline void BatchUpdateMessage::set_dcipher(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  address_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:BatchUpdateMessage.address)
+  dcipher_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:BatchUpdateMessage.dcipher)
 }
-inline void BatchUpdateMessage::set_address(int index, const void* value, size_t size) {
-  address_.Mutable(index)->assign(
+inline void BatchUpdateMessage::set_dcipher(int index, const void* value, size_t size) {
+  dcipher_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:BatchUpdateMessage.address)
+  // @@protoc_insertion_point(field_set_pointer:BatchUpdateMessage.dcipher)
 }
-inline ::std::string* BatchUpdateMessage::add_address() {
-  // @@protoc_insertion_point(field_add_mutable:BatchUpdateMessage.address)
-  return address_.Add();
+inline ::std::string* BatchUpdateMessage::add_dcipher() {
+  // @@protoc_insertion_point(field_add_mutable:BatchUpdateMessage.dcipher)
+  return dcipher_.Add();
 }
-inline void BatchUpdateMessage::add_address(const ::std::string& value) {
-  address_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:BatchUpdateMessage.address)
+inline void BatchUpdateMessage::add_dcipher(const ::std::string& value) {
+  dcipher_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:BatchUpdateMessage.dcipher)
 }
 #if LANG_CXX11
-inline void BatchUpdateMessage::add_address(::std::string&& value) {
-  address_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:BatchUpdateMessage.address)
+inline void BatchUpdateMessage::add_dcipher(::std::string&& value) {
+  dcipher_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:BatchUpdateMessage.dcipher)
 }
 #endif
-inline void BatchUpdateMessage::add_address(const char* value) {
+inline void BatchUpdateMessage::add_dcipher(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  address_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:BatchUpdateMessage.address)
+  dcipher_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:BatchUpdateMessage.dcipher)
 }
-inline void BatchUpdateMessage::add_address(const void* value, size_t size) {
-  address_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:BatchUpdateMessage.address)
+inline void BatchUpdateMessage::add_dcipher(const void* value, size_t size) {
+  dcipher_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:BatchUpdateMessage.dcipher)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-BatchUpdateMessage::address() const {
-  // @@protoc_insertion_point(field_list:BatchUpdateMessage.address)
-  return address_;
+BatchUpdateMessage::dcipher() const {
+  // @@protoc_insertion_point(field_list:BatchUpdateMessage.dcipher)
+  return dcipher_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-BatchUpdateMessage::mutable_address() {
-  // @@protoc_insertion_point(field_mutable_list:BatchUpdateMessage.address)
-  return &address_;
+BatchUpdateMessage::mutable_dcipher() {
+  // @@protoc_insertion_point(field_mutable_list:BatchUpdateMessage.dcipher)
+  return &dcipher_;
 }
 
-// repeated bytes value = 2;
-inline int BatchUpdateMessage::value_size() const {
-  return value_.size();
+// repeated int32 ind = 3;
+inline int BatchUpdateMessage::ind_size() const {
+  return ind_.size();
 }
-inline void BatchUpdateMessage::clear_value() {
-  value_.Clear();
+inline void BatchUpdateMessage::clear_ind() {
+  ind_.Clear();
 }
-inline const ::std::string& BatchUpdateMessage::value(int index) const {
-  // @@protoc_insertion_point(field_get:BatchUpdateMessage.value)
-  return value_.Get(index);
+inline ::google::protobuf::int32 BatchUpdateMessage::ind(int index) const {
+  // @@protoc_insertion_point(field_get:BatchUpdateMessage.ind)
+  return ind_.Get(index);
 }
-inline ::std::string* BatchUpdateMessage::mutable_value(int index) {
-  // @@protoc_insertion_point(field_mutable:BatchUpdateMessage.value)
-  return value_.Mutable(index);
+inline void BatchUpdateMessage::set_ind(int index, ::google::protobuf::int32 value) {
+  ind_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BatchUpdateMessage.ind)
 }
-inline void BatchUpdateMessage::set_value(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:BatchUpdateMessage.value)
-  value_.Mutable(index)->assign(value);
+inline void BatchUpdateMessage::add_ind(::google::protobuf::int32 value) {
+  ind_.Add(value);
+  // @@protoc_insertion_point(field_add:BatchUpdateMessage.ind)
 }
-#if LANG_CXX11
-inline void BatchUpdateMessage::set_value(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:BatchUpdateMessage.value)
-  value_.Mutable(index)->assign(std::move(value));
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+BatchUpdateMessage::ind() const {
+  // @@protoc_insertion_point(field_list:BatchUpdateMessage.ind)
+  return ind_;
 }
-#endif
-inline void BatchUpdateMessage::set_value(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:BatchUpdateMessage.value)
-}
-inline void BatchUpdateMessage::set_value(int index, const void* value, size_t size) {
-  value_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:BatchUpdateMessage.value)
-}
-inline ::std::string* BatchUpdateMessage::add_value() {
-  // @@protoc_insertion_point(field_add_mutable:BatchUpdateMessage.value)
-  return value_.Add();
-}
-inline void BatchUpdateMessage::add_value(const ::std::string& value) {
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:BatchUpdateMessage.value)
-}
-#if LANG_CXX11
-inline void BatchUpdateMessage::add_value(::std::string&& value) {
-  value_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:BatchUpdateMessage.value)
-}
-#endif
-inline void BatchUpdateMessage::add_value(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:BatchUpdateMessage.value)
-}
-inline void BatchUpdateMessage::add_value(const void* value, size_t size) {
-  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:BatchUpdateMessage.value)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-BatchUpdateMessage::value() const {
-  // @@protoc_insertion_point(field_list:BatchUpdateMessage.value)
-  return value_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-BatchUpdateMessage::mutable_value() {
-  // @@protoc_insertion_point(field_mutable_list:BatchUpdateMessage.value)
-  return &value_;
-}
-
-// -------------------------------------------------------------------
-
-// CommandMessage
-
-// bytes cmd = 1;
-inline void CommandMessage::clear_cmd() {
-  cmd_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& CommandMessage::cmd() const {
-  // @@protoc_insertion_point(field_get:CommandMessage.cmd)
-  return cmd_.GetNoArena();
-}
-inline void CommandMessage::set_cmd(const ::std::string& value) {
-  
-  cmd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:CommandMessage.cmd)
-}
-#if LANG_CXX11
-inline void CommandMessage::set_cmd(::std::string&& value) {
-  
-  cmd_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:CommandMessage.cmd)
-}
-#endif
-inline void CommandMessage::set_cmd(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  cmd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:CommandMessage.cmd)
-}
-inline void CommandMessage::set_cmd(const void* value, size_t size) {
-  
-  cmd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:CommandMessage.cmd)
-}
-inline ::std::string* CommandMessage::mutable_cmd() {
-  
-  // @@protoc_insertion_point(field_mutable:CommandMessage.cmd)
-  return cmd_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* CommandMessage::release_cmd() {
-  // @@protoc_insertion_point(field_release:CommandMessage.cmd)
-  
-  return cmd_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void CommandMessage::set_allocated_cmd(::std::string* cmd) {
-  if (cmd != NULL) {
-    
-  } else {
-    
-  }
-  cmd_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cmd);
-  // @@protoc_insertion_point(field_set_allocated:CommandMessage.cmd)
-}
-
-// int32 size = 2;
-inline void CommandMessage::clear_size() {
-  size_ = 0;
-}
-inline ::google::protobuf::int32 CommandMessage::size() const {
-  // @@protoc_insertion_point(field_get:CommandMessage.size)
-  return size_;
-}
-inline void CommandMessage::set_size(::google::protobuf::int32 value) {
-  
-  size_ = value;
-  // @@protoc_insertion_point(field_set:CommandMessage.size)
-}
-
-// -------------------------------------------------------------------
-
-// ResultMessage
-
-// bytes result = 1;
-inline void ResultMessage::clear_result() {
-  result_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& ResultMessage::result() const {
-  // @@protoc_insertion_point(field_get:ResultMessage.result)
-  return result_.GetNoArena();
-}
-inline void ResultMessage::set_result(const ::std::string& value) {
-  
-  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ResultMessage.result)
-}
-#if LANG_CXX11
-inline void ResultMessage::set_result(::std::string&& value) {
-  
-  result_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ResultMessage.result)
-}
-#endif
-inline void ResultMessage::set_result(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ResultMessage.result)
-}
-inline void ResultMessage::set_result(const void* value, size_t size) {
-  
-  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ResultMessage.result)
-}
-inline ::std::string* ResultMessage::mutable_result() {
-  
-  // @@protoc_insertion_point(field_mutable:ResultMessage.result)
-  return result_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* ResultMessage::release_result() {
-  // @@protoc_insertion_point(field_release:ResultMessage.result)
-  
-  return result_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void ResultMessage::set_allocated_result(::std::string* result) {
-  if (result != NULL) {
-    
-  } else {
-    
-  }
-  result_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), result);
-  // @@protoc_insertion_point(field_set_allocated:ResultMessage.result)
-}
-
-// int32 size = 2;
-inline void ResultMessage::clear_size() {
-  size_ = 0;
-}
-inline ::google::protobuf::int32 ResultMessage::size() const {
-  // @@protoc_insertion_point(field_get:ResultMessage.size)
-  return size_;
-}
-inline void ResultMessage::set_size(::google::protobuf::int32 value) {
-  
-  size_ = value;
-  // @@protoc_insertion_point(field_set:ResultMessage.size)
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+BatchUpdateMessage::mutable_ind() {
+  // @@protoc_insertion_point(field_mutable_list:BatchUpdateMessage.ind)
+  return &ind_;
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -1,7 +1,9 @@
 #include "MKSEUser.h"
 
-MKSEUser::MKSEUser(MKSEServer* server, unsigned char* masterKey) {
+
+MKSEUser::MKSEUser(MKSEServer* server, unsigned char* masterKey, MKSEUserRunner* runner) {
     this->server = server;
+    this->runner = runner;
     srand(time(NULL));
     userID = rand();
     memset(iv, 0x00, AES_KEY_SIZE);

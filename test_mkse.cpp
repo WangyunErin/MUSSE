@@ -23,8 +23,8 @@ int main(int, char**) {
     }
     cout << "Master Key and Users' Keys Generated" << endl;
     MKSEServer server;
-    MKSEOwner client(&server, masterKey);
-    MKSEUser user1(&server, user1Key);
+    MKSEOwner client(&server, masterKey,NULL);
+    MKSEUser user1(&server, user1Key,NULL);
     client.registerUser(user1.userID, user1Key);
 
     cout << "Start of MKSE" << endl;

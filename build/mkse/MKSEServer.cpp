@@ -43,5 +43,10 @@ Result MKSEServer::search(prf_type q) {
 }
 
 bool MKSEServer::doesRExit(int r) {
-    return rs.count(r) != 0;
+    for(std::map<int,int>::iterator it = rs.begin();it!=rs.end();it++) {
+        if(it->second==r){
+            return true;
+        }
+    }
+    return false;
 }

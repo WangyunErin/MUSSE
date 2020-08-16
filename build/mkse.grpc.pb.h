@@ -41,19 +41,26 @@ class MKSE final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncsetup(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncsetupRaw(context, request, cq));
     }
-    virtual ::grpc::Status update(::grpc::ClientContext* context, const ::UpdateMessage& request, ::UpdateResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>> Asyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>>(AsyncupdateRaw(context, request, cq));
+    virtual ::grpc::Status getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::getRofFileResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::getRofFileResponse>> AsyncgetRofFile(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::getRofFileResponse>>(AsyncgetRofFileRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>> PrepareAsyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>>(PrepareAsyncupdateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::getRofFileResponse>> PrepareAsyncgetRofFile(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::getRofFileResponse>>(PrepareAsyncgetRofFileRaw(context, request, cq));
     }
-    virtual ::grpc::Status batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::UpdateResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>> AsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>>(AsyncbatchUpdateRaw(context, request, cq));
+    virtual ::grpc::Status update(::grpc::ClientContext* context, const ::UpdateMessage& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> Asyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncupdateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>> PrepareAsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>>(PrepareAsyncbatchUpdateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncupdateRaw(context, request, cq));
+    }
+    virtual ::grpc::Status batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncbatchUpdateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncbatchUpdateRaw(context, request, cq));
     }
     virtual ::grpc::Status search(::grpc::ClientContext* context, const ::SearchMessage& request, ::SearchResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse>> Asyncsearch(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) {
@@ -77,29 +84,41 @@ class MKSE final {
       #else
       virtual void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest* request, ::getRofFileResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void getRofFile(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::getRofFileResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest* request, ::getRofFileResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest* request, ::getRofFileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void getRofFile(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::getRofFileResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void getRofFile(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::getRofFileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       virtual void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -124,10 +143,12 @@ class MKSE final {
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>* AsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>* PrepareAsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>* AsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UpdateResponse>* PrepareAsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::getRofFileResponse>* AsyncgetRofFileRaw(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::getRofFileResponse>* PrepareAsyncgetRofFileRaw(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse>* AsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::SearchResponse>* PrepareAsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -141,19 +162,26 @@ class MKSE final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncsetup(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncsetupRaw(context, request, cq));
     }
-    ::grpc::Status update(::grpc::ClientContext* context, const ::UpdateMessage& request, ::UpdateResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>> Asyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>>(AsyncupdateRaw(context, request, cq));
+    ::grpc::Status getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::getRofFileResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::getRofFileResponse>> AsyncgetRofFile(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::getRofFileResponse>>(AsyncgetRofFileRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>> PrepareAsyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>>(PrepareAsyncupdateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::getRofFileResponse>> PrepareAsyncgetRofFile(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::getRofFileResponse>>(PrepareAsyncgetRofFileRaw(context, request, cq));
     }
-    ::grpc::Status batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::UpdateResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>> AsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>>(AsyncbatchUpdateRaw(context, request, cq));
+    ::grpc::Status update(::grpc::ClientContext* context, const ::UpdateMessage& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> Asyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncupdateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>> PrepareAsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UpdateResponse>>(PrepareAsyncbatchUpdateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncupdate(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncupdateRaw(context, request, cq));
+    }
+    ::grpc::Status batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncbatchUpdateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncbatchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncbatchUpdateRaw(context, request, cq));
     }
     ::grpc::Status search(::grpc::ClientContext* context, const ::SearchMessage& request, ::SearchResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::SearchResponse>> Asyncsearch(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) {
@@ -177,29 +205,41 @@ class MKSE final {
       #else
       void setup(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) override;
-      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) override;
+      void getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest* request, ::getRofFileResponse* response, std::function<void(::grpc::Status)>) override;
+      void getRofFile(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::getRofFileResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest* request, ::getRofFileResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void getRofFile(::grpc::ClientContext* context, const ::getRofFileRequest* request, ::getRofFileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void getRofFile(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::getRofFileResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void getRofFile(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::getRofFileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) override;
-      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, std::function<void(::grpc::Status)>) override;
+      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void update(::grpc::ClientContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void batchUpdate(::grpc::ClientContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void batchUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void search(::grpc::ClientContext* context, const ::SearchMessage* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
       void search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::SearchResponse* response, std::function<void(::grpc::Status)>) override;
@@ -226,13 +266,16 @@ class MKSE final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncsetupRaw(::grpc::ClientContext* context, const ::SetupMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* AsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* PrepareAsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* AsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::UpdateResponse>* PrepareAsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::getRofFileResponse>* AsyncgetRofFileRaw(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::getRofFileResponse>* PrepareAsyncgetRofFileRaw(::grpc::ClientContext* context, const ::getRofFileRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncupdateRaw(::grpc::ClientContext* context, const ::UpdateMessage& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncbatchUpdateRaw(::grpc::ClientContext* context, const ::BatchUpdateMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::SearchResponse>* AsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::SearchResponse>* PrepareAsyncsearchRaw(::grpc::ClientContext* context, const ::SearchMessage& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_setup_;
+    const ::grpc::internal::RpcMethod rpcmethod_getRofFile_;
     const ::grpc::internal::RpcMethod rpcmethod_update_;
     const ::grpc::internal::RpcMethod rpcmethod_batchUpdate_;
     const ::grpc::internal::RpcMethod rpcmethod_search_;
@@ -244,8 +287,9 @@ class MKSE final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status setup(::grpc::ServerContext* context, const ::SetupMessage* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::UpdateResponse* response);
-    virtual ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::UpdateResponse* response);
+    virtual ::grpc::Status getRofFile(::grpc::ServerContext* context, const ::getRofFileRequest* request, ::getRofFileResponse* response);
+    virtual ::grpc::Status update(::grpc::ServerContext* context, const ::UpdateMessage* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status batchUpdate(::grpc::ServerContext* context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status search(::grpc::ServerContext* context, const ::SearchMessage* request, ::SearchResponse* response);
   };
   template <class BaseClass>
@@ -269,23 +313,43 @@ class MKSE final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_getRofFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_getRofFile() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_getRofFile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getRofFile(::grpc::ServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestgetRofFile(::grpc::ServerContext* context, ::getRofFileRequest* request, ::grpc::ServerAsyncResponseWriter< ::getRofFileResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_update : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_update() {
-      ::grpc::Service::MarkMethodAsync(1);
+      ::grpc::Service::MarkMethodAsync(2);
     }
     ~WithAsyncMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void Requestupdate(::grpc::ServerContext* context, ::UpdateMessage* request, ::grpc::ServerAsyncResponseWriter< ::UpdateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    void Requestupdate(::grpc::ServerContext* context, ::UpdateMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -294,18 +358,18 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_batchUpdate() {
-      ::grpc::Service::MarkMethodAsync(2);
+      ::grpc::Service::MarkMethodAsync(3);
     }
     ~WithAsyncMethod_batchUpdate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestbatchUpdate(::grpc::ServerContext* context, ::BatchUpdateMessage* request, ::grpc::ServerAsyncResponseWriter< ::UpdateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestbatchUpdate(::grpc::ServerContext* context, ::BatchUpdateMessage* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -314,7 +378,7 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_search() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_search() override {
       BaseClassMustBeDerivedFromService(this);
@@ -325,10 +389,10 @@ class MKSE final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestsearch(::grpc::ServerContext* context, ::SearchMessage* request, ::grpc::ServerAsyncResponseWriter< ::SearchResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_setup<WithAsyncMethod_update<WithAsyncMethod_batchUpdate<WithAsyncMethod_search<Service > > > > AsyncService;
+  typedef WithAsyncMethod_setup<WithAsyncMethod_getRofFile<WithAsyncMethod_update<WithAsyncMethod_batchUpdate<WithAsyncMethod_search<Service > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_setup : public BaseClass {
    private:
@@ -377,6 +441,53 @@ class MKSE final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_getRofFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_getRofFile() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::getRofFileRequest, ::getRofFileResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::getRofFileRequest* request, ::getRofFileResponse* response) { return this->getRofFile(context, request, response); }));}
+    void SetMessageAllocatorFor_getRofFile(
+        ::grpc::experimental::MessageAllocator< ::getRofFileRequest, ::getRofFileResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::getRofFileRequest, ::getRofFileResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_getRofFile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getRofFile(::grpc::ServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* getRofFile(
+      ::grpc::CallbackServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* getRofFile(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_update : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -387,39 +498,39 @@ class MKSE final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMessage, ::UpdateResponse>(
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMessage, ::google::protobuf::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::UpdateMessage* request, ::UpdateResponse* response) { return this->update(context, request, response); }));}
+                     context, const ::UpdateMessage* request, ::google::protobuf::Empty* response) { return this->update(context, request, response); }));}
     void SetMessageAllocatorFor_update(
-        ::grpc::experimental::MessageAllocator< ::UpdateMessage, ::UpdateResponse>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::UpdateMessage, ::google::protobuf::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
     #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMessage, ::UpdateResponse>*>(handler)
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::UpdateMessage, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* update(
-      ::grpc::CallbackServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* update(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -434,39 +545,39 @@ class MKSE final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::BatchUpdateMessage, ::UpdateResponse>(
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::BatchUpdateMessage, ::google::protobuf::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::BatchUpdateMessage* request, ::UpdateResponse* response) { return this->batchUpdate(context, request, response); }));}
+                     context, const ::BatchUpdateMessage* request, ::google::protobuf::Empty* response) { return this->batchUpdate(context, request, response); }));}
     void SetMessageAllocatorFor_batchUpdate(
-        ::grpc::experimental::MessageAllocator< ::BatchUpdateMessage, ::UpdateResponse>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::BatchUpdateMessage, ::google::protobuf::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
     #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::BatchUpdateMessage, ::UpdateResponse>*>(handler)
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::BatchUpdateMessage, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_batchUpdate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* batchUpdate(
-      ::grpc::CallbackServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* batchUpdate(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -481,7 +592,7 @@ class MKSE final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(3,
+        MarkMethodCallback(4,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::SearchMessage, ::SearchResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -493,9 +604,9 @@ class MKSE final {
     void SetMessageAllocatorFor_search(
         ::grpc::experimental::MessageAllocator< ::SearchMessage, ::SearchResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
     #endif
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::SearchMessage, ::SearchResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -518,10 +629,10 @@ class MKSE final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<Service > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_getRofFile<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<Service > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<Service > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_setup<ExperimentalWithCallbackMethod_getRofFile<ExperimentalWithCallbackMethod_update<ExperimentalWithCallbackMethod_batchUpdate<ExperimentalWithCallbackMethod_search<Service > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_setup : public BaseClass {
    private:
@@ -540,18 +651,35 @@ class MKSE final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_getRofFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_getRofFile() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_getRofFile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getRofFile(::grpc::ServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_update : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_update() {
-      ::grpc::Service::MarkMethodGeneric(1);
+      ::grpc::Service::MarkMethodGeneric(2);
     }
     ~WithGenericMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -562,13 +690,13 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_batchUpdate() {
-      ::grpc::Service::MarkMethodGeneric(2);
+      ::grpc::Service::MarkMethodGeneric(3);
     }
     ~WithGenericMethod_batchUpdate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -579,7 +707,7 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_search() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_search() override {
       BaseClassMustBeDerivedFromService(this);
@@ -611,23 +739,43 @@ class MKSE final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_getRofFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_getRofFile() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_getRofFile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getRofFile(::grpc::ServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestgetRofFile(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_update : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_update() {
-      ::grpc::Service::MarkMethodRaw(1);
+      ::grpc::Service::MarkMethodRaw(2);
     }
     ~WithRawMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestupdate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -636,18 +784,18 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_batchUpdate() {
-      ::grpc::Service::MarkMethodRaw(2);
+      ::grpc::Service::MarkMethodRaw(3);
     }
     ~WithRawMethod_batchUpdate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestbatchUpdate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -656,7 +804,7 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_search() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_search() override {
       BaseClassMustBeDerivedFromService(this);
@@ -667,7 +815,7 @@ class MKSE final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestsearch(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -709,11 +857,11 @@ class MKSE final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_update : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_getRofFile : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_update() {
+    ExperimentalWithRawCallbackMethod_getRofFile() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -727,13 +875,51 @@ class MKSE final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getRofFile(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_getRofFile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getRofFile(::grpc::ServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* getRofFile(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* getRofFile(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_update : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_update() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
                      context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->update(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -757,7 +943,7 @@ class MKSE final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(2,
+        MarkMethodRawCallback(3,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -771,7 +957,7 @@ class MKSE final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -795,7 +981,7 @@ class MKSE final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(3,
+        MarkMethodRawCallback(4,
           new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -843,24 +1029,44 @@ class MKSE final {
     virtual ::grpc::Status Streamedsetup(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SetupMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_getRofFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_getRofFile() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::getRofFileRequest, ::getRofFileResponse>(std::bind(&WithStreamedUnaryMethod_getRofFile<BaseClass>::StreamedgetRofFile, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_getRofFile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status getRofFile(::grpc::ServerContext* /*context*/, const ::getRofFileRequest* /*request*/, ::getRofFileResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedgetRofFile(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::getRofFileRequest,::getRofFileResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_update : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_update() {
-      ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::UpdateMessage, ::UpdateResponse>(std::bind(&WithStreamedUnaryMethod_update<BaseClass>::Streamedupdate, this, std::placeholders::_1, std::placeholders::_2)));
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler< ::UpdateMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_update<BaseClass>::Streamedupdate, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status update(::grpc::ServerContext* /*context*/, const ::UpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status Streamedupdate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UpdateMessage,::UpdateResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status Streamedupdate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UpdateMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_batchUpdate : public BaseClass {
@@ -868,19 +1074,19 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_batchUpdate() {
-      ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::internal::StreamedUnaryHandler< ::BatchUpdateMessage, ::UpdateResponse>(std::bind(&WithStreamedUnaryMethod_batchUpdate<BaseClass>::StreamedbatchUpdate, this, std::placeholders::_1, std::placeholders::_2)));
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler< ::BatchUpdateMessage, ::google::protobuf::Empty>(std::bind(&WithStreamedUnaryMethod_batchUpdate<BaseClass>::StreamedbatchUpdate, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_batchUpdate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::UpdateResponse* /*response*/) override {
+    ::grpc::Status batchUpdate(::grpc::ServerContext* /*context*/, const ::BatchUpdateMessage* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedbatchUpdate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::BatchUpdateMessage,::UpdateResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedbatchUpdate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::BatchUpdateMessage,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_search : public BaseClass {
@@ -888,7 +1094,7 @@ class MKSE final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_search() {
-      ::grpc::Service::MarkMethodStreamed(3,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler< ::SearchMessage, ::SearchResponse>(std::bind(&WithStreamedUnaryMethod_search<BaseClass>::Streamedsearch, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_search() override {
@@ -902,9 +1108,9 @@ class MKSE final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status Streamedsearch(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SearchMessage,::SearchResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<Service > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_getRofFile<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<Service > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<Service > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_setup<WithStreamedUnaryMethod_getRofFile<WithStreamedUnaryMethod_update<WithStreamedUnaryMethod_batchUpdate<WithStreamedUnaryMethod_search<Service > > > > > StreamedService;
 };
 
 
