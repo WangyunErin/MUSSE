@@ -11,7 +11,7 @@ int MKSEServer::getRofFile(int fileId) {
     if (rs.count(fileId) != 0) {
         return rs[fileId];
     }
-    return -1;
+    return 0;
 }
 
 prf_type MKSEServer::update(int r, prf_type cipher, int fileid) {
