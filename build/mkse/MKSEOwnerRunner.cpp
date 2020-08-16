@@ -54,7 +54,7 @@ int MKSEOwnerRunner::getRofFile(int ind){
 
 int MKSEOwnerRunner::share(std::string keyword, int ind, int userID) {//index is document id
     int r = getRofFile(ind);
-    if (r == -1) {
+    if (r == 0) {
         r = rand();
     }
 
@@ -71,7 +71,7 @@ int MKSEOwnerRunner::sharedata(std::vector<std::string> Keywords, int ind, int u
 
 
     int r = getRofFile(ind);
-    if (r == -1) {
+    if (r == 0) {
         r = rand();
     }
 
