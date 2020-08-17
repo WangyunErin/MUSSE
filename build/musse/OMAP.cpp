@@ -148,6 +148,30 @@ string OMAP::incrementFileCnt(Bid key) {
     return res;
 }
 
+vector<string> OMAP::incrementFileCnts(vector<Bid> Keys) {
+    treeHandler->CommunicationSize = 0;
+    downloadRoot();
+    vector<string> R;
+    treeHandler->startOperation();
+    for(auto key : Keys){
+        Node* node = new Node();
+        node->key = rootKey;
+        node->pos = rootPos;
+        //cout<<"tree increment:"<<endl;
+        string res = treeHandler->incrementFileCnt(node, key);
+        //cout<<"tree increment finished"<<endl;
+        if (res == "") {
+            rootKey = treeHandler->insert(rootKey, rootPos, key, "1");
+            res = "1";
+        }
+        R.push_back(res);
+    }
+    treeHandler->finishOperation(true, rootKey, rootPos);
+    uploadRoot();
+    CommunicationSize += treeHandler->CommunicationSize;
+    return R;
+}
+
 void OMAP::downloadRoot() {
     if (server != NULL) {
         auto rt = server->getOMAPRoot(userID);

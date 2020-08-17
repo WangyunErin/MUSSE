@@ -31,6 +31,7 @@ public:
     virtual ~OMAP();
     void insert(Bid key, string value);
     string incrementFileCnt(Bid key);
+    vector<string> incrementFileCnts(vector<Bid> Keys);
     string find(Bid key);
     void printTree();
     void batchInsert(map<Bid, string> pairs);

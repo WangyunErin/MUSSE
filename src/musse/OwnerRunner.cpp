@@ -42,7 +42,6 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
     google::protobuf::Empty e;
     prf_type addr, val;
     int curUserID = user->userID;
-    client_->sharepairs.clear();
     client_->ForFU = this->ForFU;
 
     if (accessList.count(curUserID) == 0) {
@@ -51,14 +50,9 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
     accessList[curUserID].insert(index);
 
     for(auto keyword : Keywords){
-        if(forFNU){
-            client_->setupMode=true;
-            client_->updateRequest(keyword, index, addr, val, curUserID);  
-        }else
-        {
-            client_->updateRequest(keyword, index, addr, val, user);
-        }
-
+        
+        client_->updateRequest(keyword, index, addr, val, user);
+        
         message.add_address(addr.data(), addr.size());
         message.add_value(val.data(), val.size());
     }
@@ -70,11 +64,6 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, Qu
         cout << status.error_message() << std::endl;
     }
 
-    if(forFNU){
-        client_->setupMode=false;
-        client_->omaps[curUserID]->setupInsert(client_->sharepairs);
-    }
-
     return 0;
 }
 
@@ -83,7 +72,7 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, in
     BatchUpdateMessage message;
     google::protobuf::Empty e;
     prf_type addr, val;
-    client_->sharepairs.clear();
+    client_->sharekeywords.clear();
 
     if (accessList.count(curUserID) == 0) {
         accessList[curUserID] = set<int>();
@@ -106,7 +95,7 @@ int MusesOwnerRunner::sharedata(std::vector<std::string> Keywords, int index, in
     }
 
     client_->setupMode=false;
-    client_->omaps[curUserID]->setupInsert(client_->sharepairs);
+    client_->omaps[curUserID]->incrementFileCnts(client_->sharekeywords);
 
     return 0;
 }

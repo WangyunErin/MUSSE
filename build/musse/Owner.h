@@ -26,7 +26,7 @@ private:
     map<int, OMAP*> omaps;
     vector<pair<prf_type,  prf_type> > KeyValues;
     map<int, map<Bid, string> > setupPairs;
-    map<Bid, string> sharepairs;
+    vector<Bid> sharekeywords;
     map<int, set<int> > accessList;
     bool setupMode = false;
     unsigned char valuesMerkleRoot[SHA256_DIGEST_LENGTH];

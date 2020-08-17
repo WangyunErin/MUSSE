@@ -73,7 +73,8 @@ int Owner::updateRequest(string keyword, int ind, prf_type& addr, prf_type& val,
                 setupPairs[userID][mapkey] = to_string(stoi(setupPairs[userID][mapkey]) + 1);
             }
             value = setupPairs[userID][mapkey];
-            sharepairs[keyBid]=value;
+            // sharepairs[keyBid]=value;
+            sharekeywords.push_back(keyBid);
         } else {
             //cout<<"increment filecnt start"<<endl;
             value = omaps[userID]->incrementFileCnt(keyBid);
