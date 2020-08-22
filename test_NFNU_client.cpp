@@ -64,7 +64,7 @@ int main(int, char**) {
         // time = Utilities::stopTimer(500);
         // cout << "Unsahre Time:" << time << endl;
         cout << "Share one document With " << testCase.sharefilesize << " Keywords"<< endl;
-        for (int z = 0; z < 10; z++) {
+        for (int z = 0; z < 1; z++) {
             Utilities::startTimer(500);
             client.sharedata(testCase.sharekeywords, item[0], &user);
             // client.beginSetup();

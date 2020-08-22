@@ -48,21 +48,21 @@ int main(int, char**) {
         auto item = testCase.filePairs[testCase.testKeywords[j]];
 
         //measuring search and update execution times
-        cout << "Search for Keyword With " << testCase.Qs[j] << " Result:" << endl;
+        // cout << "Search for Keyword With " << testCase.Qs[j] << " Result:" << endl;
 
-        for (int z = 0; z < 10; z++) {
-            Utilities::startTimer(500);
-            vector<int> res = userRunner.search(testCase.testKeywords[j], &user);
-            time = Utilities::stopTimer(500);
-            for(int i=0;i<res.size();i++){
-               cout<<"result id:"<<res[i]<<endl;
-            }
-            cout << "Search Computation Time (microseconds):" << time << endl;
-            cout << "Number of return item:" << res.size() << endl;
-        }
+        // for (int z = 0; z < 10; z++) {
+        //     Utilities::startTimer(500);
+        //     vector<int> res = userRunner.search(testCase.testKeywords[j], &user);
+        //     time = Utilities::stopTimer(500);
+        //     for(int i=0;i<res.size();i++){
+        //        cout<<"result id:"<<res[i]<<endl;
+        //     }
+        //     cout << "Search Computation Time (microseconds):" << time << endl;
+        //     cout << "Number of return item:" << res.size() << endl;
+        // }
 
         cout << "Share one document With " << testCase.sharefilesize << " Keywords"<< endl;
-        for (int z = 0; z < 10; z++) {
+        for (int z = 0; z < 1; z++) {
             Utilities::startTimer(500);
             client.sharedata(testCase.sharekeywords, item[0], user.userID);
             time = Utilities::stopTimer(500);
