@@ -16,7 +16,7 @@ Bid::~Bid() {
 Bid::Bid(int value) {
     std::fill(id.begin(), id.end(), 0);
     for (int i = 0; i < 4; i++) {
-        id[3 - i] = (byte_t) (value >> (i * 8));//forcing type transfer from 32 bits to 8 bits��only remain the zuidide 8 bits
+        id[3 - i] = (byte_t) (value >> (i * 8)); //forcing type transfer from 32 bits to 8 bits, only remain the last 8 bits
     }  //copy value to id,value is 32 bits(4 bytes),put each byte tocorresponding id[i]
 }
 
@@ -172,7 +172,7 @@ void Bid::setValue(int other) {
     }
 }
 
-ostream& operator<<(ostream &o, Bid& bid) {  //output stream, extension of cout��cout can only output int, float etc. normal types
+ostream& operator<<(ostream &o, Bid& bid) {  //output stream, extension of cout, cout can only output int, float etc. normal types
     for (int i = 0; i < ID_SIZE; i++) {
         o << (int) bid.id[i] << "-";
     }
