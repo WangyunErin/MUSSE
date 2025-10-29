@@ -17,7 +17,7 @@ unsigned char Utilities::key[16];
 unsigned char Utilities::iv[16];
 
 Utilities::Utilities() {
-    memset(key, 0x00, 16); //neicun fuzhi function, gei mouyikuai neicunkongjian fuzhi byte by byte (name of array or pointer,value that to be filled,#bytes that to be filled)
+    memset(key, 0x00, 16);
     memset(iv, 0x00, 16);
 }
 
@@ -50,10 +50,10 @@ static const std::string base64_chars =
         "0123456789+/";
 
 static inline bool is_base64(unsigned char c) {
-    return (isalnum(c) || (c == '+') || (c == '/')); //isalnum is used to panduan if a char is number or letter(zimu), || is logic operator: or
+    return (isalnum(c) || (c == '+') || (c == '/'));
 }
 
-std::string Utilities::base64_encode(const char* bytes_to_encode, unsigned int in_len) { //base64 is the most famous encode mthod to transmit 8bit bytecode, transfer the binary data to 64(ge) printable characters, changing the 3 bytes to 4 bytes
+std::string Utilities::base64_encode(const char* bytes_to_encode, unsigned int in_len) { //base64 is the most famous encode mthod to transmit 8bit bytecode, transfer the binary data to 64 printable characters, changing the 3 bytes to 4 bytes
     std::string ret;
     int i = 0;
     int j = 0;
@@ -61,7 +61,7 @@ std::string Utilities::base64_encode(const char* bytes_to_encode, unsigned int i
     unsigned char char_array_4[4];
 
     while (in_len--) {
-        char_array_3[i++] = *(bytes_to_encode++);//pointer++ biaoshi yiwei, xian yiwei zai quzhi, zhi wu bianhua
+        char_array_3[i++] = *(bytes_to_encode++);
         if (i == 3) {
             char_array_4[0] = (char_array_3[0] & 0xfc) >> 2;
             char_array_4[1] = ((char_array_3[0] & 0x03) << 4) + ((char_array_3[1] & 0xf0) >> 4);
@@ -259,16 +259,16 @@ std::vector<std::string> Utilities::split(const std::string& s, char delimiter) 
 
 char Utilities::getch() {
     char buf = 0;
-    struct termios old = {0};  //zhongduan shebei jiekou
-    if (tcgetattr(0, &old) < 0)  //tcgetattr function is used to initialize termios jiegou, get biaoshi zhongduanshebeishezhi de wenjianmiaoshufu fd(=0), fangru termios_p(=&old)suozhixiang de jiegouti zhong
-        perror("tcsetattr()");   //jiang shangyige hanshu fashengcuowu de yuanyin shuchu dao biaozhunshebei
-    old.c_lflag &= ~ICANON;   //local mode flags, ICANON means allowing canonical mode(shurugongzuo zaihang moshi, shoudao hangdingjiefu hou duqu
-    old.c_lflag &= ~ECHO;     //ECHO means to show the shuru de zifu
-    old.c_cc[VMIN] = 1;       //VMIN non canonical mode du caozuo zuishao zifushu
-    old.c_cc[VTIME] = 0;      //non canonical mode du caozuo chaoshi (unit:0.1s)
-    if (tcsetattr(0, TCSANOW, &old) < 0)  //change zhongduan settings, TCSANOW means change immediately
+    struct termios old = {0};
+    if (tcgetattr(0, &old) < 0)
+        perror("tcsetattr()");   
+    old.c_lflag &= ~ICANON;  
+    old.c_lflag &= ~ECHO;     
+    old.c_cc[VMIN] = 1;       
+    old.c_cc[VTIME] = 0;     
+    if (tcsetattr(0, TCSANOW, &old) < 0)  
         perror("tcsetattr ICANON");
-    if (read(0, &buf, 1) < 0)   //read function: read n bytes(1 here) from filede=0 zhiding de yidakai file zhong to buf
+    if (read(0, &buf, 1) < 0)  
         perror("read()");
     old.c_lflag |= ICANON;
     old.c_lflag |= ECHO;
@@ -281,7 +281,7 @@ std::vector<std::string> Utilities::splitData(const std::string& str, const std:
     std::vector<std::string> tokens;
     size_t prev = 0, pos = 0;  //size_t is unsigned type which is designed to be large enough to store any duixiang in RAM
     do {
-        pos = str.find(delim, prev);  //to find the address of delim after prev in string str,return its Subscript(xiabiao)
+        pos = str.find(delim, prev);  //to find the address of delim after prev in string str, return its Subscript
         if (pos == std::string::npos) pos = str.length();  //npos is a constant to denote the address that does not exist
         std::string token = str.substr(prev, pos - prev);
         if (!token.empty()) tokens.push_back(token);
@@ -293,7 +293,7 @@ std::vector<std::string> Utilities::splitData(const std::string& str, const std:
 std::string Utilities::executeCommand(const char* cmd) {
     char buffer[128];
     std::string result = "";
-    FILE* pipe = popen(cmd, "r");  //create a pipe to call fork to create a child process, execute a shell yi yunxing mingling to start a process
+    FILE* pipe = popen(cmd, "r");
     if (!pipe) throw std::runtime_error("popen() failed!");
     try {
         while (fgets(buffer, sizeof buffer, pipe) != NULL) { //read from pipe sizeof buffer-1 characters,  put them into buffer
@@ -311,11 +311,11 @@ bool Utilities::replace(std::string& str, const std::string& from, const std::st
     size_t start_pos = str.find(from);
     if(start_pos == std::string::npos)
         return false;
-    str.replace(start_pos, from.length(), to);  //,  to , 滻ָ, , ַ, , , , ʼλ, start_pos , ʼ, , Ϊ from.length() , , ַ, , 
+    str.replace(start_pos, from.length(), to);
     return true;
 }
 
-std::string Utilities::random_string(size_t length) {  //, , , , ɳ, , Ϊlength, , , ַ, , 
+std::string Utilities::random_string(size_t length) {
     auto randchar = []() -> char
     {
         const char charset[] =
@@ -325,8 +325,8 @@ std::string Utilities::random_string(size_t length) {  //, , , , ɳ, , Ϊlength,
         const size_t max_index = (sizeof(charset) - 1);
         return charset[ rand() % max_index ];
     };
-    std::string str(length,0); //ʹ, õ, , ַ, , 0, , ʼ, strΪlength, 0
-    std::generate_n( str.begin(), length, randchar ); //, randchar, , length, , ַ, , , str
+    std::string str(length,0);
+    std::generate_n( str.begin(), length, randchar );
     return str;
 }
 
