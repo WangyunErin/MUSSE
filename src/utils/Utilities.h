@@ -43,7 +43,7 @@ public:
 
 class Utilities {
 private:
-    static int parseLine(char* line); //static leichengyuan duliyu suoyou leiduixiang,all leiduixiang share a static leichengyuan,a leiduixiang change the static chengyuan other duixiang de also suizhigaibian
+    static int parseLine(char* line);
 public:
     Utilities();
     //    static unsigned char* getSHA1(unsigned char* input, size_t length);
@@ -85,7 +85,7 @@ public:
         int qNum = stoi(tmp);
         for (int i = 0; i < qNum; i++) {
             getline(infile, tmp); //line 5,7,...
-            testCase.Qs.push_back(stoi(tmp)); //pushback add one element to the end,Qs is to store the number of result of each query
+            testCase.Qs.push_back(stoi(tmp)); //pushback add one element to the end, Qs is to store the number of result of each query
             //getline(infile, tmp);  //line 6,8,...
             //testCase.delNumber.push_back(stoi(tmp));
         }
@@ -115,11 +115,11 @@ public:
         totalKeywordSize += testCase.keywords.size();
 
         for (uint j = 0; j < testCase.Qs.size(); j++) {
-            testCase.testKeywords.push_back(testCase.keywords[j]);//testCase.testKeywords store the first query size ge keywords from testCase.keywords
+            testCase.testKeywords.push_back(testCase.keywords[j]); //testCase.testKeywords stores the first query size ge keywords from testCase.keywords
         }
 
         for (uint j = 0; j < testCase.sharefilesize; j++) {
-            testCase.sharekeywords.push_back(testCase.keywords[j]);//testCase.shareeywords store the sharefilesize ge keywords from testCase.keywords
+            testCase.sharekeywords.push_back(testCase.keywords[j]); //testCase.shareeywords stores sharefilesize keywords from testCase.keywords
         }
 
         std::set<int> uniqueFiles;
@@ -127,7 +127,7 @@ public:
             std::vector<T> files;
             for (uint k = 0; k < testCase.Qs[j]; k++) {
                 files.push_back(k);
-		uniqueFiles.insert(k);//put each id that just create to the set
+		uniqueFiles.insert(k);//put each id that has just been created to the set
                 totalPairNumber++;  //keyword-id pairs
             }
             testCase.filePairs[testCase.testKeywords[j]] = files;
@@ -140,14 +140,14 @@ public:
             int fileName = ((rand()%10000000)) + 10000000;
             uniqueFiles.insert(fileName);
         }
-        files.insert(files.end(), uniqueFiles.begin(), uniqueFiles.end());//insert all elements in uniqueFiles to files,genzai zuihou
-        for (uint j = testCase.testKeywords.size(); j < testCase.keywords.size(); j++) {  //ba meiyou query dao de keywords duiying de files gezi duiying yige keyword
+        files.insert(files.end(), uniqueFiles.begin(), uniqueFiles.end());//insert all elements in uniqueFiles to files
+        for (uint j = testCase.testKeywords.size(); j < testCase.keywords.size(); j++) {
             testCase.filePairs[testCase.keywords[j]] = std::vector<T>();
             testCase.filePairs[testCase.keywords[j]].push_back(files[0]);
             totalCounter++;
         }
         
-        for (uint j = testCase.testKeywords.size(); j < testCase.keywords.size(); j++) { //ba meiyou query dao de keywords anshunxu duiying files zhido zongde keyword-file pairs geshu dengyu N
+        for (uint j = testCase.testKeywords.size(); j < testCase.keywords.size(); j++) {
             for (uint i = 1; i < files.size(); i++) {
                 testCase.filePairs[testCase.keywords[j]].push_back(files[i]);
                 totalCounter++;
