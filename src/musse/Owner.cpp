@@ -10,10 +10,10 @@
 using namespace std;
 
 Owner::Owner(Server* server, unsigned char* masterKey, MusesOwnerRunner* runner) {//, bool useHyperLedgerFabric, string fabricRESTServer
-    this->server = server;  //jiang shuru de server and runner pointer fuzhi gei ben duixiang (owner duixiang) de chengyuanbianliang server and runner pointer
+    this->server = server;  
     this->runner = runner;
-	memset(iv, 0x00, AES_KEY_SIZE);  //memeset neicunfuhzihanshu, initialize byte by byte, jiang 0x00 fugei iv tianchong AES_KEY_SIZE ge zijie
-    memcpy(key, masterKey, AES_KEY_SIZE); //mudi address, source address, # of bytes to be copied
+	memset(iv, 0x00, AES_KEY_SIZE);  
+    memcpy(key, masterKey, AES_KEY_SIZE);
     srand(time(NULL));
     userID = rand();
 }
@@ -60,11 +60,11 @@ int Owner::updateRequest(string keyword, int ind, prf_type& addr, prf_type& val,
     copy(keyword.begin(), keyword.end(), k_w.data());//copy the elements of keyword to k_w,keyword has 32 bytes
     //cout<<"start omap access:"<<endl;
     int fileCnt = 0;
-    if (omaps.count(userID) != 0) {//count returns the number of element that is searched (userID):0/1, since there is no repeated element in a map
+    if (omaps.count(userID) != 0) { //count returns the number of element that is searched (userID):0/1, since there is no repeated element in a map
         std::array< uint8_t, ID_SIZE> mapkey;
         std::fill(mapkey.begin(), mapkey.end(), 0);
-        std::copy(k_w.begin(), k_w.end(), mapkey.begin());//copy the elements of k_w to mapkey, i.e.,keyword
-        Bid keyBid(mapkey);//copy mapkey to object keyBid de chengyuanbianliang id(also an array)
+        std::copy(k_w.begin(), k_w.end(), mapkey.begin()); //copy the elements of k_w to mapkey, i.e.,keyword
+        Bid keyBid(mapkey);
         string value;  //used to store counter
         if (setupMode) {
             if (setupPairs[userID].count(mapkey) == 0) {
@@ -359,5 +359,5 @@ void Owner::endSetup(QueueBasedUser* user) {
     for(iter = allFileCnt[user->userID].begin(); iter != allFileCnt[user->userID].end(); iter++){
         user->FileCnt[iter->first]=iter->second;
     }
-    updateCommunicationSize += allFileCnt[user->userID].size()*(AES_KEY_SIZE+4);//4 is int size (4 bytes),update the user's Filecnt, k_w is AES_KEY_SIZE, cnt is 4
+    updateCommunicationSize += allFileCnt[user->userID].size()*(AES_KEY_SIZE+4); //4 is int size (4 bytes), update the user's Filecnt, k_w is AES_KEY_SIZE, cnt is 4
 }
